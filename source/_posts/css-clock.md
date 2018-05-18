@@ -1,7 +1,7 @@
 ---
 title: css 钟表
 date: 2018-05-17 17:25:06  
-categories: "css 钟表"
+categories: "css"
 tags:  
 	- css  
 	- js
