@@ -2,8 +2,8 @@
 title: tab切换巧妙布局
 date: 2018-05-19 11:16:56
 tags:  
-	-css
-	-js
+	- css
+	- js
 categories: "html"
 ---
 一个项目中用到了tab切换，无奈内容太多，不能按照往常的一般形式排列tab。UI设计了一种类似于蜂巢的tab切换。如图所示  
