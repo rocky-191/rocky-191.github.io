@@ -76,6 +76,7 @@ pagination_dir: page
 ##RSS订阅
 plugin:
 - hexo-generator-feed
+- hexo-generator-baidu-sitemap
 #Feed Atom
 feed:
 type: atom
@@ -90,7 +91,7 @@ search:
   limit: 10000
 
 sitemap:
-    path: sitemap.xml
+    path: baidusitemap.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
