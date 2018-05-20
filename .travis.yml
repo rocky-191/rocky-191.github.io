@@ -27,4 +27,4 @@ branches:
     - hexo
 env:
  global:
-   - GH_REF: github.com/rocky-191/rocky-191.github.io.git
+   - GH_REF: github.com/rocky-191/rocky-191.github.io
