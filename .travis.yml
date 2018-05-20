@@ -1,31 +1,30 @@
 language: node_js
-node_js:
-- 8.9.0
-cache:
-  directories:
-  - node_modules
-before_install:
-- npm install hexo-cli -g
+node_js: stable
+
+# S: Build Lifecycle
 install:
-- npm install
+  - npm install
+
+
+#before_script:
+ # - npm install -g gulp
+
 script:
-- hexo clean
-- hexo generate
+  - hexo g
+
 after_script:
   - cd ./public
   - git init
   - git config user.name "rocky-191"
   - git config user.email "1375022007@qq.com"
   - git add .
-  - git commit -m "TravisCI 自动部署"
-  # Github Pages
-  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" hexo:hexo 
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+# E: Build LifeCycle
 
 branches:
   only:
-  - hexo
-
+    - hexo
 env:
  global:
-   # Github Pages
-   - GH_REF: github.com/rocky-191/rocky-191.github.io  这里替换你的github仓库地址
+   - GH_REF: github.com/rocky-191/rocky-191.github.io.git
