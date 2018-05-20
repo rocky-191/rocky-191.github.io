@@ -17,7 +17,7 @@ after_script:
   - git config user.name "rocky-191"
   - git config user.email "1375022007@qq.com"
   - git add .
-  - git commit -m "TravisCI 自动化部署"
+  - git commit -m "TravisCI 自动部署"
   # Github Pages
   - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" hexo:hexo 
 
