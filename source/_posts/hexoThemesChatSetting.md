@@ -18,9 +18,9 @@ categories: "hexo"
 
 完成后，会得到一个`app_id`，后面会用到：  
 
- ```daovoice('init', {
+ ```
 daovoice('init', {
-  app_id: "53d635ce"
+  app_id: "***"
 });
 daovoice('update');
  ```
