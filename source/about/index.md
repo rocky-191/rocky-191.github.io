@@ -8,7 +8,9 @@ github：[github](https://github.com/rocky-191 "github")
 掘金：[掘金](https://juejin.im/user/57ac50292e958a00543ac960)
 segmentfault：[segmentfault](https://segmentfault.com/u/rocky191)  
 欢迎各路小伙伴交流学习。  
+
 							<center>相信未来</center>  
+
 <center>食指--1968 北京  
 
 <center>当蜘蛛网无情地查封了我的炉台  
@@ -39,3 +41,4 @@ segmentfault：[segmentfault](https://segmentfault.com/u/rocky191)
 相信不屈不挠的努力  
 相信战胜死亡的年轻  
 相信未来、热爱生命
+
