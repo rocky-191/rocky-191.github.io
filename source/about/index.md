@@ -6,10 +6,11 @@ date: 2018-05-17 15:56:17
 平常用到的技术：vue、H5、css3、webpack、gulp、ES6，还有些许node，用node做过一次后台，express初次尝试，正在学习react中。  
 github：[github](https://github.com/rocky-191 "github")  
 掘金：[掘金](https://juejin.im/user/57ac50292e958a00543ac960)
-segmentfault：[segmentfault](https://segmentfault.com/u/rocky191)  
+segmentfault：[segmentfault](https://segmentfault.com/u/rocky191)   
+个人邮箱：maguoliang191@qq.com
 欢迎各路小伙伴交流学习。  
 
-							<center>相信未来</center>  
+<center>相信未来
 
 <center>食指--1968 北京  
 
