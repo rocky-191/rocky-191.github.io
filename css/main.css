@@ -1933,7 +1933,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #5bf082;
+  background: #6e54c4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3131,4 +3131,12 @@ pre .javascript .function {
     animation: cycle 2s 0.5s forwards;
     transition: border-radius 2s;
   }
+}
+.post-body a {
+  color: #0593d3;
+  border-bottom: none;
+}
+.post-body a:hover {
+  color: #0477ab;
+  text-decoration: underline;
 }
