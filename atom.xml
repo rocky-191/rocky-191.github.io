@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-11T05:49:22.878Z</updated>
+  <updated>2018-09-20T09:05:53.314Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jquery旋转动画</title>
+    <link href="http://yoursite.com/2018/09/20/jqueryAnimation/"/>
+    <id>http://yoursite.com/2018/09/20/jqueryAnimation/</id>
+    <published>2018-09-20T09:00:07.000Z</published>
+    <updated>2018-09-20T09:05:53.314Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近一个项目中用到一个小动画，特此记录下。  </p><a id="more"></a>  <p><img src="https://user-gold-cdn.xitu.io/2018/9/20/165f5e8089e1d73b?w=1150&amp;h=690&amp;f=gif&amp;s=413807" alt=""><br>代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=”IE=Edge,chrome=1″ /&gt;</span><br><span class="line">&lt;title&gt;jquery小动画&lt;/title&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">*&#123;</span><br><span class="line">margin: 0;</span><br><span class="line">padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">body&#123;</span><br><span class="line">background: #134f6d;</span><br><span class="line">&#125;</span><br><span class="line">.tyCon &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  width: 401px;</span><br><span class="line">  height: 401px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  margin-top: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.tyCon .ty &#123;</span><br><span class="line">  width: 401px;</span><br><span class="line">  height: 142px;</span><br><span class="line">  border: 1px solid #fff;</span><br><span class="line">  border-radius: 90%;</span><br><span class="line">  opacity: 0;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  -webkit-transform-origin: 50% 50%;</span><br><span class="line">  -ms-transform-origin: 50% 50%;</span><br><span class="line">  transform-origin: 50% 50%;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;tyCon js-tyCon&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">window.onload=function()&#123;</span><br><span class="line">var tyHtml=&apos;&apos;;</span><br><span class="line">    var xzDeg=0;</span><br><span class="line">    for(var i=0;i&lt;25;i++)&#123;</span><br><span class="line">    tyHtml+=&apos;&lt;div class=&quot;ty&quot;&gt;&lt;/div&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    $(&quot;.js-tyCon&quot;).append(tyHtml);</span><br><span class="line">    </span><br><span class="line">var n=0;</span><br><span class="line">var interval=setInterval(xz,100);</span><br><span class="line">    function xz()&#123;</span><br><span class="line">    if(n==25)&#123;</span><br><span class="line">    clearInterval(interval);</span><br><span class="line">    return</span><br><span class="line">    &#125;</span><br><span class="line">    xzDeg+=7.2;</span><br><span class="line">    $(&quot;.js-tyCon .ty&quot;).eq(n).css(&#123;&quot;opacity&quot;:&quot;0.55&quot;,&quot;transform&quot;:&quot;rotate(&quot;+xzDeg+&quot;deg)&quot;&#125;);</span><br><span class="line">    n++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><p>使用setInterval循环旋转椭圆。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近一个项目中用到一个小动画，特此记录下。  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="jquery" scheme="http://yoursite.com/categories/jquery/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
+    
+  </entry>
   
   <entry>
     <title>常用函数集合整理</title>
