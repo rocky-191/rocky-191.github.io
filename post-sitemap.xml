@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/10/28/vueCatch/</loc>
+        <lastmod>2018-10-28T10:06:00.998Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/09/11/usefulFunction/</loc>
         <lastmod>2018-09-21T09:05:18.279Z</lastmod>
         <changefreq>weekly</changefreq>
