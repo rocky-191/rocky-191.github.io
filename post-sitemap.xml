@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/11/20/vueAppRecordScroll/</loc>
+        <lastmod>2018-11-20T13:56:58.377Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/10/28/vueCatch/</loc>
         <lastmod>2018-10-28T10:06:00.998Z</lastmod>
         <changefreq>weekly</changefreq>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-28T10:06:00.998Z</updated>
+  <updated>2018-11-20T13:56:58.377Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue移动端项目记录滚动位置方案总结</title>
+    <link href="http://yoursite.com/2018/11/20/vueAppRecordScroll/"/>
+    <id>http://yoursite.com/2018/11/20/vueAppRecordScroll/</id>
+    <published>2018-11-20T13:53:37.000Z</published>
+    <updated>2018-11-20T13:56:58.377Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！   </p><a id="more"></a> <h2 id="（1）利用vue内置组件keep-alive缓存页面"><a href="#（1）利用vue内置组件keep-alive缓存页面" class="headerlink" title="（1）利用vue内置组件keep-alive缓存页面"></a>（1）利用vue内置组件keep-alive缓存页面</h2><p>在路由文件router.js中设置缓存，方式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;/home&apos;,</span><br><span class="line">    name: &apos;home&apos;,</span><br><span class="line">    component: resolve =&gt; require([&apos;@/components/process/home&apos;], resolve),</span><br><span class="line">    meta: &#123;</span><br><span class="line">        keepAlive: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这样的话，后退的时候就不会刷新页面，完成第一步。</p><h2 id="（2）监听滚动条滚动位置"><a href="#（2）监听滚动条滚动位置" class="headerlink" title="（2）监听滚动条滚动位置"></a>（2）监听滚动条滚动位置</h2><p>给滚动元素父级设置一个别名ref值，比如叫scroll吧。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let that=this;</span><br><span class="line">this.$refs.scroll.addEventListener(&quot;scroll&quot;,that.recordScrollPosition,true);    //添加绑定事件</span><br></pre></td></tr></table></figure><p>recordScrollPosition是一个方法，用于记录滚动位置。这里有一个需要注意的点，必须先把this对象存储一下，不然的话直接用this.recordScrollPosition是无法调用到recordScrollPosition，因为此时this指向的是当前dom节点，而不是vue实例，自然无法调用到methods里定义的方法，当时这个地方没注意，卡了好久。<br>这个监听的动作要写在activated周期里，每次进入都要监听。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">activated()&#123;</span><br><span class="line">    this.$refs.scroll.scrollTop = this.list_top;  </span><br><span class="line">    let that=this;</span><br><span class="line">    this.$refs.scroll.addEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); </span><br><span class="line">  &#125;,</span><br><span class="line">  deactivated()&#123;</span><br><span class="line">    let that=this;</span><br><span class="line">    this.$refs.scroll.removeEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><p>当然最后应该销毁监听。</p><h2 id="（3）将滚动位置存储起来"><a href="#（3）将滚动位置存储起来" class="headerlink" title="（3）将滚动位置存储起来"></a>（3）将滚动位置存储起来</h2><p>这里存储滚动位置的话可以将其存到localStorage里，也可以将其存到vuex里，这里我为了方便就把它存到vuex里了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">recordScrollPosition(e) &#123;</span><br><span class="line">  this.$store.dispatch(&quot;setListTop&quot;,e.target.scrollTop);//实时存入到vuex中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="4-vuex里设置"><a href="#4-vuex里设置" class="headerlink" title="(4)vuex里设置"></a>(4)vuex里设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const state = &#123;</span><br><span class="line">    top:0 //滚动条初始位置</span><br><span class="line">&#125;</span><br><span class="line">const mutations=&#123;</span><br><span class="line">    setHomeListTop(state,top)&#123;</span><br><span class="line">      state.top=top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const getters = &#123;</span><br><span class="line">    list_top(state)&#123;</span><br><span class="line">      return state.top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const actions = &#123;</span><br><span class="line">  setListTop(&#123;commit,state&#125;,top)&#123;</span><br><span class="line">    commit(&apos;setHomeListTop&apos;,top);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>到此大功告成，详细的代码我写了一个demo，放到了github上。<a href="https://github.com/rocky-191/vueAppRecordScroll" target="_blank" rel="noopener">传送门</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！   &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>vue移动端项目缓存问题实践</title>
