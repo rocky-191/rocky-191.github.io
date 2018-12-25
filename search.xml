@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[webapp字号大小跟随系统字号大小缩放]]></title>
+    <url>%2F2018%2F12%2F25%2FappPageFlexible%2F</url>
+    <content type="text"><![CDATA[最近做了一个webapp项目，混合式开发，外部原生，内部webview嵌套H5页面。前端方面采用了vue开发，适配采用的是flexible+rem做的适配。本来一切都很好，可是吧，领导说客户有的年纪大 ，看不清字体，希望网页字体可以跟随系统字号大小变化。当时心里真是…，然无奈只能想办法解决问题，网上搜罗一圈都是禁止内部跟随系统字号变化，看来只能自己搞了。 第一种方案最简单的让原生进行操作，内部不做控制，外部放大，里面自己适应。但是有问题，文本字体可以放大，有的输入框和输入框的内容却没有放大，故淘汰该方案。 第二种方案外部原生webview让里面的放大缩小不跟随系统变化，内部自己控制。和安卓同事商量后，他去获取系统放大的参数，然后将参数传递给内部webapp，内部来自定义控制缩放。代码如下：12345678910111213141516171819setScaleFont()&#123; let fontScale=1; let scaleFontSize; let initFontSize; fontScale=parseFloat(window._nativeMe.getFontScale()); console.log(`缩放比例：$&#123;fontScale&#125;`); let docHtml=document.getElementsByTagName(&quot;html&quot;)[0]; initFontSize=this.getStyle(docHtml,&apos;fontSize&apos;).split(&apos;px&apos;)[0]; scaleFontSize=fontScale*initFontSize;//1-1.4等比缩放 docHtml.style.fontSize=scaleFontSize +&apos;px&apos;; &#125;, getStyle(obj, name)&#123; if(window.currentStyle)&#123; return obj.currentStyle[name]; &#125; else&#123; return getComputedStyle(obj, false)[name]; &#125; &#125; 先获取到初始的缩放比例，然后根据安卓原生传入的缩放比例改写html标签上的fontsize大小，由于采用了rem适配，自会根据根元素大小进行适配。这种方案必须确保先让flexible的适配先执行，然后判断是否是安卓，如果是安卓就执行setScaleFont方法才有效，否则会被flexible里面的方法覆盖掉，造成页面先放大后缩小或者先缩小后放大的现象。 如上图，我是注释掉了这段代码，不然就会产生上述放大缩小的现象。 结论该种方法也只能在安卓上有效，苹果由于安全权限的问题无法获取系统字体的缩放比例，故无法调整，如果有大神知道在苹果上如何操作或者有别的更好办法，请告知，不胜感激。]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>Html5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue移动端项目记录滚动位置方案总结]]></title>
     <url>%2F2018%2F11%2F20%2FvueAppRecordScroll%2F</url>
     <content type="text"><![CDATA[最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！ （1）利用vue内置组件keep-alive缓存页面在路由文件router.js中设置缓存，方式如下12345678&#123; path: &apos;/home&apos;, name: &apos;home&apos;, component: resolve =&gt; require([&apos;@/components/process/home&apos;], resolve), meta: &#123; keepAlive: true &#125;&#125; 这样的话，后退的时候就不会刷新页面，完成第一步。 （2）监听滚动条滚动位置给滚动元素父级设置一个别名ref值，比如叫scroll吧。 12let that=this;this.$refs.scroll.addEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); //添加绑定事件 recordScrollPosition是一个方法，用于记录滚动位置。这里有一个需要注意的点，必须先把this对象存储一下，不然的话直接用this.recordScrollPosition是无法调用到recordScrollPosition，因为此时this指向的是当前dom节点，而不是vue实例，自然无法调用到methods里定义的方法，当时这个地方没注意，卡了好久。这个监听的动作要写在activated周期里，每次进入都要监听。 123456789activated()&#123; this.$refs.scroll.scrollTop = this.list_top; let that=this; this.$refs.scroll.addEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); &#125;, deactivated()&#123; let that=this; this.$refs.scroll.removeEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); &#125; 当然最后应该销毁监听。 （3）将滚动位置存储起来这里存储滚动位置的话可以将其存到localStorage里，也可以将其存到vuex里，这里我为了方便就把它存到vuex里了。 123recordScrollPosition(e) &#123; this.$store.dispatch(&quot;setListTop&quot;,e.target.scrollTop);//实时存入到vuex中&#125; (4)vuex里设置12345678910111213141516171819const state = &#123; top:0 //滚动条初始位置&#125;const mutations=&#123; setHomeListTop(state,top)&#123; state.top=top; &#125;&#125;const getters = &#123; list_top(state)&#123; return state.top; &#125;&#125;const actions = &#123; setListTop(&#123;commit,state&#125;,top)&#123; commit(&apos;setHomeListTop&apos;,top); &#125;&#125; 到此大功告成，详细的代码我写了一个demo，放到了github上。传送门]]></content>

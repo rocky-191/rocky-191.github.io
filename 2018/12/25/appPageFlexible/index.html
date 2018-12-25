@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="css,Html5," />
 
 
 
@@ -91,16 +91,20 @@
 
 
 
-<meta name="description" content="技术随笔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="笨小孩杂谈">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/index.html">
+<meta name="description" content="最近做了一个webapp项目，混合式开发，外部原生，内部webview嵌套H5页面。前端方面采用了vue开发，适配采用的是flexible+rem做的适配。本来一切都很好，可是吧，领导说客户有的年纪大 ，看不清字体，希望网页字体可以跟随系统字号大小变化。当时心里真是…，然无奈只能想办法解决问题，网上搜罗一圈都是禁止内部跟随系统字号变化，看来只能自己搞了。">
+<meta name="keywords" content="css,Html5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webapp字号大小跟随系统字号大小缩放">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/appPageFlexible/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="技术随笔">
+<meta property="og:description" content="最近做了一个webapp项目，混合式开发，外部原生，内部webview嵌套H5页面。前端方面采用了vue开发，适配采用的是flexible+rem做的适配。本来一切都很好，可是吧，领导说客户有的年纪大 ，看不清字体，希望网页字体可以跟随系统字号大小变化。当时心里真是…，然无奈只能想办法解决问题，网上搜罗一圈都是禁止内部跟随系统字号变化，看来只能自己搞了。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/12/25/167e4d972720a7e9?w=865&h=419&f=png&s=67996">
+<meta property="og:updated_time" content="2018-12-25T10:19:45.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笨小孩杂谈">
-<meta name="twitter:description" content="技术随笔">
+<meta name="twitter:title" content="webapp字号大小跟随系统字号大小缩放">
+<meta name="twitter:description" content="最近做了一个webapp项目，混合式开发，外部原生，内部webview嵌套H5页面。前端方面采用了vue开发，适配采用的是flexible+rem做的适配。本来一切都很好，可是吧，领导说客户有的年纪大 ，看不清字体，希望网页字体可以跟随系统字号大小变化。当时心里真是…，然无奈只能想办法解决问题，网上搜罗一圈都是禁止内部跟随系统字号变化，看来只能自己搞了。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/12/25/167e4d972720a7e9?w=865&h=419&f=png&s=67996">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/09/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/25/appPageFlexible/"/>
 
 
 
 
 
-  <title>归档 | 笨小孩杂谈</title>
+  <title>webapp字号大小跟随系统字号大小缩放 | 笨小孩杂谈</title>
   
 
 
@@ -155,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -293,148 +297,238 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/25/appPageFlexible/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky-191">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笨小孩杂谈">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">webapp字号大小跟随系统字号大小缩放</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T18:17:27+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 14 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/20/jqueryAnimation/" itemprop="url">
-              
-                <span itemprop="name">jquery旋转动画</span>
-              
-            </a>
-        
-      </h2>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-20T17:00:07+08:00"
-              content="2018-09-20" >
-          09-20
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/11/usefulFunction/" itemprop="url">
-              
-                <span itemprop="name">常用函数集合整理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-11T10:52:41+08:00"
-              content="2018-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/03/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-03T17:43:54+08:00"
-              content="2018-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>最近做了一个webapp项目，混合式开发，外部原生，内部webview嵌套H5页面。前端方面采用了vue开发，适配采用的是flexible+rem做的适配。本来一切都很好，可是吧，领导说客户有的年纪大 ，看不清字体，希望网页字体可以跟随系统字号大小变化。当时心里真是…，然无奈只能想办法解决问题，网上搜罗一圈都是禁止内部跟随系统字号变化，看来只能自己搞了。  </p>
+<a id="more"></a>
+<h2 id="第一种方案"><a href="#第一种方案" class="headerlink" title="第一种方案"></a>第一种方案</h2><p>最简单的让原生进行操作，内部不做控制，外部放大，里面自己适应。但是有问题，文本字体可以放大，有的输入框和输入框的内容却没有放大，故淘汰该方案。</p>
+<h2 id="第二种方案"><a href="#第二种方案" class="headerlink" title="第二种方案"></a>第二种方案</h2><p>外部原生webview让里面的放大缩小不跟随系统变化，内部自己控制。和安卓同事商量后，他去获取系统放大的参数，然后将参数传递给内部webapp，内部来自定义控制缩放。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">setScaleFont()&#123;</span><br><span class="line">      let fontScale=1;</span><br><span class="line">      let scaleFontSize;</span><br><span class="line">      let initFontSize;</span><br><span class="line">      fontScale=parseFloat(window._nativeMe.getFontScale());</span><br><span class="line">      console.log(`缩放比例：$&#123;fontScale&#125;`);</span><br><span class="line">      let docHtml=document.getElementsByTagName(&quot;html&quot;)[0];</span><br><span class="line">      initFontSize=this.getStyle(docHtml,&apos;fontSize&apos;).split(&apos;px&apos;)[0];</span><br><span class="line">      scaleFontSize=fontScale*initFontSize;//1-1.4等比缩放</span><br><span class="line">      docHtml.style.fontSize=scaleFontSize +&apos;px&apos;;</span><br><span class="line">    &#125;,</span><br><span class="line">    getStyle(obj, name)&#123;</span><br><span class="line">      if(window.currentStyle)&#123;</span><br><span class="line">        return obj.currentStyle[name];</span><br><span class="line">      &#125;</span><br><span class="line">      else&#123;</span><br><span class="line">        return getComputedStyle(obj, false)[name];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>先获取到初始的缩放比例，然后根据安卓原生传入的缩放比例改写html标签上的fontsize大小，由于采用了rem适配，自会根据根元素大小进行适配。这种方案必须确保先让flexible的适配先执行，然后判断是否是安卓，如果是安卓就执行setScaleFont方法才有效，否则会被flexible里面的方法覆盖掉，造成页面先放大后缩小或者先缩小后放大的现象。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/12/25/167e4d972720a7e9?w=865&amp;h=419&amp;f=png&amp;s=67996" alt=""><br>如上图，我是注释掉了这段代码，不然就会产生上述放大缩小的现象。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>该种方法也只能在安卓上有效，苹果由于安全权限的问题无法获取系统字体的缩放比例，故无法调整，如果有大神知道在苹果上如何操作或者有别的更好办法，请告知，不胜感激。</p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Rocky-191 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Rocky-191 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/Html5/" rel="tag"># Html5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/20/vueAppRecordScroll/" rel="next" title="vue移动端项目记录滚动位置方案总结">
+                <i class="fa fa-chevron-left"></i> vue移动端项目记录滚动位置方案总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -442,6 +536,13 @@
 
 
           
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
 
         </div>
         
@@ -462,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -534,6 +644,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种方案"><span class="nav-number">1.</span> <span class="nav-text">第一种方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种方案"><span class="nav-number">2.</span> <span class="nav-text">第二种方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">3.</span> <span class="nav-text">结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -694,6 +820,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -734,6 +864,21 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '457d375644a3132daec0',
+          clientSecret: '74982e54213ad80159126cef189a277c6b5763b1',
+          repo: 'rocky-191.github.io',
+          owner: 'rocky-191',
+          admin: ['rocky-191'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

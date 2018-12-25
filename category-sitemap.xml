@@ -7,13 +7,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/css/</loc>
-        <lastmod>2018-09-03T09:43:54.287Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/categories/%E8%B5%84%E6%BA%90%E5%90%88%E9%9B%86/</loc>
         <lastmod>2018-09-03T09:43:54.289Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,6 +44,13 @@
     <url>
         <loc>http://yoursite.com/categories/vue/</loc>
         <lastmod>2018-11-20T13:56:58.377Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/css/</loc>
+        <lastmod>2018-12-25T10:19:45.581Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
