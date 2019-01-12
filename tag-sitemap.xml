@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/vue/</loc>
-        <lastmod>2018-11-20T13:56:58.377Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/css/</loc>
         <lastmod>2018-12-25T10:19:45.581Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -53,6 +46,20 @@
     <url>
         <loc>http://yoursite.com/tags/Html5/</loc>
         <lastmod>2018-12-25T10:19:45.581Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/vue/</loc>
+        <lastmod>2019-01-12T09:27:24.070Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/webpack/</loc>
+        <lastmod>2019-01-12T09:27:24.070Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
