@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="‘加密’," />
 
 
 
@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="最近在做一个vue移动端项目，被缓存问题搞得头都大了，积累了一些经验，特此记录总结下，权当是最近项目问题的一个回顾吧！">
-<meta name="keywords" content="vue">
+<meta name="description" content="前奏最近公司一个项目在传输数据的时候，测试部门安全扫描后，发现密码类型的数据是明文传输的，果断不符合要求，让加密，就有了接下来的故事。 使用场景前后端使用HTTP协议进行交互的时候，由于HTTP报文为明文，所以通常情况下对于比较敏感的信息可以通过加密在前端加密，然后在后端解密实现”混淆”的效果，避免在传输过程中敏感信息的泄露（如，密码，证件信息等）。不过前端加密只能保证传输过程中信息是‘混淆’过">
+<meta name="keywords" content="‘加密’">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue移动端项目缓存问题实践">
-<meta property="og:url" content="http://yoursite.com/2018/10/28/vueCatch/index.html">
+<meta property="og:title" content="前端加密那点事">
+<meta property="og:url" content="http://yoursite.com/2019/01/21/feEncrypt/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="最近在做一个vue移动端项目，被缓存问题搞得头都大了，积累了一些经验，特此记录总结下，权当是最近项目问题的一个回顾吧！">
+<meta property="og:description" content="前奏最近公司一个项目在传输数据的时候，测试部门安全扫描后，发现密码类型的数据是明文传输的，果断不符合要求，让加密，就有了接下来的故事。 使用场景前后端使用HTTP协议进行交互的时候，由于HTTP报文为明文，所以通常情况下对于比较敏感的信息可以通过加密在前端加密，然后在后端解密实现”混淆”的效果，避免在传输过程中敏感信息的泄露（如，密码，证件信息等）。不过前端加密只能保证传输过程中信息是‘混淆’过">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T10:06:00.998Z">
+<meta property="og:updated_time" content="2019-01-21T12:14:59.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue移动端项目缓存问题实践">
-<meta name="twitter:description" content="最近在做一个vue移动端项目，被缓存问题搞得头都大了，积累了一些经验，特此记录总结下，权当是最近项目问题的一个回顾吧！">
+<meta name="twitter:title" content="前端加密那点事">
+<meta name="twitter:description" content="前奏最近公司一个项目在传输数据的时候，测试部门安全扫描后，发现密码类型的数据是明文传输的，果断不符合要求，让加密，就有了接下来的故事。 使用场景前后端使用HTTP协议进行交互的时候，由于HTTP报文为明文，所以通常情况下对于比较敏感的信息可以通过加密在前端加密，然后在后端解密实现”混淆”的效果，避免在传输过程中敏感信息的泄露（如，密码，证件信息等）。不过前端加密只能保证传输过程中信息是‘混淆’过">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/28/vueCatch/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/21/feEncrypt/"/>
 
 
 
 
 
-  <title>vue移动端项目缓存问题实践 | 笨小孩杂谈</title>
+  <title>前端加密那点事 | 笨小孩杂谈</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/28/vueCatch/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/feEncrypt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rocky-191">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue移动端项目缓存问题实践</h1>
+          <h1 class="post-title" itemprop="name headline">前端加密那点事</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-28T18:04:08+08:00">
-                2018-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T20:08:02+08:00">
+                2019-01-21
               </time>
             
 
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/密码学/" itemprop="url" rel="index">
+                    <span itemprop="name">密码学</span>
                   </a>
                 </span>
 
@@ -403,32 +403,32 @@
       
 
       
-        <p>最近在做一个vue移动端项目，被缓存问题搞得头都大了，积累了一些经验，特此记录总结下，权当是最近项目问题的一个回顾吧！    </p>
-<a id="more"></a>
-<p>先描述下问题场景：A页面-&gt;B页面-&gt;C页面。假设A页面是列表页面，B页面是列表详情页面，C页面是操作改变B页面的一些东西，进行提交类似的操作。A页面进入B页面，应该根据不同的列表item显示不一样的详情，从B进入C，也应该根据item的标识比如ID展示不一样的内容，在C页面操作后，返回B页面，B页面数据发生变化。这个时候会有两种情况：  </p>
+        <a id="more"></a>
+<h2 id="前奏"><a href="#前奏" class="headerlink" title="前奏"></a>前奏</h2><p>最近公司一个项目在传输数据的时候，测试部门安全扫描后，发现密码类型的数据是明文传输的，果断不符合要求，让加密，就有了接下来的故事。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>前后端使用HTTP协议进行交互的时候，由于HTTP报文为明文，所以通常情况下对于比较敏感的信息可以通过加密在前端加密，然后在后端解密实现”混淆”的效果，避免在传输过程中敏感信息的泄露（如，密码，证件信息等）。不过前端加密只能保证传输过程中信息是‘混淆’过的，对于高手来说，打个debugger，照样可以获取到数据，并不安全，所谓的前端加密只是稍微增加了攻击者的成本，并不能保证真正的安全。<br>综上，服务端绝对不能相信前端传递过来的密文直接保存入库，只能通过服务端自己加密进行加密保存。那么前端加密是不是就没有意义了呢？答案是否定的，至少可以保证传输过程中不是明文传输，如果前后端交互需要安全的通道建议使用HTTPS协议进行通信。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>简单来说，加密分两种方式</p>
 <ul>
-<li>C页面操作数据后返回B页面，B页面对应数据应该发生变化。</li>
-<li>C页面直接点击左上角箭头返回，B页面对应数据不应该发生变化。继续返回A列表页面，换一条数据，继续进入B页面，B页面展示不同内容，进入C页面，C页面刷新展示不同内容  </li>
+<li>对称加密<br><strong>对称加密采用了对称密码编码技术，它的特点是文件加密和解密使用相同的密钥加密也就是密钥也可以用作解密密钥，这种方法在密码学中叫做对称加密算法，对称加密算法使用起来简单快捷，密钥较短，且破译困难，除了数据加密标准（DES），另一个对称密钥加密系统是国际数据加密算法（IDEA），它比DES的加密性好，而且对计算机功能要求也没有那么高</strong><br>常见的对称加密算法有DES、3DES、Blowfish、IDEA、RC4、RC5、RC6和AES </li>
+<li>非对称加密<br><strong>非对称加密算法需要两个密钥：公钥（publickey）和私钥（privatekey）。   公钥与私钥是一对，如果用公钥对数据进行加密，只有用对应的私钥才能解密；如果用私钥对数据进行加密，那么只有用对应的公钥才能解密。因为加密和解密使用的是两个不同的密钥，所以这种算法叫作非对称加密算法。<br>非对称加密算法实现机密信息交换的基本过程是：甲方生成一对密钥并将其中的一把作为公钥向其它方公开；得到该公钥的乙方使用该密钥对机密信息进行加密后再发送给甲方；甲方再用自己保存的另一把专用密钥对加密后的信息进行解密。甲方只能用其专用密钥解密由其公钥加密后的任何信息。</strong><br>常见的非对称加密算法有：RSA、ECC（移动设备用）、Diffie-Hellman、El Gamal、DSA（数字签名用）</li>
 </ul>
-<p>另一种情况发生在写邮件的页面中，添加收件人，选人之后，继续添加，之前添加的联系人应该存在。但是从写邮件页面返回邮件列表再次进入写邮件页面，之前添加过的联系人数据就不应该存在了，这里就涉及到如何处理缓存，何时使用缓存，何时清除缓存的问题了。  </p>
-<p>目前项目整体结构如下：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;keep-alive&gt;</span><br><span class="line">      &lt;router-view v-if=&quot;$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/keep-alive&gt;</span><br><span class="line">    &lt;router-view v-if=&quot;!$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<p>虽然官方提供了include，exclude，可以让我们决定哪些组件使用缓存，哪些不使用缓存，但是并没有解决我们想动态使用缓存的目的，目前我的项目使用了如下两种方式处理缓存：</p>
-<h2 id="方式一-，使用是否使用缓存标识"><a href="#方式一-，使用是否使用缓存标识" class="headerlink" title="方式一  ，使用是否使用缓存标识"></a>方式一  ，使用是否使用缓存标识</h2><p>在路由文件router.js里给每个路由添加meta信息，标识是否使用缓存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meta: &#123;</span><br><span class="line">    isUseCache: false,//不使用缓存</span><br><span class="line">    keepAlive: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用方式：<br>A-&gt;B，B不能缓存;B-&gt;A,A缓存。</p>
-<ul>
-<li><p>（1）A页面：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteLeave(to, from, next) &#123;</span><br><span class="line">  // 设置下一个路由的 meta</span><br><span class="line">  if(to.path==&apos;/B&apos;)&#123;</span><br><span class="line">    to.meta.isUseCache = false;</span><br><span class="line">  &#125;</span><br><span class="line">  next();</span><br><span class="line">&#125;,</span><br><span class="line">activated()&#123;</span><br><span class="line">    if(!this.$route.meta.isUseCache)&#123;</span><br><span class="line">        this.getData();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>(2) B页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteLeave(to, from, next) &#123;</span><br><span class="line">  // 设置下一个路由的 meta</span><br><span class="line">  if(to.path==&apos;/A&apos;)&#123;</span><br><span class="line">    to.meta.isUseCache = true;</span><br><span class="line">  &#125;</span><br><span class="line">  next();</span><br><span class="line">&#125;,</span><br><span class="line">activated()&#123;</span><br><span class="line">    if(!this.$route.meta.isUseCache)&#123;</span><br><span class="line">        this.getData();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="方式二，强制清除缓存。"><a href="#方式二，强制清除缓存。" class="headerlink" title="方式二，强制清除缓存。"></a>方式二，强制清除缓存。</h2><p>这种方式是从网上找的一种方式，使用了vue内部组件<keep-alive></keep-alive>之后，不在支持动态销毁组件，缓存一直存在，只能从源头上下手，清掉缓存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">export const removeCatch = &#123;</span><br><span class="line">  beforeRouteLeave:function(to, from, next)&#123;</span><br><span class="line">    if (from &amp;&amp; from.meta.rank &amp;&amp; to.meta.rank &amp;&amp; from.meta.rank&gt;to.meta.rank)</span><br><span class="line">      &#123;//此处判断是如果返回上一层，你可以根据自己的业务更改此处的判断逻辑，酌情决定是否摧毁本层缓存。</span><br><span class="line">          if (this.$vnode &amp;&amp; this.$vnode.data.keepAlive)</span><br><span class="line">          &#123;</span><br><span class="line">              if (this.$vnode.parent &amp;&amp; this.$vnode.parent.componentInstance &amp;&amp; this.$vnode.parent.componentInstance.cache)</span><br><span class="line">              &#123;</span><br><span class="line">                  if (this.$vnode.componentOptions)</span><br><span class="line">                  &#123;</span><br><span class="line">                      var key = this.$vnode.key == null</span><br><span class="line">                                  ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::$&#123;this.$vnode.componentOptions.tag&#125;` : &apos;&apos;)</span><br><span class="line">                                  : this.$vnode.key;</span><br><span class="line">                      var cache = this.$vnode.parent.componentInstance.cache;</span><br><span class="line">                      var keys  = this.$vnode.parent.componentInstance.keys;</span><br><span class="line">                      if (cache[key])</span><br><span class="line">                      &#123;</span><br><span class="line">                          if (keys.length) &#123;</span><br><span class="line">                              var index = keys.indexOf(key);</span><br><span class="line">                              if (index &gt; -1) &#123;</span><br><span class="line">                                  keys.splice(index, 1);</span><br><span class="line">                              &#125;</span><br><span class="line">                          &#125;</span><br><span class="line">                          delete cache[key];</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          this.$destroy();</span><br><span class="line">      &#125;</span><br><span class="line">      next();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>在需要清掉缓存的页面混合引入该js即可。<br><a href="http://wanyaxing.com/blog/20180723114341.html" target="_blank" rel="noopener">原文链接</a>  </p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>移动端的缓存真是麻烦啊，前进后退，什么时候使用缓存，什么时候不使用缓存，都需要经过仔细的处理，不然就会有想不到的问题。不过经过这次项目，也积累了一定的经验。如果有大佬有别的更好的解决办法，还请告知，多谢！还是那句话，有问题就去解决，不要害怕问题，解决了问题，你就会成长！ </p>
+<h2 id="对称加密DES实现方式"><a href="#对称加密DES实现方式" class="headerlink" title="对称加密DES实现方式"></a>对称加密DES实现方式</h2><p>(1)使用Crypto-JS通过DES算法在前端加密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install crypto-js</span><br></pre></td></tr></table></figure>
+<p>(2)加解密<br>使用DES算法，工作方式为ECB，填充方式为PKcs7  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var CryptoJS = require(&quot;crypto-js&quot;);</span><br><span class="line">const secretKey = &apos;com.sevenlin.foo.key&apos;;</span><br><span class="line">var afterEncrypt = CryptoJS.DES.encrypt(&apos;encryptCode&apos;, CryptoJS.enc.Utf8.parse(secretKey), &#123;</span><br><span class="line">        mode: CryptoJS.mode.ECB,</span><br><span class="line">        padding: CryptoJS.pad.Pkcs7</span><br><span class="line">&#125;).toString()</span><br><span class="line">console.log(afterEncrypt);//8/nZ2vZXxOzPhU7ZHBwz7w==</span><br><span class="line">var afterDecrypt = CryptoJS.DES.decrypt(afterEncrypt, CryptoJS.enc.Utf8.parse(secretKey), &#123;</span><br><span class="line">        mode: CryptoJS.mode.ECB,</span><br><span class="line">        padding: CryptoJS.pad.Pkcs7</span><br><span class="line">&#125;).toString(CryptoJS.enc.Utf8);</span><br><span class="line">console.log(afterDecrypt);//encryptCode</span><br></pre></td></tr></table></figure>
+<p>(3)使用BC通过DES算法在后端解密<br>a.安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.bouncycastle&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;bcprov-jdk16&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.46&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>b.加解密工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">public class DesCipherUtil &#123;</span><br><span class="line"></span><br><span class="line">    private DesCipherUtil() &#123;</span><br><span class="line">        throw new AssertionError(&quot;No DesCipherUtil instances for you!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        // add BC provider</span><br><span class="line">        Security.addProvider(new BouncyCastleProvider());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 加密</span><br><span class="line">     * </span><br><span class="line">     * @param encryptText 需要加密的信息</span><br><span class="line">     * @param key 加密密钥</span><br><span class="line">     * @return 加密后Base64编码的字符串</span><br><span class="line">     */</span><br><span class="line">    public static String encrypt(String encryptText, String key) &#123;</span><br><span class="line"></span><br><span class="line">        if (encryptText == null || key == null) &#123;</span><br><span class="line">            throw new IllegalArgumentException(&quot;encryptText or key must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            DESKeySpec desKeySpec = new DESKeySpec(key.getBytes());</span><br><span class="line">            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance(&quot;DES&quot;);</span><br><span class="line">            SecretKey secretKey = secretKeyFactory.generateSecret(desKeySpec);</span><br><span class="line"></span><br><span class="line">            Cipher cipher = Cipher.getInstance(&quot;DES/ECB/PKCS7Padding&quot;, &quot;BC&quot;);</span><br><span class="line">            cipher.init(Cipher.ENCRYPT_MODE, secretKey);</span><br><span class="line">            byte[] bytes = cipher.doFinal(encryptText.getBytes(Charset.forName(&quot;UTF-8&quot;)));</span><br><span class="line">            return Base64.getEncoder().encodeToString(bytes);</span><br><span class="line"></span><br><span class="line">        &#125; catch (NoSuchAlgorithmException | InvalidKeyException | InvalidKeySpecException | NoSuchPaddingException</span><br><span class="line">            | BadPaddingException | NoSuchProviderException | IllegalBlockSizeException e) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;encrypt failed&quot;, e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 解密</span><br><span class="line">     * </span><br><span class="line">     * @param decryptText 需要解密的信息</span><br><span class="line">     * @param key 解密密钥，经过Base64编码</span><br><span class="line">     * @return 解密后的字符串</span><br><span class="line">     */</span><br><span class="line">    public static  String decrypt(String decryptText, String key) &#123;</span><br><span class="line"></span><br><span class="line">        if (decryptText == null || key == null) &#123;</span><br><span class="line">            throw new IllegalArgumentException(&quot;decryptText or key must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            DESKeySpec desKeySpec = new DESKeySpec(key.getBytes());</span><br><span class="line">            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance(&quot;DES&quot;);</span><br><span class="line">            SecretKey secretKey = secretKeyFactory.generateSecret(desKeySpec);</span><br><span class="line"></span><br><span class="line">            Cipher cipher = Cipher.getInstance(&quot;DES/ECB/PKCS7Padding&quot;, &quot;BC&quot;);</span><br><span class="line">            cipher.init(Cipher.DECRYPT_MODE, secretKey);</span><br><span class="line">            byte[] bytes = cipher.doFinal(Base64.getDecoder().decode(decryptText));</span><br><span class="line">            return new String(bytes, Charset.forName(&quot;UTF-8&quot;));</span><br><span class="line"></span><br><span class="line">        &#125; catch (NoSuchAlgorithmException | InvalidKeyException | InvalidKeySpecException | NoSuchPaddingException</span><br><span class="line">            | BadPaddingException | NoSuchProviderException | IllegalBlockSizeException e) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;decrypt failed&quot;, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c.解密前端的加密信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String fromWeb = &quot;8/nZ2vZXxOzPhU7ZHBwz7w==&quot;;</span><br><span class="line">String key = &quot;com.sevenlin.foo.key&quot;;</span><br><span class="line">String afterDecrypt = DesCipherUtil.decrypt(fromWeb, key);</span><br><span class="line">System.out.println(afterDecrypt);//encryptCode</span><br></pre></td></tr></table></figure>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>(1)<a href="https://github.com/travist/jsencrypt/archive/master.zip" target="_blank" rel="noopener">下载加密文件依赖</a><br>(2) 引入依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;bin/jsencrypt.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &apos;../../assets/js/jsencrypt.min.js&apos;;</span><br></pre></td></tr></table></figure>
+<p>(3)使用方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">this.privateKey=`-----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">MIICXQIBAAKBgQDlOJu6TyygqxfWT7eLtGDwajtNFOb9I5XRb6khyfD1Yt3YiCgQ</span><br><span class="line">WMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76xFxdU6jE0NQ+Z+zEdhUTooNR</span><br><span class="line">aY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4gwQco1KRMDSmXSMkDwIDAQAB</span><br><span class="line">AoGAfY9LpnuWK5Bs50UVep5c93SJdUi82u7yMx4iHFMc/Z2hfenfYEzu+57fI4fv</span><br><span class="line">xTQ//5DbzRR/XKb8ulNv6+CHyPF31xk7YOBfkGI8qjLoq06V+FyBfDSwL8KbLyeH</span><br><span class="line">m7KUZnLNQbk8yGLzB3iYKkRHlmUanQGaNMIJziWOkN+N9dECQQD0ONYRNZeuM8zd</span><br><span class="line">8XJTSdcIX4a3gy3GGCJxOzv16XHxD03GW6UNLmfPwenKu+cdrQeaqEixrCejXdAF</span><br><span class="line">z/7+BSMpAkEA8EaSOeP5Xr3ZrbiKzi6TGMwHMvC7HdJxaBJbVRfApFrE0/mPwmP5</span><br><span class="line">rN7QwjrMY+0+AbXcm8mRQyQ1+IGEembsdwJBAN6az8Rv7QnD/YBvi52POIlRSSIM</span><br><span class="line">V7SwWvSK4WSMnGb1ZBbhgdg57DXaspcwHsFV7hByQ5BvMtIduHcT14ECfcECQATe</span><br><span class="line">aTgjFnqE/lQ22Rk0eGaYO80cc643BXVGafNfd9fcvwBMnk0iGX0XRsOozVt5Azil</span><br><span class="line">psLBYuApa66NcVHJpCECQQDTjI2AQhFc1yRnCU/YgDnSpJVm1nASoRUnU8Jfm3Oz</span><br><span class="line">uku7JUXcVpt08DFSceCEX9unCuMcT72rAQlLpdZir876</span><br><span class="line">-----END RSA PRIVATE KEY-----`;</span><br><span class="line">              this.publicKye=`-----BEGIN PUBLIC KEY-----</span><br><span class="line">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN</span><br><span class="line">FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76</span><br><span class="line">xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4</span><br><span class="line">gwQco1KRMDSmXSMkDwIDAQAB</span><br><span class="line">-----END PUBLIC KEY-----`;</span><br><span class="line">  var encrypt = new JSEncrypt();</span><br><span class="line">  encrypt.setPublicKey(this.publicKye);</span><br><span class="line">  var encrypted = encrypt.encrypt(&apos;encryptCode&apos;);//w1a1FXmlbFj9yOxLCoqIzNo2ytXypyupZABsi/e4kMA9mERngmaDwlOuHsUDQKC0nK1v7Ehr3vYKcALFQvjscWEkGIW/UWCk73jArwqEYF1wd45eHSCPwUeB85Ellr+IYTqhZXcfmHZUCuprF2gayPUecq7F51aWxpfqMP0uvtY=</span><br><span class="line">  // Decrypt with the private key...</span><br><span class="line">  var decrypt = new JSEncrypt();</span><br><span class="line">  decrypt.setPrivateKey(this.privateKey);</span><br><span class="line">  var uncrypted = decrypt.decrypt(encrypted);//encryptCode</span><br></pre></td></tr></table></figure></p>
+<p>生成publickey和privateKey的<a href="http://travistidwell.com/jsencrypt/demo/index.html" target="_blank" rel="noopener">在线地址</a>  </p>
+<p>虽然前端可以加密，终归不是安全方式，如果为了更加的安全还是使用https传输，后端加密保存吧！</p>
+<p>参考文章：<br><a href="https://www.jianshu.com/p/24691c8d722c" target="_blank" rel="noopener">通过DES实现JavaScript加密和Java解密</a><br><a href="http://travistidwell.com/jsencrypt/" target="_blank" rel="noopener">加密库</a></p>
 
       
     </div>
@@ -475,7 +475,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/‘加密’/" rel="tag"># ‘加密’</a>
           
         </div>
       
@@ -488,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/20/jqueryAnimation/" rel="next" title="jquery旋转动画">
-                <i class="fa fa-chevron-left"></i> jquery旋转动画
+              <a href="/2019/01/12/projectoptimize/" rel="next" title="webpack打包性能优化之路">
+                <i class="fa fa-chevron-left"></i> webpack打包性能优化之路
               </a>
             
           </div>
@@ -497,10 +497,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/20/vueAppRecordScroll/" rel="prev" title="vue移动端项目记录滚动位置方案总结">
-                vue移动端项目记录滚动位置方案总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -673,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方式一-，使用是否使用缓存标识"><span class="nav-number">1.</span> <span class="nav-text">方式一  ，使用是否使用缓存标识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式二，强制清除缓存。"><span class="nav-number">2.</span> <span class="nav-text">方式二，强制清除缓存。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前奏"><span class="nav-number">1.</span> <span class="nav-text">前奏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">2.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对称加密DES实现方式"><span class="nav-number">4.</span> <span class="nav-text">对称加密DES实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称加密"><span class="nav-number">5.</span> <span class="nav-text">非对称加密</span></a></li></ol></div>
             
 
           </div>

@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/01/21/feEncrypt/</loc>
+        <lastmod>2019-01-21T12:14:59.028Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/01/12/projectoptimize/</loc>
         <lastmod>2019-01-12T09:27:24.070Z</lastmod>
         <changefreq>weekly</changefreq>
