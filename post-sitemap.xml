@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/02/02/webpackConfig2/</loc>
+        <lastmod>2019-02-02T02:45:06.108Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/02/01/webpackConfig1/</loc>
         <lastmod>2019-02-01T09:32:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
