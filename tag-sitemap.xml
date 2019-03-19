@@ -72,15 +72,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/react/</loc>
-        <lastmod>2019-03-07T15:00:19.365Z</lastmod>
+        <loc>http://yoursite.com/tags/taro/</loc>
+        <lastmod>2019-03-07T15:05:51.403Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/taro/</loc>
-        <lastmod>2019-03-07T15:00:19.365Z</lastmod>
+        <loc>http://yoursite.com/tags/react/</loc>
+        <lastmod>2019-03-19T13:08:55.029Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

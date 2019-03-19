@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="react," />
 
 
 
@@ -91,18 +91,22 @@
 
 
 
-<meta name="description" content="最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！">
-<meta name="keywords" content="vue">
+<meta name="description" content="最近正在学习react，就想着能不能用react做一个项目，平时浏览掘金，就拿掘金练手吧！">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue移动端项目记录滚动位置方案总结">
-<meta property="og:url" content="http://yoursite.com/2018/11/20/vueAppRecordScroll/index.html">
+<meta property="og:title" content="使用React构建精简版本掘金（一）">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/react-juejin/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！">
+<meta property="og:description" content="最近正在学习react，就想着能不能用react做一个项目，平时浏览掘金，就拿掘金练手吧！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-20T13:56:58.377Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/19/169960b16660381f?w=1558&h=1036&f=png&s=155113">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/18/1698f9da727831a1?w=575&h=172&f=png&s=23659">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/19/16993c311993d6ca?w=1398&h=322&f=gif&s=130255">
+<meta property="og:updated_time" content="2019-03-19T13:08:55.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue移动端项目记录滚动位置方案总结">
-<meta name="twitter:description" content="最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！">
+<meta name="twitter:title" content="使用React构建精简版本掘金（一）">
+<meta name="twitter:description" content="最近正在学习react，就想着能不能用react做一个项目，平时浏览掘金，就拿掘金练手吧！">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/3/19/169960b16660381f?w=1558&h=1036&f=png&s=155113">
 
 
 
@@ -132,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/20/vueAppRecordScroll/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/19/react-juejin/"/>
 
 
 
 
 
-  <title>vue移动端项目记录滚动位置方案总结 | 笨小孩杂谈</title>
+  <title>使用React构建精简版本掘金（一） | 笨小孩杂谈</title>
   
 
 
@@ -309,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/20/vueAppRecordScroll/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/react-juejin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rocky-191">
@@ -326,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue移动端项目记录滚动位置方案总结</h1>
+          <h1 class="post-title" itemprop="name headline">使用React构建精简版本掘金（一）</h1>
         
 
         <div class="post-meta">
@@ -338,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T21:53:37+08:00">
-                2018-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T21:06:57+08:00">
+                2019-03-19
               </time>
             
 
@@ -361,8 +365,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
                   </a>
                 </span>
 
@@ -403,19 +407,72 @@
       
 
       
-        <p>最近在用vue做移动端项目，列表展示页面有很多条数据，在滑动到下面的时候，点到对应详情页，此时后退，应该在之前滚动的位置，不能滚动到顶部，这就需要记录滚动位置。这是需求，说完了需求，就考虑怎么实现吧！   </p>
-<a id="more"></a> 
-<h2 id="（1）利用vue内置组件keep-alive缓存页面"><a href="#（1）利用vue内置组件keep-alive缓存页面" class="headerlink" title="（1）利用vue内置组件keep-alive缓存页面"></a>（1）利用vue内置组件keep-alive缓存页面</h2><p>在路由文件router.js中设置缓存，方式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;/home&apos;,</span><br><span class="line">    name: &apos;home&apos;,</span><br><span class="line">    component: resolve =&gt; require([&apos;@/components/process/home&apos;], resolve),</span><br><span class="line">    meta: &#123;</span><br><span class="line">        keepAlive: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样的话，后退的时候就不会刷新页面，完成第一步。</p>
-<h2 id="（2）监听滚动条滚动位置"><a href="#（2）监听滚动条滚动位置" class="headerlink" title="（2）监听滚动条滚动位置"></a>（2）监听滚动条滚动位置</h2><p>给滚动元素父级设置一个别名ref值，比如叫scroll吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let that=this;</span><br><span class="line">this.$refs.scroll.addEventListener(&quot;scroll&quot;,that.recordScrollPosition,true);    //添加绑定事件</span><br></pre></td></tr></table></figure>
-<p>recordScrollPosition是一个方法，用于记录滚动位置。这里有一个需要注意的点，必须先把this对象存储一下，不然的话直接用this.recordScrollPosition是无法调用到recordScrollPosition，因为此时this指向的是当前dom节点，而不是vue实例，自然无法调用到methods里定义的方法，当时这个地方没注意，卡了好久。<br>这个监听的动作要写在activated周期里，每次进入都要监听。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">activated()&#123;</span><br><span class="line">    this.$refs.scroll.scrollTop = this.list_top;  </span><br><span class="line">    let that=this;</span><br><span class="line">    this.$refs.scroll.addEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); </span><br><span class="line">  &#125;,</span><br><span class="line">  deactivated()&#123;</span><br><span class="line">    let that=this;</span><br><span class="line">    this.$refs.scroll.removeEventListener(&quot;scroll&quot;,that.recordScrollPosition,true); </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>当然最后应该销毁监听。</p>
-<h2 id="（3）将滚动位置存储起来"><a href="#（3）将滚动位置存储起来" class="headerlink" title="（3）将滚动位置存储起来"></a>（3）将滚动位置存储起来</h2><p>这里存储滚动位置的话可以将其存到localStorage里，也可以将其存到vuex里，这里我为了方便就把它存到vuex里了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">recordScrollPosition(e) &#123;</span><br><span class="line">  this.$store.dispatch(&quot;setListTop&quot;,e.target.scrollTop);//实时存入到vuex中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-vuex里设置"><a href="#4-vuex里设置" class="headerlink" title="(4)vuex里设置"></a>(4)vuex里设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const state = &#123;</span><br><span class="line">    top:0 //滚动条初始位置</span><br><span class="line">&#125;</span><br><span class="line">const mutations=&#123;</span><br><span class="line">    setHomeListTop(state,top)&#123;</span><br><span class="line">      state.top=top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const getters = &#123;</span><br><span class="line">    list_top(state)&#123;</span><br><span class="line">      return state.top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const actions = &#123;</span><br><span class="line">  setListTop(&#123;commit,state&#125;,top)&#123;</span><br><span class="line">    commit(&apos;setHomeListTop&apos;,top);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>到此大功告成，详细的代码我写了一个demo，放到了github上。<a href="https://github.com/rocky-191/vueAppRecordScroll" target="_blank" rel="noopener">传送门</a></p>
+        <p>最近正在学习react，就想着能不能用react做一个项目，平时浏览掘金，就拿掘金练手吧！</p>
+<a id="more"></a>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/19/169960b16660381f?w=1558&amp;h=1036&amp;f=png&amp;s=155113" alt=""><br>是不是可以以假乱真呢！😂😂😂</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
+<li>使用create-react-app初始化项目结构</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn create react-app react-juejin</span><br></pre></td></tr></table></figure>
+<p>这个脚手架会自动帮助我们搭建基础工程，同时安装React项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。<br>进入项目并启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd react-juejin</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装ant-design</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add antd</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置UI库懒加载样式<br>需要对整个项目重新配置，这里使用了<a href="https://github.com/timarney/react-app-rewired" target="_blank" rel="noopener">react-app-rewired </a>（一个对 create-react-app 进行自定义配置的社区解决方案）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-app-rewired customize-cra</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改package.json 文件如下</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/18/1698f9da727831a1?w=575&amp;h=172&amp;f=png&amp;s=23659" alt=""><br>在根目录中创建config-overrides.js，用于重写覆盖默认的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module.exports = function override(config, env) &#123;</span><br><span class="line">  // do stuff with the webpack config...</span><br><span class="line">  return config;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 babel-plugin-import<br>该插件用于按需加载plugins和样式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-import</span><br></pre></td></tr></table></figure>
+<p>修改上步创建的config-overrides.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const &#123; override, fixBabelImports &#125; = require(&apos;customize-cra&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = override(</span><br><span class="line">    fixBabelImports(&apos;import&apos;, &#123;</span><br><span class="line">        libraryName: &apos;antd&apos;,</span><br><span class="line">        libraryDirectory: &apos;es&apos;,</span><br><span class="line">        style: &apos;css&apos;,</span><br><span class="line">    &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加less-loader<br>个人习惯使用less，看个人喜好安装即可，不过查阅上面社区方案react-app-rewired，并没有提供比如sass的重写方案，故如果需要使用sass，可采用别的方案引入。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add less less-loader</span><br></pre></td></tr></table></figure>
+<p>修改config-overrides.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//const &#123; override, fixBabelImports &#125; = require(&apos;customize-cra&apos;);</span><br><span class="line">const &#123; override, fixBabelImports, addLessLoader &#125; = require(&apos;customize-cra&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = override(</span><br><span class="line">    fixBabelImports(&apos;import&apos;, &#123;</span><br><span class="line">        libraryName: &apos;antd&apos;,</span><br><span class="line">        libraryDirectory: &apos;es&apos;,</span><br><span class="line">        style: true,</span><br><span class="line">    &#125;),</span><br><span class="line">    addLessLoader(&#123;</span><br><span class="line">        javascriptEnabled: true,</span><br><span class="line">    &#125;),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>以上详细配置的话可参考<a href="https://ant.design/docs/react/use-with-create-react-app-cn" target="_blank" rel="noopener">ant-design官网</a></p>
+<h2 id="引入redux"><a href="#引入redux" class="headerlink" title="引入redux"></a>引入redux</h2><ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add redux react-redux --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用方式<br>考虑到之后可能会有多个reducer，开始就把结构弄好，做成日后可以方便合并使用多个reducer的方式<br>（1）创建一个reducer</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 建议使用这中结构</span><br><span class="line"></span><br><span class="line">// 1.定义默认数据</span><br><span class="line">let initialState = &#123;</span><br><span class="line">    notificationCount: 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2.Reducer</span><br><span class="line">const pageHeaderReducer = (state = initialState, action) =&gt; &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case &apos;CHANGE_COUNT&apos;:</span><br><span class="line">            return &#123; ...state, notificationCount: action.notificationCount &#125;</span><br><span class="line">        default:</span><br><span class="line">            return state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 3.导出</span><br><span class="line">export default pageHeaderReducer;</span><br></pre></td></tr></table></figure>
+<p>（2）创建index.js,作为合并所有reducer的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;combineReducers&#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">import pageHeaderReducer from &apos;./pageHeader.js&apos;;</span><br><span class="line"></span><br><span class="line">const appReducer = combineReducers(&#123;</span><br><span class="line">    pageHeaderReducer</span><br><span class="line">&#125;);</span><br><span class="line">export default appReducer;</span><br></pre></td></tr></table></figure>
+<p>（3）App.js中使用定义好的reducer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &apos;redux&apos;</span><br><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;</span><br><span class="line">import appReducer from &apos;./reducers/index.js&apos;;</span><br><span class="line">// 使用合并后的那个Reducer</span><br><span class="line">const store = createStore(appReducer);</span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  constructor(props)&#123;</span><br><span class="line">    super(props);</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">          ...</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/Provider&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(4)在header/index.js中使用redux</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &apos;react-redux&apos;;</span><br><span class="line"></span><br><span class="line">class Header extends Component &#123;</span><br><span class="line">    ...</span><br><span class="line">    render() &#123;</span><br><span class="line">        ...</span><br><span class="line">        return (</span><br><span class="line">            &lt;Affix offsetTop=&#123;this.state.top&#125;&gt;</span><br><span class="line">                ...</span><br><span class="line">                &lt;Badge count=&#123;this.props.count&#125; overflowCount=&#123;10&#125;&gt;</span><br><span class="line">                    &lt;a href=&quot;/&quot;&gt;</span><br><span class="line">                        &lt;Icon type=&quot;notification&quot; /&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/Badge&gt;</span><br><span class="line">            &lt;/Affix&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        count: state.pageHeaderReducer.notificationCount</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Header=connect(mapStateToProps)(Header)</span><br><span class="line"></span><br><span class="line">export default Header;</span><br></pre></td></tr></table></figure>
+<p>到目前为止，就可以在外部修改notificationCount的值，通过redux，组件内部就可以正常获取到对应的count值。<br>更详细的redux配置可以参考<a href="http://cn.redux.js.org/" target="_blank" rel="noopener">redux中文文档</a></p>
+<h2 id="添加路由react-router"><a href="#添加路由react-router" class="headerlink" title="添加路由react-router"></a>添加路由react-router</h2><p>首页导航中存在5个tab切换，分别对应这不同的页面内容。接下来介绍如何通过react-router实现不同页面内容的跳转。</p>
+<ul>
+<li>安装react-router</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-router-dom --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Switch, Route &#125; from &apos;react-router-dom&apos;;</span><br><span class="line">...</span><br><span class="line">class Main extends Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state = &#123;  &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Switch&gt;</span><br><span class="line">                    &lt;Route exact path=&apos;/&apos; component=&#123;Home&#125;/&gt;</span><br><span class="line">                    &lt;Route path=&apos;/timeline&apos; component=&#123;Home&#125;/&gt;</span><br><span class="line">                    &lt;Route path=&apos;/dynamic&apos; component=&#123;Dynamic&#125;/&gt;</span><br><span class="line">                    &lt;Route path=&apos;/topic&apos; component=&#123;Topic&#125;/&gt;</span><br><span class="line">                    &lt;Route path=&apos;/brochure&apos; component=&#123;Brochure&#125;/&gt;</span><br><span class="line">                    &lt;Route path=&apos;/activity&apos; component=&#123;Activity&#125;/&gt;</span><br><span class="line">                &lt;/Switch&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>上面的exact表示绝对匹配/,如果不注明exact,则/还会匹配/timeline等等上面代码实现了一个类似tabbar切换的效果</strong></p>
+<ul>
+<li>tab导航</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &#123;this.state.navs.map((item,index)=&gt;&#123;</span><br><span class="line">                    return &lt;li key=&#123;item.path&#125; className=&#123;item.isActived?&apos;activeLi&apos;:&apos;&apos;&#125; onClick=&#123;this.handelClick.bind(this,index)&#125;&gt;</span><br><span class="line">                                &lt;Link to=&#123;item.path&#125;&gt;&#123;item.text&#125;&lt;/Link&gt;</span><br><span class="line">                            &lt;/li&gt;</span><br><span class="line">                &#125;)&#125;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>react-router中提供了Link和NavLik两种方式，如果仅仅需要匹配路由,使用Link就可以了,而NavLink的不同在于可以给当前选中的路由添加样式, 比如上面写到的activeStyle和activeClassName</strong><br>更详细的react-router配置可以参考<a href="https://react-guide.github.io/react-router-cn/index.html" target="_blank" rel="noopener">React-router中文文档</a></p>
+<p>到目前为止，基础结构就算是完成了，后续的就需要往各个页面添加实际内容了。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/19/16993c311993d6ca?w=1398&amp;h=322&amp;f=gif&amp;s=130255" alt=""></p>
+<p>目前效果图如上所示，后续不断更新中。以上详细代码见<a href="https://github.com/rocky-191/react-juejin" target="_blank" rel="noopener">github</a>,欢迎点赞，您的点赞是我的动力。</p>
 
       
     </div>
@@ -462,7 +519,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/react/" rel="tag"># react</a>
           
         </div>
       
@@ -475,8 +532,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/28/vueCatch/" rel="next" title="vue移动端项目缓存问题实践">
-                <i class="fa fa-chevron-left"></i> vue移动端项目缓存问题实践
+              <a href="/2019/03/07/taroapp/" rel="next" title="taro多端实践初探">
+                <i class="fa fa-chevron-left"></i> taro多端实践初探
               </a>
             
           </div>
@@ -484,10 +541,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/25/appPageFlexible/" rel="prev" title="webapp字号大小跟随系统字号大小缩放">
-                webapp字号大小跟随系统字号大小缩放 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#（1）利用vue内置组件keep-alive缓存页面"><span class="nav-number">1.</span> <span class="nav-text">（1）利用vue内置组件keep-alive缓存页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（2）监听滚动条滚动位置"><span class="nav-number">2.</span> <span class="nav-text">（2）监听滚动条滚动位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（3）将滚动位置存储起来"><span class="nav-number">3.</span> <span class="nav-text">（3）将滚动位置存储起来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-vuex里设置"><span class="nav-number">4.</span> <span class="nav-text">(4)vuex里设置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入redux"><span class="nav-number">2.</span> <span class="nav-text">引入redux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加路由react-router"><span class="nav-number">3.</span> <span class="nav-text">添加路由react-router</span></a></li></ol></div>
             
 
           </div>
