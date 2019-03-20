@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="css,vue," />
+  <meta name="keywords" content="react,ant-design," />
 
 
 
@@ -91,20 +91,25 @@
 
 
 
-<meta name="description" content="最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。">
-<meta name="keywords" content="css,vue">
+<meta name="description" content="咋一看，是不是感觉掘金改版了呢！如果你有这个错觉，那就说明我仿照的还算可以，我就当是对我的肯定吧，O(∩_∩)O~~ 首页顶部标签即我上面红框圈住的部分，这部分由于要做页面滚动的时候常驻顶部，个人为了简单省事，采用了ant-design中的Affix组件，另外导航组件我抽离了一个公用组件，从外部传入tags数组。 1234567891011121314151617181920212223impor">
+<meta name="keywords" content="react,ant-design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多层级组织结构树">
-<meta property="og:url" content="http://yoursite.com/2018/07/13/treeMenu/index.html">
+<meta property="og:title" content="使用React构建精简版本掘金（二）">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/react-juejin1/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。">
+<meta property="og:description" content="咋一看，是不是感觉掘金改版了呢！如果你有这个错觉，那就说明我仿照的还算可以，我就当是对我的肯定吧，O(∩_∩)O~~ 首页顶部标签即我上面红框圈住的部分，这部分由于要做页面滚动的时候常驻顶部，个人为了简单省事，采用了ant-design中的Affix组件，另外导航组件我抽离了一个公用组件，从外部传入tags数组。 1234567891011121314151617181920212223impor">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/13/164918db32f78538?w=750&h=1333&f=png&s=108657">
-<meta property="og:updated_time" content="2018-09-03T09:43:54.308Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699a60f0e65a946?w=1088&h=931&f=png&s=150116">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699a6698752f04f?w=1084&h=406&f=png&s=71112">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699a6d9318aae61?w=1105&h=196&f=png&s=26896">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699a704aea145bc?w=1103&h=450&f=png&s=75565">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699a7ad410054ff?w=761&h=144&f=png&s=16284">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699afd7ca3b5310?w=524&h=1602&f=png&s=201017">
+<meta property="og:updated_time" content="2019-03-20T12:26:43.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多层级组织结构树">
-<meta name="twitter:description" content="最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/7/13/164918db32f78538?w=750&h=1333&f=png&s=108657">
+<meta name="twitter:title" content="使用React构建精简版本掘金（二）">
+<meta name="twitter:description" content="咋一看，是不是感觉掘金改版了呢！如果你有这个错觉，那就说明我仿照的还算可以，我就当是对我的肯定吧，O(∩_∩)O~~ 首页顶部标签即我上面红框圈住的部分，这部分由于要做页面滚动的时候常驻顶部，个人为了简单省事，采用了ant-design中的Affix组件，另外导航组件我抽离了一个公用组件，从外部传入tags数组。 1234567891011121314151617181920212223impor">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/3/20/1699a60f0e65a946?w=1088&h=931&f=png&s=150116">
 
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/13/treeMenu/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/react-juejin1/"/>
 
 
 
 
 
-  <title>多层级组织结构树 | 笨小孩杂谈</title>
+  <title>使用React构建精简版本掘金（二） | 笨小孩杂谈</title>
   
 
 
@@ -311,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/treeMenu/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/react-juejin1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rocky-191">
@@ -328,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">多层级组织结构树</h1>
+          <h1 class="post-title" itemprop="name headline">使用React构建精简版本掘金（二）</h1>
         
 
         <div class="post-meta">
@@ -340,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-13T10:59:36+08:00">
-                2018-07-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T20:23:09+08:00">
+                2019-03-20
               </time>
             
 
@@ -363,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
                   </a>
                 </span>
 
@@ -405,12 +410,50 @@
       
 
       
-        <p>最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。  </p>
-<a id="more"></a>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>treeMenu.vue文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;ul class=&quot;distributionTree&quot;&gt;</span><br><span class="line">      &lt;li v-for=&quot;(item,index) in data&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;treeContent0&quot;&gt;</span><br><span class="line">          &lt;span v-if=&quot;mode==item.orgType || mode==&apos;2&apos;&quot;&gt;</span><br><span class="line">            &lt;span v-if=&quot;assignType==&apos;1&apos;&quot;&gt;</span><br><span class="line">              &lt;span class=&quot;checkbox&quot; :class=&quot;&#123;&apos;checkbox_active&apos;:item.checkboxActive&#125;&quot; @click=&quot;item.checkboxActive=!item.checkboxActive&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">            &lt;span v-else-if=&quot;assignType==&apos;0&apos;&quot;&gt;</span><br><span class="line">              &lt;span class=&quot;radio&quot; :class=&quot;&#123;&apos;radio_active&apos;:item.radioActive&#125;&quot; @click=&quot;radionToggle(item,data)&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">          &lt;/span&gt;</span><br><span class="line">          &lt;label&gt;&#123;&#123;item.text&#125;&#125;&lt;/label&gt;</span><br><span class="line">          &lt;span class=&quot;nextSet&quot; :class=&quot;&#123;&apos;nextSet_active&apos;:item.nextSetActive&#125;&quot; v-if=&quot;item.orgType!=&apos;0&apos;&quot; @click=&quot;toggle(item, index)&quot;&gt;&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;tree-menu v-on=&quot;$listeners&quot; :data=&quot;item.org&quot; :assignType=&quot;assignType&quot; :mode=&quot;mode&quot; v-if=&quot;item.nextSetActive&quot;&gt;&lt;/tree-menu&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
-<p>data就是派发树的内容，我们项目实际需要判断是否显示单选钮和多选钮，通过orgType 和mode判断，orgType 是每一条数据里的一项，mode是上一层传过来的数据信息。然后通过assignType判断是单选钮还是多选钮，当然assignType也是上一层调用树组件传过来的数据啦。<br>其中用到了一个知识点：v-on=”$listeners”，用来监听多层级树中的事件。之前写的一篇文章有介绍该内容<a href="https://rocky-191.github.io/2018/07/12/vueDevDiary1/#more" target="_blank" rel="noopener">vue项目技术随笔</a>，欢迎阅读。<br>一些相关的methods如下:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">  toggle (item, index) &#123;</span><br><span class="line">    item.nextSetActive=!item.nextSetActive;</span><br><span class="line">    if (item.org==null ||item.org.length==0) &#123;</span><br><span class="line">      Indicator.open(&apos;加载中...&apos;);</span><br><span class="line">      this.$emit(&apos;getsubmenu&apos;, item,()=&gt;&#123;</span><br><span class="line">        Indicator.close();</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  radionToggle(item,data)&#123;</span><br><span class="line">    data.forEach((e,index)=&gt;&#123;</span><br><span class="line">      e.radioActive=false;</span><br><span class="line">    &#125;);</span><br><span class="line">    item.radioActive=!item.radioActive;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该移动端项目中使用了mintui作为ui框架，使用了其中的加载效果，点击展现下一层级的时候出现加载中，提升用户体验。toggle作用展示和隐藏下一层级，如果下一层级没有数据，需要触发动作去取数据，呈现加载中，取到数据后，回调函数，让加载中提示效果消失。<br>radionToggle方法就是实现单选钮的选中效果了，很简单。看一下最终的效果呈现：<br><img src="https://user-gold-cdn.xitu.io/2018/7/13/164918db32f78538?w=750&amp;h=1333&amp;f=png&amp;s=108657" alt=""><br>具体的css就靠大家自己发挥了，不同的设计不同的css，感谢大家的支持。</p>
+        <p><img src="https://user-gold-cdn.xitu.io/2019/3/20/1699a60f0e65a946?w=1088&amp;h=931&amp;f=png&amp;s=150116" alt=""><br>咋一看，是不是感觉掘金改版了呢！如果你有这个错觉，那就说明我仿照的还算可以，我就当是对我的肯定吧，O(∩_∩)O~~</p>
+<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><h2 id="顶部标签"><a href="#顶部标签" class="headerlink" title="顶部标签"></a>顶部标签</h2><p><img src="https://user-gold-cdn.xitu.io/2019/3/20/1699a6698752f04f?w=1084&amp;h=406&amp;f=png&amp;s=71112" alt=""><br>即我上面红框圈住的部分，这部分由于要做页面滚动的时候常驻顶部，个人为了简单省事，采用了ant-design中的Affix组件，另外导航组件我抽离了一个公用组件，从外部传入tags数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Affix&#125; from &apos;antd&apos;;</span><br><span class="line">...</span><br><span class="line">this.state=&#123;</span><br><span class="line">    tags:[</span><br><span class="line">        &#123;</span><br><span class="line">            path:&apos;recommended&apos;,</span><br><span class="line">            text:&apos;推荐&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            path:&apos;following&apos;,</span><br><span class="line">            text:&apos;关注&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;Affix offsetTop=&#123;this.state.top&#125;&gt;</span><br><span class="line">    &lt;div className=&quot;home-nav&quot;&gt;</span><br><span class="line">        &lt;nav&gt;</span><br><span class="line">            &lt;HomeNav tags=&#123;this.state.tags&#125; match=&#123;match&#125;/&gt;</span><br><span class="line">            &lt;a href=&quot;/&quot;&gt;标签管理&lt;/a&gt;</span><br><span class="line">        &lt;/nav&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/Affix&gt;</span><br></pre></td></tr></table></figure>
+<p>HomeNav组件如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">import &#123; NavLink &#125; from &apos;react-router-dom&apos;</span><br><span class="line">...</span><br><span class="line">class HomeNav extends Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &#123;this.props.tags.map((item,index)=&gt;&#123;</span><br><span class="line">                    return &lt;li key=&#123;item.path&#125;&gt;</span><br><span class="line">                        &lt;NavLink to=&#123;`/timeline/$&#123;item.path&#125;`&#125;&gt;&#123;item.text&#125;&lt;/NavLink&gt;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                &#125;)&#125;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default HomeNav;</span><br></pre></td></tr></table></figure>
+<h2 id="动作部分"><a href="#动作部分" class="headerlink" title="动作部分"></a>动作部分</h2><p><img src="https://user-gold-cdn.xitu.io/2019/3/20/1699a6d9318aae61?w=1105&amp;h=196&amp;f=png&amp;s=26896" alt=""><br>该部分的实现方式可参考上面tag标签实现部分，基本类似。<br>头像部分我使用了ant-design中Avatar，用来代表用户或事物，支持图片、图标或字符展示。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/20/1699a704aea145bc?w=1103&amp;h=450&amp;f=png&amp;s=75565" alt=""></p>
+<h2 id="文章列表部分"><a href="#文章列表部分" class="headerlink" title="文章列表部分"></a>文章列表部分</h2><p>列表部分使用了ant-design中list组件</p>
+<ul>
+<li>列表结构实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123; List,Statistic,Icon,Popover &#125; from &apos;antd&apos;;</span><br><span class="line">...</span><br><span class="line">const &#123;data&#125;=this.props;</span><br><span class="line">...</span><br><span class="line">&lt;List</span><br><span class="line">    itemLayout=&quot;horizontal&quot;</span><br><span class="line">    dataSource=&#123;data&#125;</span><br><span class="line">    renderItem=&#123;item =&gt; (</span><br><span class="line">    &lt;List.Item extra=&#123;item.articleImage ? &lt;img width=&#123;80&#125; alt=&quot;logo&quot; src=&#123;item.articleImage&#125; /&gt;:&apos;&apos;&#125; onClick=&#123;this.showArticleInfo.bind(this,item.id)&#125;&gt;</span><br><span class="line">        添加内容</span><br><span class="line">    &lt;/List.Item&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>实际中data应该是根据传入的userID和标签去数据库查询得到的真实数据，我这里的data就从上一级中进行了获取。每一个listItem上面绑定了点击事件，最终需要跳转到文章详情页面。</p>
+<ul>
+<li>列表内部结构</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/20/1699a7ad410054ff?w=761&amp;h=144&amp;f=png&amp;s=16284" alt=""><br>整体分成上中下三部分来实现布局,右侧的图片是在上一步listItem中配置extra属性可以实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;article&gt;</span><br><span class="line">    &lt;section className=&quot;list-part1&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li className=&quot;item post&quot;&gt;&#123;item.articleType===&apos;1&apos;?&apos;专栏&apos;:&apos;小册&apos;&#125;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&#123;item.author&#125;&lt;/li&gt;</span><br><span class="line">            &#123;item.time?&lt;li&gt;&#123;item.time&#125;&lt;/li&gt;:&apos;&apos;&#125;</span><br><span class="line">            &#123;item.tags.length!==0?&lt;li&gt;&#123;item.tags.map((tag,index)=&gt;&#123;</span><br><span class="line">                return &lt;NavLink key=&#123;tag&#125; to=&#123;`/tag/$&#123;tag&#125;`&#125;&gt;&#123;tag&#125;&lt;/NavLink&gt;</span><br><span class="line">            &#125;)&#125;&lt;/li&gt;:&apos;&apos;&#125;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">    &lt;section className=&quot;list-part2&quot;&gt;</span><br><span class="line">        &lt;NavLink to=&#123;`/post/:articleId`&#125;&gt;&#123;item.title&#125;&lt;/NavLink&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">    &lt;section className=&quot;list-part3&quot;&gt;</span><br><span class="line">        &#123;item.articleType===&apos;1&apos;?</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Statistic value=&#123;item.starNum&#125; prefix=&#123;&lt;Icon type=&quot;like&quot; theme=&quot;filled&quot; style=&#123;&#123; fontSize: &apos;14px&apos;&#125;&#125; /&gt;&#125; onClick=&#123;()=&gt;this.props.editStar(item.id)&#125; /&gt;</span><br><span class="line">                &lt;Statistic value=&#123;item.commentNum&#125; prefix=&#123;&lt;Icon type=&quot;message&quot; theme=&quot;filled&quot; style=&#123;&#123; fontSize: &apos;14px&apos;&#125;&#125; onClick=&#123;()=&gt;this.props.lookComment(item.id)&#125; /&gt;&#125; /&gt;</span><br><span class="line">                &lt;Icon type=&quot;upload&quot; style=&#123;&#123; fontSize: &apos;16px&apos;,marginLeft:&apos;10px&apos;,borderRight:&apos;none&apos;&#125;&#125; /&gt;</span><br><span class="line">                &lt;Icon type=&quot;star&quot; theme=&quot;filled&quot; style=&#123;&#123; fontSize: &apos;16px&apos;&#125;&#125; onClick=&#123;()=&gt;this.props.collectArticle(item.id)&#125; /&gt;</span><br><span class="line">            &lt;/div&gt;:</span><br><span class="line">            &lt;div className=&quot;xiaoce-action-row&quot;&gt;</span><br><span class="line">                &lt;span className=&quot;link-btn buy&quot;&gt;购买人数: &#123;item.sellNums&#125;&lt;/span&gt;</span><br><span class="line">                &lt;span className=&quot;link-btn sale&quot;&gt;特价: &#123;item.price&#125;元&lt;/span&gt;</span><br><span class="line">                &lt;span className=&quot;link-btn share&quot;&gt;</span><br><span class="line">                    &lt;Icon type=&quot;upload&quot; style=&#123;&#123; fontSize: &apos;16px&apos;,marginLeft:&apos;10px&apos;,borderRight:&apos;none&apos;&#125;&#125; onClick=&#123;()=&gt;this.props.shareArticle(item.id)&#125; /&gt;</span><br><span class="line">                    分享</span><br><span class="line">                &lt;/span&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">&lt;/article&gt;</span><br></pre></td></tr></table></figure>
+<p>掘金官网文章列表根据文章的类型是专栏还是小册显示不同的内容，即这里根据item的articleType进行了区分，这里用到了三目运算符做了显示控制渲染。<br><strong>React中条件渲染的方式有以下几种，补充下知识点：</strong><br>（1）if 语句<br>（2）三目操作符<br>（3）逻辑 &amp;&amp; 操作符<br>（4）switch.. case.. 语句<br>（5）枚举<br>（6）多层条件渲染<br>（7）使用高阶组件<br>详情可查阅该<a href="https://www.jianshu.com/p/fe5205b33707" target="_blank" rel="noopener">文章</a></p>
+<h2 id="点击分享"><a href="#点击分享" class="headerlink" title="点击分享"></a>点击分享</h2><ul>
+<li>安装qrcode.react插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add qrcode.react --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>引入使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const QRCode = require(&apos;qrcode.react&apos;);</span><br><span class="line">...</span><br><span class="line">&lt;QRCode value=&#123;this.props.value&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>value值是从上一级组件传入的值,该插件属性描述：<br>| prop          | type                     | default value |<br>| ————- | ———————— | ————- |<br>| value         | string                   | -             |<br>| renderAs      | string (‘canvas’ ‘svg’)  | ‘canvas’      |<br>| size          | number                   | 128           |<br>| bgColor       | string (CSS color)       | “#FFFFFF”     |<br>| fgColor       | string (CSS color)       | “#000000”     |<br>| level         | string (‘L’ ‘M’ ‘Q’ ‘H’) | ‘L’           |<br>| includeMargin | boolean                  | false         |</p>
+<ul>
+<li>抽离分享组件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class Qrcode extends Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            shareTypes:[</span><br><span class="line">                &#123;</span><br><span class="line">                    image:&apos;//b-gold-cdn.xitu.io/v3/static/img/weibo.8e2f5d6.svg&apos;,</span><br><span class="line">                    text:&apos;微博&apos;,</span><br><span class="line">                    showQrcode:false,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    image:&apos;//b-gold-cdn.xitu.io/v3/static/img/wechat.844402c.svg&apos;,</span><br><span class="line">                    text:&apos;微信扫一扫&apos;,</span><br><span class="line">                    showQrcode:true,</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        const QRCode = require(&apos;qrcode.react&apos;);</span><br><span class="line">        return (</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &#123;this.state.shareTypes.map(item=&gt;&#123;</span><br><span class="line">                    return &lt;li key=&#123;item.text&#125; style=&#123;&#123;borderBottom:&apos;1px solid rgba(217,222,224,.99)&apos;,padding:&apos;10px&apos;,cursor:&apos;pointer&apos;&#125;&#125;&gt;</span><br><span class="line">                        &lt;div&gt;</span><br><span class="line">                            &lt;img alt=&#123;item.text&#125; src=&#123;item.image&#125; style=&#123;&#123;width:&apos;24px&apos;,height:&apos;24px&apos;,marginRight:&apos;5px&apos;&#125;&#125; /&gt;</span><br><span class="line">                            &lt;label style=&#123;&#123;color:&apos;#8f969c&apos;&#125;&#125;&gt;&#123;item.text&#125;&lt;/label&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &#123;item.showQrcode?&lt;div style=&#123;&#123;textAlign:&apos;center&apos;&#125;&#125;&gt;</span><br><span class="line">                            &lt;QRCode value=&#123;this.props.value&#125; /&gt;</span><br><span class="line">                        &lt;/div&gt;:&apos;&apos;&#125;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                &#125;)&#125;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Qrcode;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>分享组件使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import Qrcode from &apos;../../components/Qrcode&apos;;</span><br><span class="line">...</span><br><span class="line">&lt;Popover content=&#123;&lt;Qrcode value=&#123;window.location.href+&apos;/&apos;+item.id&#125; /&gt;&#125; placement=&quot;bottom&quot; trigger=&quot;click&quot;&gt;</span><br><span class="line">    &lt;Icon type=&quot;upload&quot; style=&#123;&#123; fontSize: &apos;16px&apos;,marginLeft:&apos;10px&apos;,borderRight:&apos;none&apos;&#125;&#125; onClick=&#123;()=&gt;this.props.shareArticle(item.id)&#125; /&gt;</span><br><span class="line">    分享</span><br><span class="line">&lt;/Popover&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="右侧卡片内容"><a href="#右侧卡片内容" class="headerlink" title="右侧卡片内容"></a>右侧卡片内容</h2><p>这块内容采用了ant-design中的card组件，直接看代码吧。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Card &#125; from &apos;antd&apos;;</span><br><span class="line">...</span><br><span class="line">&lt;Card</span><br><span class="line">    title=&quot;掘金优秀作者&quot;</span><br><span class="line">    style=&#123;&#123; width: &apos;100%&apos; &#125;&#125;</span><br><span class="line">    hoverable=&#123;&apos;true&apos;&#125;</span><br><span class="line">    actions=&#123;[&lt;NavLink to=&apos;/recommendation/authors/recommended&apos; style=&#123;&#123;color:&apos;#007fff&apos;&#125;&#125;&gt;查看更多&gt;&lt;/NavLink&gt;]&#125;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;List</span><br><span class="line">        itemLayout=&quot;horizontal&quot;</span><br><span class="line">        dataSource=&#123;this.props.goodAuthor&#125;</span><br><span class="line">        renderItem=&#123;item =&gt; (</span><br><span class="line">        &lt;List.Item onClick=&#123;()=&gt;window.location.href=&apos;/user/&apos;+item.id&#125;&gt;</span><br><span class="line">            &lt;List.Item.Meta</span><br><span class="line">            avatar=&#123;&lt;Avatar size=&#123;46&#125; src=&#123;item.userImage&#125; /&gt;&#125;</span><br><span class="line">            title=&#123;item.title&#125;</span><br><span class="line">            description=&#123;&lt;div className=&quot;overflow-ellipsis&quot;&gt;&#123;item.desc&#125;&lt;/div&gt;&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;/List.Item&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/Card&gt;</span><br></pre></td></tr></table></figure>
+<p>goodAuthor数据是从父级传入的数据哈。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/20/1699afd7ca3b5310?w=524&amp;h=1602&amp;f=png&amp;s=201017" alt=""><br>这里的内容结构类似，外层card组件，内置不同不同内容，就不重复了，想看具体实现的话请移步<a href="https://github.com/rocky-191/react-juejin" target="_blank" rel="noopener">github</a>,不要忘了star哈。   </p>
+<p>card内部使用list组件，竖着排列各自的内容，这一块总觉得可以抽成一个公用的card组件，然后填充不同内容，暂时就先这样吧，列入后期重构计划！这时就怀念vue中的slot方法了，可以方便的放置不同内容。jsx也有自己的方便之处吧，灵活的使用各种标签。</p>
+<p>以上就是首页的一个简单说明了，页面大部分的链接router跳转功能还没有实现，后续陆续更新中。  </p>
+<p>想看第一篇文章的朋友可以查看<a href="https://rocky-191.github.io/2019/03/19/react-juejin/" target="_blank" rel="noopener">使用React构建精简版本掘金（一）</a>,上述所有详细代码都已经放到<a href="https://github.com/rocky-191/react-juejin" target="_blank" rel="noopener">github</a>了，欢迎浏览和star哈，都已经看到这里了，那就麻烦大家点个赞在走吧！</p>
+<p>既然没有合适的坑，那就趁着闲暇，继续提升自己的能力吧！最后鼓励下自己：扛过了艰难的时光，回头看，那也就不是什么大不了的事情了！</p>
 
       
     </div>
@@ -457,9 +500,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/react/" rel="tag"># react</a>
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/ant-design/" rel="tag"># ant-design</a>
           
         </div>
       
@@ -472,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/12/vueDevDiary1/" rel="next" title="vue项目开发记录随笔">
-                <i class="fa fa-chevron-left"></i> vue项目开发记录随笔
+              <a href="/2019/03/19/react-juejin/" rel="next" title="使用React构建精简版本掘金（一）">
+                <i class="fa fa-chevron-left"></i> 使用React构建精简版本掘金（一）
               </a>
             
           </div>
@@ -481,10 +524,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/11/usefulFunction/" rel="prev" title="常用函数集合整理">
-                常用函数集合整理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -657,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#首页"><span class="nav-number">1.</span> <span class="nav-text">首页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顶部标签"><span class="nav-number">1.1.</span> <span class="nav-text">顶部标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动作部分"><span class="nav-number">1.2.</span> <span class="nav-text">动作部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章列表部分"><span class="nav-number">1.3.</span> <span class="nav-text">文章列表部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击分享"><span class="nav-number">1.4.</span> <span class="nav-text">点击分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右侧卡片内容"><span class="nav-number">1.5.</span> <span class="nav-text">右侧卡片内容</span></a></li></ol></li></ol></div>
             
 
           </div>
