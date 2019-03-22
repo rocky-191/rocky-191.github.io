@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/03/20/react-juejin3/</loc>
+        <lastmod>2019-03-22T12:07:09.451Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/03/19/react-juejin/</loc>
         <lastmod>2019-03-20T12:27:09.095Z</lastmod>
         <changefreq>weekly</changefreq>
