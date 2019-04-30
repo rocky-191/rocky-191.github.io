@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="css,vue," />
+  <meta name="keywords" content="react,ant-design," />
 
 
 
@@ -91,20 +91,21 @@
 
 
 
-<meta name="description" content="最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。">
-<meta name="keywords" content="css,vue">
+<meta name="description" content="距离上篇文章已经过去了大半个月，本来打算只更新代码，最后还是决定把做的过程中遇到的问题记录出来，说不定就可以帮助一些同学，也算是幸事，如果没有，那就当作自己梳理知识点吧！  该篇文章主要讲述以下知识点：  如何mock数据 React组件中修改Redux中的数据  mock数据有三种方式：  利用node搭服务，mock数据 利用现成网上mock服务，比如easy mock 本地json数据模拟请">
+<meta name="keywords" content="react,ant-design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多层级组织结构树">
-<meta property="og:url" content="http://yoursite.com/2018/07/13/treeMenu/index.html">
+<meta property="og:title" content="使用React构建精简版本掘金（五）">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/react-juejin5/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。">
+<meta property="og:description" content="距离上篇文章已经过去了大半个月，本来打算只更新代码，最后还是决定把做的过程中遇到的问题记录出来，说不定就可以帮助一些同学，也算是幸事，如果没有，那就当作自己梳理知识点吧！  该篇文章主要讲述以下知识点：  如何mock数据 React组件中修改Redux中的数据  mock数据有三种方式：  利用node搭服务，mock数据 利用现成网上mock服务，比如easy mock 本地json数据模拟请">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/7/13/164918db32f78538?w=750&h=1333&f=png&s=108657">
-<meta property="og:updated_time" content="2018-09-03T09:43:54.308Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/30/16a6e5b54df5f8d1?w=672&h=632&f=png&s=61735">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/30/16a6b751c735f491?w=1300&h=393&f=png&s=39726">
+<meta property="og:updated_time" content="2019-04-30T13:27:37.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多层级组织结构树">
-<meta name="twitter:description" content="最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/7/13/164918db32f78538?w=750&h=1333&f=png&s=108657">
+<meta name="twitter:title" content="使用React构建精简版本掘金（五）">
+<meta name="twitter:description" content="距离上篇文章已经过去了大半个月，本来打算只更新代码，最后还是决定把做的过程中遇到的问题记录出来，说不定就可以帮助一些同学，也算是幸事，如果没有，那就当作自己梳理知识点吧！  该篇文章主要讲述以下知识点：  如何mock数据 React组件中修改Redux中的数据  mock数据有三种方式：  利用node搭服务，mock数据 利用现成网上mock服务，比如easy mock 本地json数据模拟请">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/4/30/16a6e5b54df5f8d1?w=672&h=632&f=png&s=61735">
 
 
 
@@ -134,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/13/treeMenu/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/30/react-juejin5/"/>
 
 
 
 
 
-  <title>多层级组织结构树 | 笨小孩杂谈</title>
+  <title>使用React构建精简版本掘金（五） | 笨小孩杂谈</title>
   
 
 
@@ -311,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/treeMenu/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/react-juejin5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rocky-191">
@@ -328,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">多层级组织结构树</h1>
+          <h1 class="post-title" itemprop="name headline">使用React构建精简版本掘金（五）</h1>
         
 
         <div class="post-meta">
@@ -340,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-13T10:59:36+08:00">
-                2018-07-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T21:25:18+08:00">
+                2019-04-30
               </time>
             
 
@@ -363,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
                   </a>
                 </span>
 
@@ -405,12 +406,78 @@
       
 
       
-        <p>最近公司使用vue开发手机端项目，有个需求是实现派发树，网上找了半天没找到合适的。决定自己撸一个试试，要求多层级，层级不定而且。  </p>
-<a id="more"></a>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>treeMenu.vue文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;ul class=&quot;distributionTree&quot;&gt;</span><br><span class="line">      &lt;li v-for=&quot;(item,index) in data&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;treeContent0&quot;&gt;</span><br><span class="line">          &lt;span v-if=&quot;mode==item.orgType || mode==&apos;2&apos;&quot;&gt;</span><br><span class="line">            &lt;span v-if=&quot;assignType==&apos;1&apos;&quot;&gt;</span><br><span class="line">              &lt;span class=&quot;checkbox&quot; :class=&quot;&#123;&apos;checkbox_active&apos;:item.checkboxActive&#125;&quot; @click=&quot;item.checkboxActive=!item.checkboxActive&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">            &lt;span v-else-if=&quot;assignType==&apos;0&apos;&quot;&gt;</span><br><span class="line">              &lt;span class=&quot;radio&quot; :class=&quot;&#123;&apos;radio_active&apos;:item.radioActive&#125;&quot; @click=&quot;radionToggle(item,data)&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">          &lt;/span&gt;</span><br><span class="line">          &lt;label&gt;&#123;&#123;item.text&#125;&#125;&lt;/label&gt;</span><br><span class="line">          &lt;span class=&quot;nextSet&quot; :class=&quot;&#123;&apos;nextSet_active&apos;:item.nextSetActive&#125;&quot; v-if=&quot;item.orgType!=&apos;0&apos;&quot; @click=&quot;toggle(item, index)&quot;&gt;&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;tree-menu v-on=&quot;$listeners&quot; :data=&quot;item.org&quot; :assignType=&quot;assignType&quot; :mode=&quot;mode&quot; v-if=&quot;item.nextSetActive&quot;&gt;&lt;/tree-menu&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
-<p>data就是派发树的内容，我们项目实际需要判断是否显示单选钮和多选钮，通过orgType 和mode判断，orgType 是每一条数据里的一项，mode是上一层传过来的数据信息。然后通过assignType判断是单选钮还是多选钮，当然assignType也是上一层调用树组件传过来的数据啦。<br>其中用到了一个知识点：v-on=”$listeners”，用来监听多层级树中的事件。之前写的一篇文章有介绍该内容<a href="https://rocky-191.github.io/2018/07/12/vueDevDiary1/#more" target="_blank" rel="noopener">vue项目技术随笔</a>，欢迎阅读。<br>一些相关的methods如下:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">  toggle (item, index) &#123;</span><br><span class="line">    item.nextSetActive=!item.nextSetActive;</span><br><span class="line">    if (item.org==null ||item.org.length==0) &#123;</span><br><span class="line">      Indicator.open(&apos;加载中...&apos;);</span><br><span class="line">      this.$emit(&apos;getsubmenu&apos;, item,()=&gt;&#123;</span><br><span class="line">        Indicator.close();</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  radionToggle(item,data)&#123;</span><br><span class="line">    data.forEach((e,index)=&gt;&#123;</span><br><span class="line">      e.radioActive=false;</span><br><span class="line">    &#125;);</span><br><span class="line">    item.radioActive=!item.radioActive;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该移动端项目中使用了mintui作为ui框架，使用了其中的加载效果，点击展现下一层级的时候出现加载中，提升用户体验。toggle作用展示和隐藏下一层级，如果下一层级没有数据，需要触发动作去取数据，呈现加载中，取到数据后，回调函数，让加载中提示效果消失。<br>radionToggle方法就是实现单选钮的选中效果了，很简单。看一下最终的效果呈现：<br><img src="https://user-gold-cdn.xitu.io/2018/7/13/164918db32f78538?w=750&amp;h=1333&amp;f=png&amp;s=108657" alt=""><br>具体的css就靠大家自己发挥了，不同的设计不同的css，感谢大家的支持。</p>
+        <p>距离上篇文章已经过去了大半个月，本来打算只更新代码，最后还是决定把做的过程中遇到的问题记录出来，说不定就可以帮助一些同学，也算是幸事，如果没有，那就当作自己梳理知识点吧！ </p>
+<p>该篇文章主要讲述以下知识点：</p>
+<ul>
+<li>如何mock数据</li>
+<li>React组件中修改Redux中的数据</li>
+</ul>
+<h1 id="mock数据"><a href="#mock数据" class="headerlink" title="mock数据"></a>mock数据</h1><p>有三种方式：</p>
+<ul>
+<li>利用node搭服务，mock数据</li>
+<li>利用现成网上mock服务，比如<a href="https://www.easy-mock.com/login" target="_blank" rel="noopener">easy mock</a></li>
+<li>本地json数据模拟请求</li>
+</ul>
+<p>介绍下本地数据模拟请求，利用axios请求数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios&apos;;</span><br><span class="line"></span><br><span class="line">const BaseUrl=&apos;./mock/homeData/&apos;;</span><br><span class="line">const getHome=()=&gt;&#123;</span><br><span class="line">    return axios.get(BaseUrl+&apos;home.json&apos;).then(res=&gt;&#123;</span><br><span class="line">        return res.data</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const getArticleList=()=&gt;&#123;</span><br><span class="line">    return axios.get(BaseUrl+&apos;articleList.json&apos;).then(res=&gt;&#123;</span><br><span class="line">        return res.data</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; getHome,getArticleList &#125;</span><br></pre></td></tr></table></figure>
+<p>本地json数据存放位置如下<br><img src="https://user-gold-cdn.xitu.io/2019/4/30/16a6e5b54df5f8d1?w=672&amp;h=632&amp;f=png&amp;s=61735" alt=""></p>
+<h1 id="React组件中修改Redux中的数据"><a href="#React组件中修改Redux中的数据" class="headerlink" title="React组件中修改Redux中的数据"></a>React组件中修改Redux中的数据</h1><p>定义好state，reducer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//userReducer.js</span><br><span class="line"></span><br><span class="line">// 1.定义默认数据</span><br><span class="line">let initialState = &#123;</span><br><span class="line">    userId:&apos;&apos;,</span><br><span class="line">    userName:&apos;&apos;,//实际项目与此不同</span><br><span class="line">    userImage: &apos;&apos;,</span><br><span class="line">    userDesc:&apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// action creators</span><br><span class="line">export const actions = &#123;</span><br><span class="line">    login: (userInfo) =&gt; &#123;</span><br><span class="line">        return &#123;type: &apos;CHANGE_USER&apos;,userName: userInfo.username,userId:userInfo.userId&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    logout:()=&gt;&#123;</span><br><span class="line">        return &#123;type:&apos;LOGOUT&apos;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 2.Reducer</span><br><span class="line">const userReducer = (state = initialState, action) =&gt; &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case &apos;CHANGE_USERIMAGE&apos;:</span><br><span class="line">            return &#123; ...state, userImage: action.userImage &#125;</span><br><span class="line">        case &apos;CHANGE_USERID&apos;:</span><br><span class="line">            return &#123; ...state,userId:action.userId&#125;</span><br><span class="line">        case &apos;CHANGE_USER&apos;:</span><br><span class="line">            return &#123; ...state,userName:action.userName,userId:action.userId&#125;</span><br><span class="line">        case &apos;LOGOUT&apos;:</span><br><span class="line">            return &#123;...state,userName:&apos;&apos;,userId:&apos;&apos;&#125;</span><br><span class="line">        default:</span><br><span class="line">            return state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 3.导出</span><br><span class="line">export default userReducer;</span><br></pre></td></tr></table></figure></p>
+<p>在组件中操作修改state</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">this.props.login(&#123;username:username,userId:userId&#125;);//修改存储在redux中的用户信息</span><br><span class="line">...</span><br><span class="line">const mapStateToProps = (state, ownProps) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapDispatchToProps = (dispatch, ownProps) =&gt; &#123;</span><br><span class="line">  return bindActionCreators(&#123;</span><br><span class="line">    login: authActions.login</span><br><span class="line">  &#125;,dispatch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Login=connect(mapStateToProps,mapDispatchToProps)(Login)</span><br><span class="line"></span><br><span class="line">export default Login;</span><br></pre></td></tr></table></figure>
+<p>Redux通过reducer解析action。reducer是一个普通的js函数，接受action作为参数，然后返回一个新的state。</p>
+<p><strong>三大原则</strong></p>
+<ul>
+<li>唯一数据源</li>
+<li>保持state状态只读</li>
+<li>state的改变必须通过纯函数完成</li>
+</ul>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p>Redux应用只维护一个全局的状态对象，存在Redux的store中。程序任何时候都不能直接去修改状态state，如果需要修改state，必须发送一个action，通过action去描述如何修改state。action描述了改变state的意图，真正对state作出修改的是reducer。reducer必须是<strong>纯函数</strong>，所以reducer在收到action后，不能直接去修改原来的状态state，而是应该创建一个新的状态对象返回。  </p>
+<blockquote>
+<p>纯函数需要满足两个条件：<br>（1）对于同样的参数值，函数返回结果总是相同的，就是函数结果不依赖任何在程序执行过程中可能改变的变量。<br>（2）函数的执行过程不会产生比的副作用，例如会修改外部对象，有时会去修改页面标题，这就是副作用。</p>
+</blockquote>
+<p>数据流向的一个简单示意图，来自<a href="https://facebook.github.io/flux/docs/in-depth-overview.html#content" target="_blank" rel="noopener">Flux官网</a><br><img src="https://user-gold-cdn.xitu.io/2019/4/30/16a6b751c735f491?w=1300&amp;h=393&amp;f=png&amp;s=39726" alt=""></p>
+<p>可以看出Redux应用的主要组成有action，reducer和store。</p>
+<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>action是Redux中的信息载体，是store的唯一来源。把action发给store必须通过store中的dispach方法。其实action就是一个普通的js对象，但是每个action必须有一个type属性用来描述action类型，要做什么操作。除了type属性歪，action的结构完全由你决定，不过应该保证可以清晰描述使用场景。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function logout(info)&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        type:&apos;LOGOUT&apos;,</span><br><span class="line">        info</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>reducer根据action做出响应，决定如何修改应用状态state。其实在写reducer之前就应该设计好state。</p>
+<p>state：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 1.定义默认数据</span><br><span class="line">let initialState = &#123;</span><br><span class="line">    userId:&apos;&apos;,</span><br><span class="line">    userName:&apos;&apos;,//实际项目与此不同</span><br><span class="line">    userImage: &apos;&apos;,</span><br><span class="line">    userDesc:&apos;&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>reducer：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 2.Reducer</span><br><span class="line">const userReducer = (state = initialState, action) =&gt; &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case &apos;CHANGE_USERIMAGE&apos;:</span><br><span class="line">            return &#123; ...state, userImage: action.userImage &#125;</span><br><span class="line">        case &apos;CHANGE_USERID&apos;:</span><br><span class="line">            return &#123; ...state,userId:action.userId&#125;</span><br><span class="line">        case &apos;CHANGE_USER&apos;:</span><br><span class="line">            return &#123; ...state,userName:action.userName,userId:action.userId&#125;</span><br><span class="line">        case &apos;LOGOUT&apos;:</span><br><span class="line">            return &#123;...state,userName:&apos;&apos;,userId:&apos;&apos;&#125;</span><br><span class="line">        default:</span><br><span class="line">            return state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里使用了ES6的扩展运算符（…）创建新的state对象，避免直接修改之前的state对象。</p>
+</blockquote>
+<p>在实际项目中，可能会有很多reducer，就需要把reducer拆分保存在单独的文件中。Redux提供了一个combineReducers函数，用来合并reducer。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123;combineReducers&#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">import pageHeaderReducer from &apos;./pageHeader.js&apos;;</span><br><span class="line">import userReducer from &apos;./userReducer&apos;;</span><br><span class="line"></span><br><span class="line">const appReducer = combineReducers(&#123;</span><br><span class="line">    pageHeaderReducer,</span><br><span class="line">    userReducer,</span><br><span class="line">&#125;);</span><br><span class="line">export default appReducer;</span><br></pre></td></tr></table></figure>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>store是Redux中的一个对象，作为action和reducer之间的一个桥梁。<br>作用：</p>
+<ul>
+<li>保存应用状态</li>
+<li>通过方法获取应用状态</li>
+<li>通过dispatch(action)发送更新状态的指令</li>
+<li>通过方法subscribe(listener)注册监听函数、监听状态的改变。</li>
+</ul>
+<p>总结下Redux中的数据流过程：</p>
+<ul>
+<li>（1）通过调用store.dispatch(action)。一个action描述了“发生了什么”的对象以及可能会携带一些参数。store.dispatch(action)可以在应用中任何位置调用。</li>
+<li>（2）Redux的store调用reducer函数。store传递两个参数给reducer，分别是当前应用的状态和action，reducer必须是纯函数。</li>
+<li>（3）根reducer可以把多个子reducer合并在一起，返回组成最终的应用状态。利用combineReducers进行组合。</li>
+<li>（4）Redux的store保存根reducer返回的完整应用状态，这整个流程走完，应用状态才完成更新。</li>
+</ul>
+<h2 id="在React中使用Redux"><a href="#在React中使用Redux" class="headerlink" title="在React中使用Redux"></a>在React中使用Redux</h2><p>基础安装使用方法已经在<a href="https://rocky-191.github.io/2019/03/19/react-juejin/" target="_blank" rel="noopener">第一篇</a>中做了介绍，此处重点介绍下connect中的mapStateToProps和mapDispatchToProps。</p>
+<h3 id="mapStateToProps"><a href="#mapStateToProps" class="headerlink" title="mapStateToProps"></a>mapStateToProps</h3><p>mapStateToProps是一个函数，从名字上看，该函数作用就是把state转换成props。state就是Redux store中保存的应用状态，会作为参数传递给mapStateToProps，props就是被连接展示组件的props。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        userName:state.userReducer.userName,</span><br><span class="line">        userImage:state.userReducer.userImage,</span><br><span class="line">        userId:state.userReducer.userId</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当store中的state改变后，mapStateToProps就会重新执行，重新计算传递给展示组件的props，从而触发组件的重新渲染。</p>
+<blockquote>
+<p><strong>注意</strong>：store中的state改变一定会导致mapStateToProps重新执行，但却不一定会触发组件渲染render方法重新执行。如果mapStateToProps新返回的对象和之前的对象浅比较相等，组件的shouldComponentUpdate方法就会返回false，组件的render方法就不会被再次触发，这也是一个重要优化吧！</p>
+</blockquote>
+<h3 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps"></a>mapDispatchToProps</h3><p>mapDispatchToProps接收store.dispatch方法作为参数，返回展示组件用来修改state的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapDispatchToProps = (dispatch, ownProps) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">      getOrder: (data) =&gt; dispatch(actionCreator(data))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外一种写法，利用bindActionCreators</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; bindActionCreators &#125; from &quot;redux&quot;;</span><br><span class="line"></span><br><span class="line">const mapDispatchToProps = (dispatch, ownProps) =&gt; &#123;</span><br><span class="line">  return bindActionCreators(&#123;</span><br><span class="line">    getOrder: actionCreator.getOrder</span><br><span class="line">  &#125;,dispatch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>bindActionCreators作用是将单个或多个ActionCreator转化为dispatch(action)的函数集合形式。个人感觉会内部自动注入dispatch，不用我们手动去dispatch。之后通过connect连接即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToProps = (state, ownProps) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapDispatchToProps = (dispatch, ownProps) =&gt; &#123;</span><br><span class="line">  return bindActionCreators(&#123;</span><br><span class="line">    login: authActions.login</span><br><span class="line">  &#125;,dispatch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Login=connect(mapStateToProps,mapDispatchToProps)(Login)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意</strong>connect函数参数必须第一个为mapStateToProps，第二个必须为mapDispatchToProps，可以不写mapDispatchToProps，但是如果需要mapDispatchToProps却不能不写mapStateToProps，否则会报错，个人第一次使用就犯了这个错误😓</p>
+</blockquote>
+<p>啰哩啰嗦的说了这么多，码字不易，点赞再走哈。完整项目代码在<a href="https://github.com/rocky-191/react-juejin" target="_blank" rel="noopener">github</a>,欢迎点个star，不胜感激👏👏👏</p>
 
       
     </div>
@@ -457,9 +524,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/react/" rel="tag"># react</a>
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/ant-design/" rel="tag"># ant-design</a>
           
         </div>
       
@@ -472,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/12/vueDevDiary1/" rel="next" title="vue项目开发记录随笔">
-                <i class="fa fa-chevron-left"></i> vue项目开发记录随笔
+              <a href="/2019/04/03/react-juejin4/" rel="next" title="使用React构建精简版本掘金（四）">
+                <i class="fa fa-chevron-left"></i> 使用React构建精简版本掘金（四）
               </a>
             
           </div>
@@ -481,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/11/usefulFunction/" rel="prev" title="常用函数集合整理">
-                常用函数集合整理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -657,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mock数据"><span class="nav-number">1.</span> <span class="nav-text">mock数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React组件中修改Redux中的数据"><span class="nav-number">2.</span> <span class="nav-text">React组件中修改Redux中的数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">2.1.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">2.1.1.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer"><span class="nav-number">2.1.2.</span> <span class="nav-text">reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#store"><span class="nav-number">2.1.3.</span> <span class="nav-text">store</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在React中使用Redux"><span class="nav-number">2.2.</span> <span class="nav-text">在React中使用Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mapStateToProps"><span class="nav-number">2.2.1.</span> <span class="nav-text">mapStateToProps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapDispatchToProps"><span class="nav-number">2.2.2.</span> <span class="nav-text">mapDispatchToProps</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
