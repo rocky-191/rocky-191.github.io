@@ -63,15 +63,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/vue/</loc>
-        <lastmod>2019-03-05T13:50:45.935Z</lastmod>
+        <loc>http://yoursite.com/categories/react/</loc>
+        <lastmod>2019-04-30T13:27:37.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/react/</loc>
-        <lastmod>2019-04-30T13:27:37.522Z</lastmod>
+        <loc>http://yoursite.com/categories/vue/</loc>
+        <lastmod>2019-08-24T15:11:55.840Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

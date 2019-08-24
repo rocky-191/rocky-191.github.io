@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/08/24/vueCompThinking/</loc>
+        <lastmod>2019-08-24T15:11:55.840Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/04/30/react-juejin5/</loc>
         <lastmod>2019-04-30T13:27:37.522Z</lastmod>
         <changefreq>weekly</changefreq>
