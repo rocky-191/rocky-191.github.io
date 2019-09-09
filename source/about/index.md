@@ -8,7 +8,6 @@ github：[github](https://github.com/rocky-191 "github")
 掘金：[掘金](https://juejin.im/user/57ac50292e958a00543ac960)
 segmentfault：[segmentfault](https://segmentfault.com/u/rocky191)   
 个人邮箱：maguoliang191@qq.com
-[个人简历](http://note.youdao.com/noteshare?id=de1bfe50fd62899931f57ffc48f80e36),更新于2018-9-12
 欢迎各路小伙伴交流学习。  
 
 <center>相信未来
