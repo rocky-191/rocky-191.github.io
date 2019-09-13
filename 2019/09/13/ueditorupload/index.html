@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -91,27 +91,18 @@
 
 
 
-<meta name="description" content="项目结束一段时间，写个文章总结下。初入项目组，看到了3000行的vue文件，一口血差点捧出，无奈上一个程序员已经离职，留下的坑，只能自己填上了。在重构项目的过程中，也发现了一些别的问题，组内分享会做了总结分享，这次总结成文章特此记录。">
-<meta name="keywords" content="vue">
+<meta name="description" content="最近项目里需要用到富文本编辑器，同事选择里百度出的ueditor，但是里面自带的图片上传功能需要后台配合，配置成服务器地址，和我们实际情况不是太符合，于是另想办法，搞定图片上传。 重写配置项首先重写里toolbars配置。最重要的是要把原先的上传图片功能按钮去掉，下面是我用到的配置项 123456789101112131415161718192021222324252627282930313233">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue组件化思考">
-<meta property="og:url" content="http://yoursite.com/2019/08/24/vueCompThinking/index.html">
+<meta property="og:title" content="ueditor图片上传方式处理">
+<meta property="og:url" content="http://yoursite.com/2019/09/13/ueditorupload/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="项目结束一段时间，写个文章总结下。初入项目组，看到了3000行的vue文件，一口血差点捧出，无奈上一个程序员已经离职，留下的坑，只能自己填上了。在重构项目的过程中，也发现了一些别的问题，组内分享会做了总结分享，这次总结成文章特此记录。">
+<meta property="og:description" content="最近项目里需要用到富文本编辑器，同事选择里百度出的ueditor，但是里面自带的图片上传功能需要后台配合，配置成服务器地址，和我们实际情况不是太符合，于是另想办法，搞定图片上传。 重写配置项首先重写里toolbars配置。最重要的是要把原先的上传图片功能按钮去掉，下面是我用到的配置项 123456789101112131415161718192021222324252627282930313233">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc406aaf9606f2?w=746&h=240&f=png&s=217970">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc40b0747a42c1?w=1024&h=772&f=png&s=167403">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc41b224a7034f?w=571&h=394&f=png&s=106192">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc41b3f08b3b63?w=332&h=441&f=png&s=73208">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc41bcf295589d?w=852&h=630&f=png&s=171978">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc41ce329f3237?w=620&h=338&f=png&s=95649">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc41cfbf8c25fe?w=571&h=341&f=png&s=95722">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc420c94127fcd?w=2048&h=1160&f=png&s=2719163">
-<meta property="og:updated_time" content="2019-08-24T15:11:55.840Z">
+<meta property="og:updated_time" content="2019-09-13T11:01:03.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue组件化思考">
-<meta name="twitter:description" content="项目结束一段时间，写个文章总结下。初入项目组，看到了3000行的vue文件，一口血差点捧出，无奈上一个程序员已经离职，留下的坑，只能自己填上了。在重构项目的过程中，也发现了一些别的问题，组内分享会做了总结分享，这次总结成文章特此记录。">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/24/16cc406aaf9606f2?w=746&h=240&f=png&s=217970">
+<meta name="twitter:title" content="ueditor图片上传方式处理">
+<meta name="twitter:description" content="最近项目里需要用到富文本编辑器，同事选择里百度出的ueditor，但是里面自带的图片上传功能需要后台配合，配置成服务器地址，和我们实际情况不是太符合，于是另想办法，搞定图片上传。 重写配置项首先重写里toolbars配置。最重要的是要把原先的上传图片功能按钮去掉，下面是我用到的配置项 123456789101112131415161718192021222324252627282930313233">
 
 
 
@@ -141,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/24/vueCompThinking/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/09/13/ueditorupload/"/>
 
 
 
 
 
-  <title>vue组件化思考 | 笨小孩杂谈</title>
+  <title>ueditor图片上传方式处理 | 笨小孩杂谈</title>
   
 
 
@@ -318,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/vueCompThinking/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/13/ueditorupload/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rocky-191">
@@ -335,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue组件化思考</h1>
+          <h1 class="post-title" itemprop="name headline">ueditor图片上传方式处理</h1>
         
 
         <div class="post-meta">
@@ -347,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T23:07:52+08:00">
-                2019-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-13T18:59:42+08:00">
+                2019-09-13
               </time>
             
 
@@ -370,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -412,58 +403,18 @@
       
 
       
-        <p>项目结束一段时间，写个文章总结下。初入项目组，看到了3000行的vue文件，一口血差点捧出，无奈上一个程序员已经离职，留下的坑，只能自己填上了。在重构项目的过程中，也发现了一些别的问题，组内分享会做了总结分享，这次总结成文章特此记录。</p>
-<a id="more"></a>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc406aaf9606f2?w=746&amp;h=240&amp;f=png&amp;s=217970" alt=""><br><strong>用搭积木的方式构建vue组件，就如同搭积木一样，构建我们的项目</strong></p>
-<p>在项目中，对于组件的划分，我们一般会划分为业务组件和功能组件，也可以称为视图组件和容器组件。在react中也被称为无状态组件和UI组件。组件划分明确，对于代码的可维护性和阅读性有一定的便利性。划分方式如下图所示：<br><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc40b0747a42c1?w=1024&amp;h=772&amp;f=png&amp;s=167403" alt=""></p>
-<h2 id="组件设计考量，分而治之"><a href="#组件设计考量，分而治之" class="headerlink" title="组件设计考量，分而治之"></a>组件设计考量，分而治之</h2><p>天下大事，分久必合，合久必分。组件亦然，由以前的写在一起，到如今的明确划分。分而治之的思想，也可以让我们更加专注于主要的功能实现，便于扩展和复用。<br>在组件的设计中，需要考虑以下几点：</p>
-<h3 id="可扩展性强"><a href="#可扩展性强" class="headerlink" title="可扩展性强"></a>可扩展性强</h3><p>扩展性首先是我们要考虑的点，如果不能扩展，就代表着代码写死，失去了代码的灵活性</p>
-<h3 id="组件中方法函数的抽离，便于复用，适用程度高。"><a href="#组件中方法函数的抽离，便于复用，适用程度高。" class="headerlink" title="组件中方法函数的抽离，便于复用，适用程度高。"></a>组件中方法函数的抽离，便于复用，适用程度高。</h3><p>尽可能使用方法定义，避免使用template表达式，不便于复用</p>
-<h3 id="文档清楚详细"><a href="#文档清楚详细" class="headerlink" title="文档清楚详细"></a>文档清楚详细</h3><p>毕竟写的组件是给人用的，不完善的文档让别人如何使用，肯定不能手把手教别人怎么使用吧，所以一个组件详细的使用说明是必须的。</p>
-<h3 id="颗粒度合适，适度抽象"><a href="#颗粒度合适，适度抽象" class="headerlink" title="颗粒度合适，适度抽象"></a>颗粒度合适，适度抽象</h3><p>这个是一个经验的问题，如何衡量颗粒度是否合适，其实是一个度的问题，每个人有每个人的看法，但是尽量保证一个组件完成的功能是单一的，而不是多个功能的结合体。</p>
-<h3 id="功能尽可能单一，代码行数适中"><a href="#功能尽可能单一，代码行数适中" class="headerlink" title="功能尽可能单一，代码行数适中"></a>功能尽可能单一，代码行数适中</h3><p>这一点和上面颗粒度类似，以代码行数衡量也可以，一般的组件如果抽离合适的话，绝对不会超过1000行，如果代码太多，就说明组件划分不合理，抽离不完善，需要重新设计。</p>
-<h3 id="必要的时候需要ui的配合（设计不止于好看，更关乎好用。—乔布斯）"><a href="#必要的时候需要ui的配合（设计不止于好看，更关乎好用。—乔布斯）" class="headerlink" title="必要的时候需要ui的配合（设计不止于好看，更关乎好用。—乔布斯）"></a>必要的时候需要ui的配合（设计不止于好看，更关乎好用。—乔布斯）</h3><p>有的组件设计出来太丑，程序员的眼光和一个专业的设计师的眼光还是有一定差距的，所以如果可以的话可以请专业的设计师设计以下ui界面，在一定程度上可以吸引到别人。</p>
-<h2 id="组件设计参考点"><a href="#组件设计参考点" class="headerlink" title="组件设计参考点"></a>组件设计参考点</h2><h3 id="组件间props原子化"><a href="#组件间props原子化" class="headerlink" title="组件间props原子化"></a>组件间props原子化</h3><p>父子组件通过 props 属性传值时，尽可能的规定数据类型并且使用原始类型的数据。尽量只使用 JavaScript 原始类型（字符串、数字、布尔值）和函数。尽量避免复杂的对象。</p>
-<p>有以下几点注意：</p>
-<ul>
-<li><p>保证组件API清晰直观</p>
-</li>
-<li><p>更好的理解每一个prop的含义和作用</p>
-</li>
-<li><p>传递过于复杂的对象使得我们不能够清楚的知道哪些属性或方法被自定义组件使用，这使得代码难以重构和维护。</p>
-</li>
-<li><p>保证组件可用（防御性编程）</p>
-</li>
-</ul>
-<p>示例：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc41b224a7034f?w=571&amp;h=394&amp;f=png&amp;s=106192" alt=""></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc41b3f08b3b63?w=332&amp;h=441&amp;f=png&amp;s=73208" alt=""></p>
-<h3 id="巧妙利用slot扩展组件"><a href="#巧妙利用slot扩展组件" class="headerlink" title="巧妙利用slot扩展组件"></a>巧妙利用slot扩展组件</h3><p>用好slot可以设计出很多优秀的组件。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc41bcf295589d?w=852&amp;h=630&amp;f=png&amp;s=171978" alt=""></p>
-<h3 id="合理使用mixin实现复用"><a href="#合理使用mixin实现复用" class="headerlink" title="合理使用mixin实现复用"></a>合理使用mixin实现复用</h3><p>Mixins封装可重用的代码，避免重复。如果多个组件共享相同功能，则可以使用mixin。通过mixin，可以专注于单个组件的任务和抽象的通用代码。这有助于更好地维护应用程序。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc41ce329f3237?w=620&amp;h=338&amp;f=png&amp;s=95649" alt=""></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc41cfbf8c25fe?w=571&amp;h=341&amp;f=png&amp;s=95722" alt=""></p>
-<h3 id="及时模块化"><a href="#及时模块化" class="headerlink" title="及时模块化"></a>及时模块化</h3><p>在决定抽离成组件之前，先问一下自己下面几个问题：</p>
-<ul>
-<li><p>是否有足够的页面结构/逻辑来保证它？</p>
-</li>
-<li><p>代码重复（或可能重复）？</p>
-</li>
-<li><p>它会减少需要书写的模板吗？</p>
-</li>
-<li><p>性能会收到影响吗？</p>
-</li>
-<li><p>你是否会在测试代码的所有部分时遇到问题？</p>
-</li>
-<li><p>你是否有一个明确的理由？</p>
-</li>
-<li><p>这些好处是否超过了成本？<br>当你明确了上面几个问题后，是否抽离组件相信你已经有了明确的答案。</p>
-</li>
-</ul>
-<p>如何设计组件？何时抽离组件？如何抽离一个合适的组件？都是一些设计原则加上实际经验相互作用下作出的判断，理论指导，实践判断。<br><img src="https://user-gold-cdn.xitu.io/2019/8/24/16cc420c94127fcd?w=2048&amp;h=1160&amp;f=png&amp;s=2719163" alt=""></p>
-<p>最后用一段鸡汤文结尾：  </p>
-<p>在一天结束时，虽然你的直接责任可能是“编写代码”，但你不应忽视你的最终目标，即建立一些东西。创建产品。为了产生一些你可以引以为豪的东西并帮助别人，即使它在技术上并不完美，永远记得找到一个平衡点。不幸的是，在一周内每天 8 小时盯着眼前的代码会使得眼界和角度变得更为“狭窄”，这个时候你需要的你是退后一步，确保你不要为了一颗树而失去整个森林。</p>
-<p>感谢各位大佬的阅读，谢谢！🙏🙏🙏</p>
+        <p>最近项目里需要用到富文本编辑器，同事选择里百度出的ueditor，但是里面自带的图片上传功能需要后台配合，配置成服务器地址，和我们实际情况不是太符合，于是另想办法，搞定图片上传。</p>
+<h3 id="重写配置项"><a href="#重写配置项" class="headerlink" title="重写配置项"></a>重写配置项</h3><p>首先重写里toolbars配置。最重要的是要把原先的上传图片功能按钮去掉，下面是我用到的配置项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">toolbars: [</span><br><span class="line">          [</span><br><span class="line">            &quot;fullscreen&quot;,</span><br><span class="line">            &quot;source&quot;,</span><br><span class="line">            &quot;undo&quot;,</span><br><span class="line">            &quot;redo&quot;,</span><br><span class="line">            &quot;bold&quot;,</span><br><span class="line">            &quot;italic&quot;,</span><br><span class="line">            &quot;underline&quot;,</span><br><span class="line">            &quot;fontborder&quot;,</span><br><span class="line">            &quot;strikethrough&quot;,</span><br><span class="line">            &quot;superscript&quot;,</span><br><span class="line">            &quot;subscript&quot;,</span><br><span class="line">            &quot;removeformat&quot;,</span><br><span class="line">            &quot;formatmatch&quot;,</span><br><span class="line">            &quot;autotypeset&quot;,</span><br><span class="line">            &quot;blockquote&quot;,</span><br><span class="line">            &quot;pasteplain&quot;,</span><br><span class="line">            &quot;|&quot;,</span><br><span class="line">            &quot;forecolor&quot;,</span><br><span class="line">            &quot;backcolor&quot;,</span><br><span class="line">            &quot;insertorderedlist&quot;,</span><br><span class="line">            &quot;insertunorderedlist&quot;,</span><br><span class="line">            &quot;selectall&quot;,</span><br><span class="line">            &quot;cleardoc&quot;,</span><br><span class="line">            &quot;mergeright&quot;, //右合并单元格</span><br><span class="line">            &quot;mergedown&quot;, //下合并单元格</span><br><span class="line">            &quot;deleterow&quot;, //删除行</span><br><span class="line">            &quot;deletecol&quot;, //删除列</span><br><span class="line">            &quot;splittorows&quot;, //拆分成行</span><br><span class="line">            &quot;splittocols&quot;, //拆分成列</span><br><span class="line">            &quot;splittocells&quot;, //完全拆分单元格</span><br><span class="line">            &quot;deletecaption&quot;, //删除表格标题</span><br><span class="line">            &quot;inserttitle&quot;, //插入标题</span><br><span class="line">            &quot;mergecells&quot;, //合并多个单元格</span><br><span class="line">            &quot;deletetable&quot;, //删除表格</span><br><span class="line">            &quot;cleardoc&quot;, //清空文档</span><br><span class="line">            &quot;insertparagraphbeforetable&quot;, //&quot;表格前插入行&quot;</span><br><span class="line">            &quot;fontfamily&quot;, //字体</span><br><span class="line">            &quot;fontsize&quot;, //字号</span><br><span class="line">            &quot;paragraph&quot;, //段落格式</span><br><span class="line">            &quot;inserttable&quot;, //插入表格</span><br><span class="line">            &quot;edittable&quot;, //表格属性</span><br><span class="line">            &quot;edittd&quot;, //单元格属性</span><br><span class="line">            &quot;link&quot; //超链接</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure>
+<p>更多配置可参考<a href="http://fex.baidu.com/ueditor/#start-toolbar" target="_blank" rel="noopener">官网</a></p>
+<h3 id="添加初始化方法"><a href="#添加初始化方法" class="headerlink" title="添加初始化方法"></a>添加初始化方法</h3><p>初始化ueditor的时候触发一个方法，因为我的项目是用vue写的，而且封装了一层ueditor,所以就对外暴露了一个beforeInit方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;fw-ueditor-wrap</span><br><span class="line">  v-model=&quot;mainBody&quot;</span><br><span class="line">  :config=&quot;myConfig&quot;</span><br><span class="line">  @beforeInit=&quot;addCustomDialog&quot;</span><br><span class="line">  :key=&quot;1&quot;</span><br><span class="line">&gt;&lt;/fw-ueditor-wrap&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 添加自定义弹窗</span><br><span class="line">    addCustomDialog(editorId) &#123;</span><br><span class="line">      let that = this;</span><br><span class="line">      window.UE.registerUI(</span><br><span class="line">        &quot;test-dialog&quot;,</span><br><span class="line">        function(editor, uiName) &#123;</span><br><span class="line">          // 参考http://ueditor.baidu.com/doc/#COMMAND.LIST</span><br><span class="line">          var btn = new window.UE.ui.Button(&#123;</span><br><span class="line">            name: &quot;dialog-button&quot;,</span><br><span class="line">            title: &quot;上传图片&quot;,</span><br><span class="line">            cssRules: `background-image: url(&apos;/image/upload.png&apos;) !important;background-size: cover;`,</span><br><span class="line">            onclick: function() &#123;</span><br><span class="line">              // 渲染dialog</span><br><span class="line">              that.dialogVisible = true;</span><br><span class="line">              editor.execCommand(uiName);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line"></span><br><span class="line">          return btn;</span><br><span class="line">        &#125;,</span><br><span class="line">        100 /* 指定添加到工具栏上的那个位置，默认时追加到最后 */,</span><br><span class="line">        editorId /* 指定这个UI是哪个编辑器实例上的，默认是页面上所有的编辑器都会添加这个按钮 */</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>其实就是在toolbar工具栏后面又加了一个自定义的按钮，实现上传功能。</p>
+<h3 id="element弹窗设置"><a href="#element弹窗设置" class="headerlink" title="element弹窗设置"></a>element弹窗设置</h3><p>弹窗我用的是element的弹窗，使用方式参考element官网弹窗。并且使用了element的upload上传组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-dialog</span><br><span class="line">      title=&quot;上传图片&quot;</span><br><span class="line">      v-if=&quot;dialogVisible&quot;</span><br><span class="line">      :visible.sync=&quot;dialogVisible&quot;</span><br><span class="line">      width=&quot;30%&quot;</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;el-upload</span><br><span class="line">        class=&quot;upload-demo&quot;</span><br><span class="line">        drag</span><br><span class="line">        accept=&quot;.png, .jpg&quot;</span><br><span class="line">        :headers=&quot;headers&quot;</span><br><span class="line">        :action=&quot;uploadAddr&quot;</span><br><span class="line">        :beforeUpload=&quot;beforeAvatarUpload&quot;</span><br><span class="line">        :on-success=&quot;uploadImageSuccess&quot;</span><br><span class="line">        :on-error=&quot;uploadImageError&quot;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;div class=&quot;el-upload__text&quot;&gt;</span><br><span class="line">          将文件拖到此处，或</span><br><span class="line">          &lt;em&gt;点击上传&lt;/em&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;</span><br><span class="line">          只能上传jpg/png文件，且不超过5M</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/el-upload&gt;</span><br><span class="line">    &lt;/el-dialog&gt;</span><br></pre></td></tr></table></figure></p>
+<p>关键的就是上传成功后需要触发uploadFile方法，将上传成功的图片插入到富文本编辑器中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">uploadFile(file) &#123;</span><br><span class="line">//关键</span><br><span class="line">      let editor = document.querySelector(&quot;.edui-default&quot;).getAttribute(&quot;id&quot;);</span><br><span class="line">      window.UE.getEditor(editor).execCommand(&quot;insertimage&quot;, &#123;</span><br><span class="line">        src: file.url,</span><br><span class="line">        width: &quot;100&quot;,</span><br><span class="line">        height: &quot;100&quot;</span><br><span class="line">      &#125;);</span><br><span class="line">      this.dialogVisible = false;</span><br><span class="line">    &#125;,</span><br><span class="line">    // eslint-disable-next-line no-unused-vars</span><br><span class="line">    uploadImageSuccess(response, file, fileList) &#123;</span><br><span class="line">      if (response) &#123;</span><br><span class="line">        this.$message(&#123;</span><br><span class="line">          message: &quot;上传成功&quot;,</span><br><span class="line">          type: &quot;success&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">        let fileObj = &#123;</span><br><span class="line">          name: response.originalName,</span><br><span class="line">          url: response.url</span><br><span class="line">        &#125;;</span><br><span class="line">        // this.fileList.push(fileObj);</span><br><span class="line">        this.uploadFile(fileObj);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        this.$message(&#123;</span><br><span class="line">          message: &quot;上传失败&quot;,</span><br><span class="line">          type: &quot;warning&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>大功告成，搞定！</p>
 
       
     </div>
@@ -510,7 +461,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
         </div>
       
@@ -523,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/30/react-juejin5/" rel="next" title="使用React构建精简版本掘金（五）">
-                <i class="fa fa-chevron-left"></i> 使用React构建精简版本掘金（五）
+              <a href="/2019/08/24/vueCompThinking/" rel="next" title="vue组件化思考">
+                <i class="fa fa-chevron-left"></i> vue组件化思考
               </a>
             
           </div>
@@ -532,10 +483,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/13/ueditorupload/" rel="prev" title="ueditor图片上传方式处理">
-                ueditor图片上传方式处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -708,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件设计考量，分而治之"><span class="nav-number">1.</span> <span class="nav-text">组件设计考量，分而治之</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可扩展性强"><span class="nav-number">1.1.</span> <span class="nav-text">可扩展性强</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件中方法函数的抽离，便于复用，适用程度高。"><span class="nav-number">1.2.</span> <span class="nav-text">组件中方法函数的抽离，便于复用，适用程度高。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档清楚详细"><span class="nav-number">1.3.</span> <span class="nav-text">文档清楚详细</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颗粒度合适，适度抽象"><span class="nav-number">1.4.</span> <span class="nav-text">颗粒度合适，适度抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能尽可能单一，代码行数适中"><span class="nav-number">1.5.</span> <span class="nav-text">功能尽可能单一，代码行数适中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的时候需要ui的配合（设计不止于好看，更关乎好用。—乔布斯）"><span class="nav-number">1.6.</span> <span class="nav-text">必要的时候需要ui的配合（设计不止于好看，更关乎好用。—乔布斯）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件设计参考点"><span class="nav-number">2.</span> <span class="nav-text">组件设计参考点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件间props原子化"><span class="nav-number">2.1.</span> <span class="nav-text">组件间props原子化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#巧妙利用slot扩展组件"><span class="nav-number">2.2.</span> <span class="nav-text">巧妙利用slot扩展组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理使用mixin实现复用"><span class="nav-number">2.3.</span> <span class="nav-text">合理使用mixin实现复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#及时模块化"><span class="nav-number">2.4.</span> <span class="nav-text">及时模块化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#重写配置项"><span class="nav-number">1.</span> <span class="nav-text">重写配置项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加初始化方法"><span class="nav-number">2.</span> <span class="nav-text">添加初始化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#element弹窗设置"><span class="nav-number">3.</span> <span class="nav-text">element弹窗设置</span></a></li></ol></div>
             
 
           </div>
