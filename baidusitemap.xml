@@ -3,22 +3,22 @@
 
     <sitemap>
         <loc>http://yoursite.com/post-sitemap.xml</loc>
-        <lastmod>2019-09-14T02:35:16.972Z</lastmod>
+        <lastmod>2019-09-28T01:47:20.667Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://yoursite.com/page-sitemap.xml</loc>
-        <lastmod>2019-09-09T13:19:00.002Z</lastmod>
+        <lastmod>2019-09-28T01:47:20.668Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://yoursite.com/category-sitemap.xml</loc>
-        <lastmod>2018-09-03T09:43:54.289Z</lastmod>
+        <lastmod>2019-09-28T01:47:20.653Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://yoursite.com/tag-sitemap.xml</loc>
-        <lastmod>2018-09-03T09:43:54.289Z</lastmod>
+        <lastmod>2019-09-28T01:47:20.652Z</lastmod>
     </sitemap>
 
 </sitemapindex>
