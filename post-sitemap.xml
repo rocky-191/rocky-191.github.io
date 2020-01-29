@@ -8,7 +8,7 @@
 
     <url>
         <loc>http://yoursite.com/2020/01/29/learnreact1/</loc>
-        <lastmod>2020-01-29T12:10:58.806Z</lastmod>
+        <lastmod>2020-01-29T12:12:50.887Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -95,6 +95,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/03/07/taroapp/</loc>
+        <lastmod>2019-09-28T01:47:20.662Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/05/19/tabDemo/</loc>
         <lastmod>2019-09-28T01:47:20.662Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -104,14 +112,6 @@
 
     <url>
         <loc>http://yoursite.com/2018/07/13/treeMenu/</loc>
-        <lastmod>2019-09-28T01:47:20.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/03/07/taroapp/</loc>
         <lastmod>2019-09-28T01:47:20.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -175,7 +175,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/09/20/jqueryAnimation/</loc>
+        <loc>http://yoursite.com/2018/06/08/iviewDevelopDiary/</loc>
         <lastmod>2019-09-28T01:47:20.656Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -183,7 +183,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/06/08/iviewDevelopDiary/</loc>
+        <loc>http://yoursite.com/2018/09/20/jqueryAnimation/</loc>
         <lastmod>2019-09-28T01:47:20.656Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -207,7 +207,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/05/17/css-clock/</loc>
+        <loc>http://yoursite.com/2019/09/14/codelint/</loc>
         <lastmod>2019-09-28T01:47:20.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -215,7 +215,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/09/14/codelint/</loc>
+        <loc>http://yoursite.com/2018/05/17/css-clock/</loc>
         <lastmod>2019-09-28T01:47:20.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
