@@ -70,15 +70,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/webpack/</loc>
-        <lastmod>2019-12-22T05:38:31.796Z</lastmod>
+        <loc>http://yoursite.com/categories/react/</loc>
+        <lastmod>2020-01-29T12:12:50.887Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/react/</loc>
-        <lastmod>2020-01-29T12:12:50.887Z</lastmod>
+        <loc>http://yoursite.com/categories/webpack/</loc>
+        <lastmod>2020-03-08T15:06:21.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

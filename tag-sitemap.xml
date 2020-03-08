@@ -30,14 +30,14 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/iview/</loc>
+        <loc>http://yoursite.com/tags/jquery/</loc>
         <lastmod>2019-09-28T01:47:20.656Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/jquery/</loc>
+        <loc>http://yoursite.com/tags/iview/</loc>
         <lastmod>2019-09-28T01:47:20.656Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -86,15 +86,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/webpack/</loc>
-        <lastmod>2019-12-22T05:38:31.796Z</lastmod>
+        <loc>http://yoursite.com/tags/react/</loc>
+        <lastmod>2020-01-29T12:12:50.887Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/react/</loc>
-        <lastmod>2020-01-29T12:12:50.887Z</lastmod>
+        <loc>http://yoursite.com/tags/webpack/</loc>
+        <lastmod>2020-03-08T15:06:21.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
