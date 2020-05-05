@@ -79,13 +79,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/vue/</loc>
-        <lastmod>2019-09-28T01:47:20.665Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/react/</loc>
         <lastmod>2020-01-29T12:12:50.887Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -95,6 +88,13 @@
     <url>
         <loc>http://yoursite.com/tags/webpack/</loc>
         <lastmod>2020-03-08T15:06:21.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/vue/</loc>
+        <lastmod>2020-05-05T07:40:57.451Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
