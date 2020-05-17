@@ -94,7 +94,14 @@
 
     <url>
         <loc>http://yoursite.com/tags/vue/</loc>
-        <lastmod>2020-05-05T07:40:57.451Z</lastmod>
+        <lastmod>2020-05-17T13:46:34.490Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/koa2/</loc>
+        <lastmod>2020-05-17T13:46:34.490Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

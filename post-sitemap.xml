@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2020/05/17/vue-koa2-mock-demo/</loc>
+        <lastmod>2020-05-17T13:46:34.490Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2020/05/05/vue-mock-demo/</loc>
         <lastmod>2020-05-05T07:40:57.451Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -63,7 +71,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/08/24/vueCompThinking/</loc>
+        <loc>http://yoursite.com/2018/07/12/vueDevDiary1/</loc>
         <lastmod>2019-09-28T01:47:20.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -71,7 +79,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/12/vueDevDiary1/</loc>
+        <loc>http://yoursite.com/2019/08/24/vueCompThinking/</loc>
         <lastmod>2019-09-28T01:47:20.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -223,7 +231,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/05/17/css-clock/</loc>
+        <loc>http://yoursite.com/2019/09/14/codelint/</loc>
         <lastmod>2019-09-28T01:47:20.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -231,7 +239,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/09/14/codelint/</loc>
+        <loc>http://yoursite.com/2018/05/17/css-clock/</loc>
         <lastmod>2019-09-28T01:47:20.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
