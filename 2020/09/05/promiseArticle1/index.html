@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="promise," />
 
 
 
@@ -91,20 +91,18 @@
 
 
 
-<meta name="description" content="前后端分离开发已成大势所趋，基本上大部分公司的开发模式都是如此，那如何自己本地实现一个数据mock呢？当然你也可以使用在线的工具，比如easymock也可以实现mock数据，但是如果追求稳定性，还是本地搭一套环境吧。下面我介绍的是使用了vue-cli本身自带的功能实现mock 数据。">
-<meta name="keywords" content="vue">
+<meta name="description" content="相信各位前端小伙伴对于Promise应该很熟悉了吧，日常工作中，100%会用到的一个东西，除非你还在用callback解决异步，那我就太佩服了。话不多说，进入正题。 提前声明一下，以下代码在node环境中实现，你可以创建一个文件，使用nodemon这个工具执行这个文件，就可以进行监听更新，真香。 首先你要创建一个promise123let p=new Promise((resolve,reject">
+<meta name="keywords" content="promise">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端vue项目实现mock数据方式">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/vue-mock-demo/index.html">
+<meta property="og:title" content="Promise链式调用特性总结">
+<meta property="og:url" content="http://yoursite.com/2020/09/05/promiseArticle1/index.html">
 <meta property="og:site_name" content="笨小孩杂谈">
-<meta property="og:description" content="前后端分离开发已成大势所趋，基本上大部分公司的开发模式都是如此，那如何自己本地实现一个数据mock呢？当然你也可以使用在线的工具，比如easymock也可以实现mock数据，但是如果追求稳定性，还是本地搭一套环境吧。下面我介绍的是使用了vue-cli本身自带的功能实现mock 数据。">
+<meta property="og:description" content="相信各位前端小伙伴对于Promise应该很熟悉了吧，日常工作中，100%会用到的一个东西，除非你还在用callback解决异步，那我就太佩服了。话不多说，进入正题。 提前声明一下，以下代码在node环境中实现，你可以创建一个文件，使用nodemon这个工具执行这个文件，就可以进行监听更新，真香。 首先你要创建一个promise123let p=new Promise((resolve,reject">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2020/05/05/vue-mock-demo/content.png">
-<meta property="og:updated_time" content="2020-05-05T07:40:57.451Z">
+<meta property="og:updated_time" content="2020-09-05T03:53:17.495Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端vue项目实现mock数据方式">
-<meta name="twitter:description" content="前后端分离开发已成大势所趋，基本上大部分公司的开发模式都是如此，那如何自己本地实现一个数据mock呢？当然你也可以使用在线的工具，比如easymock也可以实现mock数据，但是如果追求稳定性，还是本地搭一套环境吧。下面我介绍的是使用了vue-cli本身自带的功能实现mock 数据。">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/05/vue-mock-demo/content.png">
+<meta name="twitter:title" content="Promise链式调用特性总结">
+<meta name="twitter:description" content="相信各位前端小伙伴对于Promise应该很熟悉了吧，日常工作中，100%会用到的一个东西，除非你还在用callback解决异步，那我就太佩服了。话不多说，进入正题。 提前声明一下，以下代码在node环境中实现，你可以创建一个文件，使用nodemon这个工具执行这个文件，就可以进行监听更新，真香。 首先你要创建一个promise123let p=new Promise((resolve,reject">
 
 
 
@@ -134,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/05/vue-mock-demo/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/09/05/promiseArticle1/"/>
 
 
 
 
 
-  <title>前端vue项目实现mock数据方式 | 笨小孩杂谈</title>
+  <title>Promise链式调用特性总结 | 笨小孩杂谈</title>
   
 
 
@@ -311,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/vue-mock-demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/promiseArticle1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rocky-191">
@@ -328,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端vue项目实现mock数据方式</h1>
+          <h1 class="post-title" itemprop="name headline">Promise链式调用特性总结</h1>
         
 
         <div class="post-meta">
@@ -340,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T15:35:38+08:00">
-                2020-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-05T11:51:45+08:00">
+                2020-09-05
               </time>
             
 
@@ -363,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -405,36 +403,38 @@
       
 
       
-        <p>前后端分离开发已成大势所趋，基本上大部分公司的开发模式都是如此，那如何自己本地实现一个数据mock呢？当然你也可以使用在线的工具，比如<a href="https://www.easy-mock.com/login" target="_blank" rel="noopener">easymock</a>也可以实现mock数据，但是如果追求稳定性，还是本地搭一套环境吧。下面我介绍的是使用了vue-cli本身自带的功能实现mock 数据。</p>
-<a id="more"></a>
-<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><p>（1）使用vue-cli初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create mock-demo</span><br></pre></td></tr></table></figure>
-<p>全部采用默认即可</p>
-<p>（2）创建配置文件</p>
-<p>在项目根目录下创建vue.config.js配置文件。内容如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);</span><br><span class="line"><span class="keyword">const</span> isProduction = process.env.NODE_ENV === <span class="string">"production"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> feMock;</span><br><span class="line"><span class="keyword">if</span> (!isProduction) &#123;</span><br><span class="line">  feMock = <span class="built_in">require</span>(<span class="string">"./mockApi"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  publicPath: isProduction ? <span class="string">"././"</span> : <span class="string">""</span>,</span><br><span class="line">  pages: &#123;</span><br><span class="line">    index: &#123;</span><br><span class="line">      entry: <span class="string">"src/main.js"</span>,</span><br><span class="line">      template: <span class="string">"public/index.html"</span>,</span><br><span class="line">      filename: <span class="string">"index.html"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    before: <span class="function"><span class="params">app</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 关键代码</span></span><br><span class="line">      app.use(bodyParser.json());</span><br><span class="line">      app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</span><br><span class="line">      <span class="keyword">if</span> (!isProduction) &#123;</span><br><span class="line">        feMock(app);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这里主要是利用了webpack-dev-server实现的mock功能，为了实现接口请求，当然需要提前安装axios，body-parser。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i axios body-parser -S</span><br></pre></td></tr></table></figure>
-<h2 id="编写mock的API"><a href="#编写mock的API" class="headerlink" title="编写mock的API"></a>编写mock的API</h2><p>（1）在项目根目录新建文件夹mockApi，新建index.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> feMock = <span class="function"><span class="params">app</span> =&gt;</span> &#123;</span><br><span class="line">  app.get(<span class="string">"/mock/api/news"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">      name: <span class="string">"tom"</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports=feMock;</span><br></pre></td></tr></table></figure>
-<p>（2）在src目录下新建一个api文件夹，新建文件index.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> prefix = <span class="string">"/mock"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    _testMock() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$http.get(<span class="string">`<span class="subst">$&#123;prefix&#125;</span>/api/news`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这里的请求路径一定要和上一步mock数据的路径保持一致。等后端写好接口之后，统一修改此文件里的prefix接口即可。</p>
-<h2 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h2><p>（1）在App.vue里使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import api from &quot;./api&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;App&quot;,</span><br><span class="line">  mixins: [api],</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    this.testMock();</span><br><span class="line">    this.testMock1();</span><br><span class="line">    this.testPostMock();</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    testMock() &#123;</span><br><span class="line">      this._testMock()</span><br><span class="line">        .then(res =&gt; &#123;</span><br><span class="line">          console.log(res);</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(err =&gt; &#123;</span><br><span class="line">          console.log(err);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>正常启动项目后，在浏览器network里就可以看到请求了，初始功能实现。</p>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>（1）如果项目中多个人写多个mock文件怎么整呢？</p>
-<p>（2）能不能直接扫描特定目录加载mock文件呢？是否可以有一个统一的对外入口，每个人只需要写自己的mock文件，不用修改出口？</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>（1）在mockApi文件夹下新建一个mockList文件夹，之后所有人的mock接口写在这里。示例如下：</p>
-<p>在mockList中新建一个test.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testMock</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">  app.get(<span class="string">"/mock/api/news"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">      name: <span class="string">"tom"</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testPostMock</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">  app.post(<span class="string">"/mock/api/news"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.body);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      res.json(&#123;</span><br><span class="line">        code: <span class="number">0</span>,</span><br><span class="line">        data: <span class="string">"success"</span>,</span><br><span class="line">        desc: <span class="string">""</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">500</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = [testMock, testPostMock];</span><br></pre></td></tr></table></figure>
-<p>在mockList中新建一个test1.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testMock1</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">  app.get(<span class="string">"/mock/api/news1"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">      name: <span class="string">"jack"</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = [testMock1];</span><br></pre></td></tr></table></figure>
-<p>(2)修改mockApi/index.js文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">const</span> path = __dirname;</span><br><span class="line"><span class="keyword">const</span> files = fs.readdirSync(path + <span class="string">"/mockList"</span>);</span><br><span class="line"><span class="keyword">const</span> mockList = [];</span><br><span class="line">files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">filename</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> model = <span class="built_in">require</span>(path + <span class="string">"/mockList/"</span> + filename);</span><br><span class="line">  mockList.push(...model);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleMock</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">  mockList.forEach(<span class="function"><span class="params">func</span> =&gt;</span> &#123;</span><br><span class="line">    func(app);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = handleMock;</span><br></pre></td></tr></table></figure>
-<p>引入fs,自动读取设定目录下的文件，这样配置好之后，其他人只管写自己的mock接口，不需要去修改这个对外的文件，这样就完美解决了。</p>
-<p>示例代码目录结构如下：</p>
-<p><img src="/2020/05/05/vue-mock-demo/content.png" alt="content"></p>
+        <p>相信各位前端小伙伴对于Promise应该很熟悉了吧，日常工作中，100%会用到的一个东西，除非你还在用callback解决异步，那我就太佩服了。话不多说，进入正题。</p>
+<p>提前声明一下，以下代码在node环境中实现，你可以创建一个文件，使用nodemon这个工具执行这个文件，就可以进行监听更新，真香。</p>
+<p>首先你要创建一个promise<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let p=new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">  resolve(&apos;first resolve&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="方式一、通过return传递结果"><a href="#方式一、通过return传递结果" class="headerlink" title="方式一、通过return传递结果"></a>方式一、通过return传递结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>控制台就会输出：first resolve</p>
+<h2 id="方式二、通过返回新的promise-resolve结果"><a href="#方式二、通过返回新的promise-resolve结果" class="headerlink" title="方式二、通过返回新的promise resolve结果"></a>方式二、通过返回新的promise resolve结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    resolve(&apos;second resolve: &apos;+res)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>控制台就会输出：second resolve: first resolve<br>如果在返回的promise里加一个异步比如settimeout呢，结果会是什么样？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    // resolve(&apos;second resolve: &apos;+res)</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      resolve(&apos;second resolve: &apos;+res)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>控制台等待2s后输出：second resolve: first resolve</p>
+<h2 id="方式三、通过返回新的promise-reject-原因"><a href="#方式三、通过返回新的promise-reject-原因" class="headerlink" title="方式三、通过返回新的promise reject 原因"></a>方式三、通过返回新的promise reject 原因</h2><p>既然可以通过新的promise resolve，那么reject应该也可以。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      reject(&apos;error&apos;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;error: &apos;+err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>控制台等待2s后输出：error: error</p>
+<h2 id="方式四、then函数走了失败回调继续走then"><a href="#方式四、then函数走了失败回调继续走then" class="headerlink" title="方式四、then函数走了失败回调继续走then"></a>方式四、then函数走了失败回调继续走then</h2><p>紧接着上一步，失败后，reject出原因，继续后面then<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      reject(&apos;error&apos;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;error: &apos;+err)</span><br><span class="line">  // 默认 return undefined</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(&apos;second then success: &apos;+res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;second then error: &apos;+err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>控制台会输出两行内容：error: error，second then success: undefined。这就表明在reject 后面继续then会执行下一步的resolve，如果上一步没有返回值，默认接收undefined。</p>
+<h2 id="方式五、then中使用throw-new-Error情况"><a href="#方式五、then中使用throw-new-Error情况" class="headerlink" title="方式五、then中使用throw new Error情况"></a>方式五、then中使用throw new Error情况</h2><p>如果在then中抛出异常呢，如何显示？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      reject(&apos;error&apos;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;error: &apos;+err)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  throw new Error(&apos;happend error&apos;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(&apos;third then success&apos;+res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;third then error &apos;+err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>控制台会输出：<br>error: error<br>third then error Error: happend error<br>这表明throw error抛出异常类似reject，会由下一步的then方法中的错误方法处理。</p>
+<h2 id="方式六、在promise中使用catch进行错误捕获"><a href="#方式六、在promise中使用catch进行错误捕获" class="headerlink" title="方式六、在promise中使用catch进行错误捕获"></a>方式六、在promise中使用catch进行错误捕获</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      reject(&apos;error&apos;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;error: &apos;+err)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  throw new Error(&apos;happend error&apos;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(&apos;third then success&apos;+res)</span><br><span class="line">&#125;).catch(err=&gt;&#123;</span><br><span class="line">  console.log(&apos;catched &apos;+err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>控制台会输出：<br>error: error<br>catched Error: happend error  </p>
+<p>如果在catch方法的前面then中有对上一步错误的处理办法会怎么样呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    // resolve(&apos;second resolve: &apos;+res)</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      reject(&apos;error&apos;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;error: &apos;+err)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  throw new Error(&apos;happend error&apos;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(&apos;third then success&apos;+res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;third then error &apos;+ err)</span><br><span class="line">&#125;).catch(err=&gt;&#123;</span><br><span class="line">  console.log(&apos;catched &apos;+err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>控制台会输出：<br>error: error<br>third then error Error: happend error<br>这说明catch捕获，如果catch前面有error处理函数，catch不会捕获异常的。</p>
+<p>如果在catch后面继续then呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">p.then(res=&gt;&#123;</span><br><span class="line">  return res;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    // resolve(&apos;second resolve: &apos;+res)</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      reject(&apos;error&apos;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;,err=&gt;&#123;</span><br><span class="line">  console.log(&apos;error: &apos;+err)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  throw new Error(&apos;happend error&apos;)</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(&apos;third then success&apos;+res)</span><br><span class="line">&#125;).catch(err=&gt;&#123;</span><br><span class="line">  console.log(&apos;catched &apos;+err)</span><br><span class="line">  return &apos;catched error&apos;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">  console.log(&apos;catched then &apos;+res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>控制台会输出：<br>error: error<br>catched Error: happend error<br>catched then catched error<br>这说明catch后面是可以继续调用then的，catch 在promise的源码里面其实也是一个then，catch遵循then的运行规则。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>promise链式调用，具体是失败还是成功，取决于以下情况：</p>
+<h3 id="成功的条件"><a href="#成功的条件" class="headerlink" title="成功的条件"></a>成功的条件</h3><ul>
+<li>then return 一个普通的js 值</li>
+<li>then return 一个新的promise成功态的结果 resolve处理<h3 id="失败的条件"><a href="#失败的条件" class="headerlink" title="失败的条件"></a>失败的条件</h3></li>
+<li>then return 一个新的promise失败态的原因 error</li>
+<li>then throw抛出异常</li>
+</ul>
+<p>以上就是promise链式调用的一些实践总结，复习复习基础知识。欢迎大家交流。</p>
+<p><strong>参考资料：</strong></p>
+<ul>
+<li><a href="https://promisesaplus.com/" target="_blank" rel="noopener">promise+规范</a></li>
+</ul>
 
       
     </div>
@@ -481,7 +481,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/promise/" rel="tag"># promise</a>
           
         </div>
       
@@ -494,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/08/learnwebpack3/" rel="next" title="探索webpack构建速度提升方法和优化策略">
-                <i class="fa fa-chevron-left"></i> 探索webpack构建速度提升方法和优化策略
+              <a href="/2020/05/17/vue-koa2-mock-demo/" rel="next" title="vue+koa2搭建mock数据环境">
+                <i class="fa fa-chevron-left"></i> vue+koa2搭建mock数据环境
               </a>
             
           </div>
@@ -503,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/17/vue-koa2-mock-demo/" rel="prev" title="vue+koa2搭建mock数据环境">
-                vue+koa2搭建mock数据环境 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -729,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化项目"><span class="nav-number">1.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写mock的API"><span class="nav-number">2.</span> <span class="nav-text">编写mock的API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件使用"><span class="nav-number">3.</span> <span class="nav-text">组件使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">4.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方式一、通过return传递结果"><span class="nav-number">1.</span> <span class="nav-text">方式一、通过return传递结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式二、通过返回新的promise-resolve结果"><span class="nav-number">2.</span> <span class="nav-text">方式二、通过返回新的promise resolve结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式三、通过返回新的promise-reject-原因"><span class="nav-number">3.</span> <span class="nav-text">方式三、通过返回新的promise reject 原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式四、then函数走了失败回调继续走then"><span class="nav-number">4.</span> <span class="nav-text">方式四、then函数走了失败回调继续走then</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式五、then中使用throw-new-Error情况"><span class="nav-number">5.</span> <span class="nav-text">方式五、then中使用throw new Error情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式六、在promise中使用catch进行错误捕获"><span class="nav-number">6.</span> <span class="nav-text">方式六、在promise中使用catch进行错误捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成功的条件"><span class="nav-number">7.1.</span> <span class="nav-text">成功的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#失败的条件"><span class="nav-number">7.2.</span> <span class="nav-text">失败的条件</span></a></li></ol></li></ol></div>
             
 
           </div>

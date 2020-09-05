@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2020/09/05/promiseArticle1/</loc>
+        <lastmod>2020-09-05T03:53:17.495Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2020/05/17/vue-koa2-mock-demo/</loc>
         <lastmod>2020-05-17T13:46:34.490Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -71,7 +79,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/12/vueDevDiary1/</loc>
+        <loc>http://yoursite.com/2019/08/24/vueCompThinking/</loc>
         <lastmod>2019-09-28T01:47:20.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -79,7 +87,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/08/24/vueCompThinking/</loc>
+        <loc>http://yoursite.com/2018/07/12/vueDevDiary1/</loc>
         <lastmod>2019-09-28T01:47:20.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -119,7 +127,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/05/19/tabDemo/</loc>
+        <loc>http://yoursite.com/2018/07/13/treeMenu/</loc>
         <lastmod>2019-09-28T01:47:20.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -135,7 +143,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/13/treeMenu/</loc>
+        <loc>http://yoursite.com/2018/05/19/tabDemo/</loc>
         <lastmod>2019-09-28T01:47:20.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
