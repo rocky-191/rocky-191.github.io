@@ -15,3 +15,4 @@
 
 ## 参考资料
 - [GitHub+Hexo 搭建个人网站详细教程](https://zhuanlan.zhihu.com/p/26625249)
+- [Hexo部署时提示Fatal： Could not read from remote repository的处理(针对Mac OS)](https://blog.csdn.net/Sheri_stx/article/details/111386802)
