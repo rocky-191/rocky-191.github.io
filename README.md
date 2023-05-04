@@ -10,7 +10,7 @@
 - hexo n "博客名字"
 - hexo s --debug 本地预览
 - hexo g 
-- hexo d
+- hexo d 或者使用sudo hexo d
 
 
 ## 参考资料
