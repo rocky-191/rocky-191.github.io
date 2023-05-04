@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "53d635ce"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react,ant-design," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="笨小孩杂谈" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="到目前为止，首页、文章详情页、动态页、话题页及小册页面内容完成了，看一下效果图哈，数据不全，见谅哈！">
+<meta name="keywords" content="react,ant-design">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用React构建精简版本掘金（四）">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/react-juejin4/index.html">
+<meta property="og:site_name" content="笨小孩杂谈">
+<meta property="og:description" content="到目前为止，首页、文章详情页、动态页、话题页及小册页面内容完成了，看一下效果图哈，数据不全，见谅哈！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/3/169e244fd9cfe8e9?w=1909&h=898&f=gif&s=1444510">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/3/169e24face2af6b6?w=766&h=201&f=png&s=13507">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/3/169e2683b3cbf40b?w=1080&h=693&f=gif&s=329742">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/3/169e286e44164261?w=1043&h=712&f=png&s=157895">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/4/3/169e28b8116fa193?w=1061&h=587&f=png&s=119560">
+<meta property="og:updated_time" content="2019-09-28T01:47:20.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用React构建精简版本掘金（四）">
+<meta name="twitter:description" content="到目前为止，首页、文章详情页、动态页、话题页及小册页面内容完成了，看一下效果图哈，数据不全，见谅哈！">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/4/3/169e244fd9cfe8e9?w=1909&h=898&f=gif&s=1444510">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/react-juejin4/"/>
+
+
+
+
+
+  <title>使用React构建精简版本掘金（四） | 笨小孩杂谈</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笨小孩杂谈</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">work hard,play hard</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/react-juejin4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky-191">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笨小孩杂谈">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用React构建精简版本掘金（四）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-03T19:33:30+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>到目前为止，首页、文章详情页、动态页、话题页及小册页面内容完成了，看一下效果图哈，数据不全，见谅哈！</p>
+<a id="more"></a>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/3/169e244fd9cfe8e9?w=1909&amp;h=898&amp;f=gif&amp;s=1444510" alt=""></p>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="动态页"><a href="#动态页" class="headerlink" title="动态页"></a>动态页</h2><p>该页面从布局来说分左右两部分，左边有分为输入框和已发表内容部分。  </p>
+<ul>
+<li>输入框部分</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/3/169e24face2af6b6?w=766&amp;h=201&amp;f=png&amp;s=13507" alt=""><br>我这里采用了ant-design中的input作为输入框，而掘金是采用了可编辑的div来实现输入内容,通过设置contenteditable=”true”实现，感兴趣的小伙伴可查阅相关资料。<br>发布按钮的disabled状态将根据输入框是否有值来决定。功能类似todolist添加功能，可参考文章详情页面的发布评论功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&#123;&#123;background:&apos;#fff&apos;,padding:&apos;15px&apos;,position:&apos;relative&apos;&#125;&#125;&gt;</span><br><span class="line">    &lt;TextArea placeholder=&quot;告诉你个小秘密，发沸点时添加话题会被更多小伙伴看见呦~&quot; style=&#123;&#123;paddingBottom:&apos;30px&apos;&#125;&#125; autosize=&#123;&#123; minRows: 3&#125;&#125; onChange=&#123;this.handelInputChange.bind(this)&#125;/&gt;</span><br><span class="line">    &#123;this.state.selectedTopic!==&apos;&apos;?&lt;span style=&#123;&#123;position:&apos;absolute&apos;,bottom:&apos;60px&apos;,left:&apos;28px&apos;,padding:&apos;0 12px&apos;,border:&apos;1px solid #007fff&apos;,userSelect:&apos;none&apos;,height:&apos;22px&apos;,borderRadius:&apos;14px&apos;,color:&apos;#007fff&apos;&#125;&#125;&gt;&#123;this.state.selectedTopic&#125;&lt;/span&gt;:&apos;&apos;&#125;</span><br><span class="line">    &lt;div style=&#123;&#123;marginTop:&apos;5px&apos;,display:&apos;flex&apos;,justifyContent:&apos;space-between&apos;&#125;&#125;&gt;</span><br><span class="line">        &lt;ul style=&#123;sy1&#125;&gt;</span><br><span class="line">            &lt;li style=&#123;sy2&#125; onClick=&#123;this.handleBtn.bind(this,&apos;exp&apos;)&#125;&gt;</span><br><span class="line">                &lt;img alt=&apos;&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/emoji.5594dbb.svg&apos; /&gt;表情</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li style=&#123;sy2&#125; onClick=&#123;this.handleBtn.bind(this,&apos;pic&apos;)&#125;&gt;</span><br><span class="line">                &lt;img alt=&apos;&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/active_file.d265f4e.svg&apos; /&gt;图片</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li style=&#123;sy2&#125; onClick=&#123;this.handleBtn.bind(this,&apos;link&apos;)&#125;&gt;</span><br><span class="line">                &lt;img alt=&apos;&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/active_link.b1a6832.svg&apos; /&gt;链接</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;Popover placement=&quot;bottom&quot; content=&#123;&lt;TopicList handleTopic=&#123;this.handleTopic.bind(this)&#125; /&gt;&#125; trigger=&quot;click&quot;&gt;</span><br><span class="line">                &lt;li style=&#123;sy2&#125; onClick=&#123;this.handleBtn.bind(this,&apos;topic&apos;)&#125;&gt;</span><br><span class="line">                    &lt;img alt=&apos;&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/topic.6a87bb7.svg&apos; /&gt;话题</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &lt;/Popover&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;Button type=&quot;primary&quot; disabled=&#123;this.state.disabledBtn&#125; onClick=&#123;this.handlePressEnter.bind(this)&#125;&gt;发布&lt;/Button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>输入框内容发生变化事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">handelInputChange=(e)=&gt;&#123;</span><br><span class="line">    if(e.target.value.trim()!==&apos;&apos;)&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            disabledBtn:false,</span><br><span class="line">            inputValue:e.target.value</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            disabledBtn:true</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发布按钮事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">handlePressEnter=()=&gt;&#123;</span><br><span class="line">    if(this.state.inputValue!==&apos;&apos;)&#123;</span><br><span class="line">        console.log(&apos;发布沸点&apos;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        message.error(&apos;请输入沸点内容&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加话题</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/3/169e2683b3cbf40b?w=1080&amp;h=693&amp;f=gif&amp;s=329742" alt=""><br>如图所示，一个搜索框加一个话题列表。<br>dom结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&#123;&#123;background:&apos;#fff&apos;&#125;&#125;&gt;</span><br><span class="line">    &lt;Search</span><br><span class="line">        placeholder=&quot;搜索话题&quot;</span><br><span class="line">        onSearch=&#123;value =&gt; this.handleSearch(value)&#125;</span><br><span class="line">        style=&#123;&#123; width: &apos;100%&apos; &#125;&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">    &lt;List</span><br><span class="line">        itemLayout=&quot;horizontal&quot;</span><br><span class="line">        dataSource=&#123;this.state.topicListData&#125;</span><br><span class="line">        style=&#123;&#123;height:&apos;300px&apos;,overflow:&apos;auto&apos;&#125;&#125;</span><br><span class="line">        renderItem=&#123;item =&gt; (</span><br><span class="line">        &lt;List.Item style=&#123;&#123;cursor:&apos;pointer&apos;&#125;&#125; onClick=&#123;this.handleClick.bind(this,item.title)&#125;&gt;</span><br><span class="line">            &lt;List.Item.Meta</span><br><span class="line">            avatar=&#123;&lt;Avatar size=&#123;42&#125; shape=&quot;square&quot; src=&#123;item.img&#125; /&gt;&#125;</span><br><span class="line">            title=&#123;item.title&#125;</span><br><span class="line">            description=&#123;&lt;div&gt;&#123;item.followers&#125;关注 &#123;item.num&#125;沸点&lt;/div&gt;&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;/List.Item&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>搜索框回车搜索事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">handleSearch=(value)=&gt;&#123;</span><br><span class="line">    const list=[...this.state.storeListData];</span><br><span class="line">    if(value!==&apos;&apos;)&#123;</span><br><span class="line">        const searchList=list.filter(item=&gt;item.title.indexOf(value)&gt;-1);</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            topicListData:searchList</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            topicListData:list</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>话题列表点击事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">handleClick=(val)=&gt;&#123;</span><br><span class="line">    this.props.handleTopic(val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里向父组件传递了一个val代表当前点击话题，关于父子组件传值的相关说明前面文章做了介绍，这里不再赘述。</p>
+<ul>
+<li>已发表的话题列表<br>使用ant-design的list组件实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    const IconText = (&#123; type, text,tag &#125;) =&gt; (</span><br><span class="line">        &lt;span onClick=&#123;this.handleClick.bind(this,tag)&#125;&gt;</span><br><span class="line">            &lt;Icon type=&#123;type&#125; style=&#123;&#123; marginRight: 8 &#125;&#125; /&gt;</span><br><span class="line">            &#123;text&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    );</span><br><span class="line">    const PopoverContent=(id)=&gt;&#123;</span><br><span class="line">        return &lt;p style=&#123;&#123;cursor:&apos;pointer&apos;&#125;&#125; onClick=&#123;this.handleReport.bind(this,id)&#125;&gt;举报&lt;/p&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;List</span><br><span class="line">                itemLayout=&quot;vertical&quot;</span><br><span class="line">                size=&quot;large&quot;</span><br><span class="line">                dataSource=&#123;this.state.listData&#125;</span><br><span class="line">                renderItem=&#123;item =&gt; (</span><br><span class="line">                &lt;List.Item</span><br><span class="line">                    key=&#123;item.author&#125;</span><br><span class="line">                    actions=&#123;</span><br><span class="line">                        [</span><br><span class="line">                            &lt;IconText type=&quot;like&quot; text=&#123;item.likeNum===0?&apos;赞&apos;:item.likeNum&#125; tag=&apos;like&apos; /&gt;,</span><br><span class="line">                            &lt;IconText type=&quot;message&quot; text=&#123;item.commentNum===0?&apos;评论&apos;:item.commentNum&#125; tag=&apos;comment&apos; /&gt;,</span><br><span class="line">                            &lt;IconText type=&quot;share-alt&quot; text=&quot;分享&quot; tag=&apos;share&apos; /&gt;</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;</span><br><span class="line">                    extra=&#123;</span><br><span class="line">                        &lt;div&gt;</span><br><span class="line">                            &#123;!item.isFollowed &amp;&amp; &lt;Button style=&#123;&#123;borderColor:&apos;#6cbd45&apos;,color:&apos;#6cbd45&apos;&#125;&#125; onClick=&#123;()=&gt;this.handleFollow(item.id)&#125;&gt;&#123;item.isFollowed?&apos;已关注&apos;:&apos;关注&apos;&#125;&lt;/Button&gt;&#125;</span><br><span class="line">                            &lt;Popover placement=&quot;bottom&quot; content=&#123;&lt;PopoverContent author=&#123;item.author&#125; /&gt;&#125; trigger=&quot;click&quot;&gt;</span><br><span class="line">                                &lt;span style=&#123;&#123;cursor:&apos;pointer&apos;,margin:&apos;10px&apos;&#125;&#125;&gt;...&lt;/span&gt;</span><br><span class="line">                            &lt;/Popover&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &#125;</span><br><span class="line">                &gt;</span><br><span class="line">                    &lt;List.Item.Meta</span><br><span class="line">                    // avatar=&#123;&lt;Avatar size=&#123;45&#125; src=&#123;item.avatar&#125; /&gt;&#125;</span><br><span class="line">                    avatar=&#123;&lt;Popover placement=&quot;top&quot; content=&#123;&lt;PersonalPop info=&#123;item&#125; handleFollow=&#123;(id)=&gt;this.handleFollow(id)&#125; /&gt;&#125;&gt;</span><br><span class="line">                                &lt;Avatar size=&#123;45&#125; src=&#123;item.avatar&#125; /&gt;</span><br><span class="line">                            &lt;/Popover&gt;&#125;</span><br><span class="line">                    title=&#123;&lt;Popover placement=&quot;top&quot; content=&#123;&lt;PersonalPop info=&#123;item&#125; handleFollow=&#123;(id)=&gt;this.handleFollow(id)&#125; /&gt;&#125;&gt;</span><br><span class="line">                                &lt;span style=&#123;&#123;cursor:&apos;pointer&apos;&#125;&#125;&gt;&#123;item.author&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/Popover&gt;&#125;</span><br><span class="line">                    description=&#123;&lt;div&gt;&lt;span&gt;&#123;item.description&#125;&lt;/span&gt;&lt;span style=&#123;&#123;margin:&apos;0 5px&apos;&#125;&#125;&gt;·&lt;/span&gt;&lt;span&gt;&#123;timeUtil.getTimeAgo(item.editTime)&#125;&lt;/span&gt;&lt;/div&gt;&#125;</span><br><span class="line">                    /&gt;</span><br><span class="line">                    &#123;item.content&#125;</span><br><span class="line">                &lt;/List.Item&gt;</span><br><span class="line">                )&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>用户头像鼠标滑过会出现详情，使用了popover组件，具体内容是单独抽离的一个PersonalPop组件。每一项根据isFollowed值判断是否显示关注按钮，如果没有关注，点击可关注。</p>
+<ul>
+<li>右侧内容<br>右侧内容统一使用card组件实现，利用Redux获取登录用户信息。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    const &#123; Meta &#125; = Card;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div className=&apos;dynamicSide&apos;&gt;</span><br><span class="line">            &lt;Card style=&#123;&#123; width: &apos;100%&apos; &#125;&#125; className=&apos;card1&apos;&gt;</span><br><span class="line">                &lt;Meta</span><br><span class="line">                    avatar=&#123;&lt;Avatar size=&#123;62&#125; src=&#123;this.props.userImage&#125; /&gt;&#125;</span><br><span class="line">                    title=&#123;this.props.userId&#125;</span><br><span class="line">                    description=&#123;this.props.userDesc&#125;</span><br><span class="line">                    /&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;ul&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                            &lt;p className=&apos;liTitle&apos;&gt;沸点&lt;/p&gt;</span><br><span class="line">                            &lt;p className=&apos;liNum&apos;&gt;&#123;this.state.userInfo.topNum&#125;&lt;/p&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                            &lt;p className=&apos;liTitle&apos;&gt;关注&lt;/p&gt;</span><br><span class="line">                            &lt;p className=&apos;liNum&apos;&gt;&#123;this.state.userInfo.following&#125;&lt;/p&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                            &lt;p className=&apos;liTitle&apos;&gt;关注者&lt;/p&gt;</span><br><span class="line">                            &lt;p className=&apos;liNum&apos;&gt;&#123;this.state.userInfo.follower&#125;&lt;/p&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/Card&gt;</span><br><span class="line">            &lt;Card</span><br><span class="line">                title=&quot;你可能感兴趣的人&quot;</span><br><span class="line">                style=&#123;&#123; width: &apos;100%&apos; ,marginTop:&apos;10px&apos;&#125;&#125;</span><br><span class="line">                className=&apos;card2&apos;</span><br><span class="line">                &gt;</span><br><span class="line">                &lt;List</span><br><span class="line">                    itemLayout=&quot;horizontal&quot;</span><br><span class="line">                    dataSource=&#123;this.state.interestList&#125;</span><br><span class="line">                    renderItem=&#123;item =&gt; (</span><br><span class="line">                    &lt;List.Item actions=&#123;[&lt;Button&gt;关注&lt;/Button&gt;]&#125;&gt;</span><br><span class="line">                        &lt;List.Item.Meta</span><br><span class="line">                            avatar=&#123;&lt;Avatar size=&#123;40&#125; src=&#123;item.userImage&#125; /&gt;&#125;</span><br><span class="line">                            title=&#123;item.user&#125;</span><br><span class="line">                            description=&#123;item.desc&#125;</span><br><span class="line">                        /&gt;</span><br><span class="line">                    &lt;/List.Item&gt;</span><br><span class="line">                    )&#125;</span><br><span class="line">                /&gt;</span><br><span class="line">                &lt;div className=&apos;user-recommend-footer&apos; onClick=&#123;this.changeInterestList.bind(this)&#125;&gt;</span><br><span class="line">                    &lt;Icon type=&quot;sync&quot; /&gt;换一批</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/Card&gt;</span><br><span class="line">            &lt;div style=&#123;&#123;marginTop:&apos;10px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;TopicCard title=&apos;关注的话题&apos; link=&apos;/topics&apos; list=&#123;this.state.attentionTopic&#125; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div style=&#123;&#123;marginTop:&apos;10px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;TopicCard title=&apos;更多话题&apos; link=&apos;/topics&apos; list=&#123;this.state.allTopic&#125; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>鉴于关注的话题和更多话题内容结构类似，故抽离为一个公用组件，且为函数式组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function TopicCard(&#123; title,list,link &#125;)&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;Card</span><br><span class="line">            title=&#123;title&#125;</span><br><span class="line">            extra=&#123;&lt;a href=&#123;link&#125; style=&#123;&#123;color:&apos;#007fff&apos;&#125;&#125;&gt;全部&gt;&lt;/a&gt;&#125;</span><br><span class="line">            style=&#123;&#123; width: &apos;100%&apos; &#125;&#125;</span><br><span class="line">            className=&apos;topicCard&apos;</span><br><span class="line">            &gt;</span><br><span class="line">            &lt;List</span><br><span class="line">                itemLayout=&quot;horizontal&quot;</span><br><span class="line">                dataSource=&#123;list&#125;</span><br><span class="line">                renderItem=&#123;item =&gt; (</span><br><span class="line">                &lt;List.Item&gt;</span><br><span class="line">                    &lt;List.Item.Meta</span><br><span class="line">                        avatar=&#123;&lt;Avatar shape=&quot;square&quot; size=&#123;40&#125; src=&#123;item.userImage&#125; /&gt;&#125;</span><br><span class="line">                        title=&#123;item.title&#125;</span><br><span class="line">                        description=&#123;&lt;div style=&#123;&#123;color:&apos;#8a9aa9&apos;&#125;&#125;&gt;&lt;span&gt;&#123;item.followNum&#125;关注&lt;/span&gt;·&lt;span&gt;&#123;item.hotNews&#125;沸点&lt;/span&gt;&lt;/div&gt;&#125;</span><br><span class="line">                    /&gt;</span><br><span class="line">                &lt;/List.Item&gt;</span><br><span class="line">                )&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;/Card&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>React组件可分为函数组件(Functional Component )和类组件(Class Component)，划分依据是根据组件的定义方式。函数组件使用函数定义组件，类组件使用ES6 class定义组件。  </p>
+</blockquote>
+<p>函数组件的写法要比类组件简洁，不过类组件比函数组件功能更强大。类组件可以维护自身的状态变量，即组件的state，类组件还有不同的生命周期方法，可以让我们能够在组件的不同阶段（挂载、更新、卸载）对组件做更多的控制，进行不同的操作。但函数组件的使用可以从思想上让你在设计组件时进行更多思考，更加关注逻辑控制和显示的分离，设计出更加合理的组件结构。实际操作中，当一个组件不需要管理自身状态时，可以把它设计成函数组件，当你有足够的理由发现它需要“升级”为类组件时，再把它改造为类组件。因为函数组件“升级”为类组件是有一定成本的，这样就会要求你做这个改造前更认真地思考其合理性，而不是仅仅为了一时的方便就使用类组件。</p>
+<h2 id="话题页"><a href="#话题页" class="headerlink" title="话题页"></a>话题页</h2><p><img src="https://user-gold-cdn.xitu.io/2019/4/3/169e286e44164261?w=1043&amp;h=712&amp;f=png&amp;s=157895" alt=""><br>同样适用函数式组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function TopicItem(&#123;item,showCount&#125;)&#123;</span><br><span class="line">    const &#123;id,topicName,topicImage,topicCount,followedNum,topicNum,isFollowed&#125;=item;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div className=&apos;topicItem&apos;&gt;</span><br><span class="line">            &lt;Badge count=&#123;showCount?topicCount:0&#125; overflowCount=&#123;999&#125;&gt;</span><br><span class="line">                &lt;Avatar shape=&quot;square&quot; size=&#123;72&#125; src=&#123;topicImage&#125; /&gt;</span><br><span class="line">            &lt;/Badge&gt;</span><br><span class="line">            &lt;div style=&#123;&#123;marginLeft:&apos;15px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;NavLink to=&#123;`/topic/$&#123;id&#125;`&#125;&gt;&#123;topicName&#125;&lt;/NavLink&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div style=&#123;&#123;color:&apos;#8a9aa9&apos;,marginTop:&apos;5px&apos;&#125;&#125;&gt;</span><br><span class="line">                    &lt;span&gt;&#123;followedNum&#125;关注&lt;/span&gt;·</span><br><span class="line">                    &lt;span&gt;&#123;topicNum&#125;沸点&lt;/span&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div className=&#123;isFollowed?&apos;hasFollowed&apos;:&apos;noFollow&apos;&#125;&gt;</span><br><span class="line">                    &#123;isFollowed?&apos;已关注&apos;:&apos;+关注&apos;&#125;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关注的话题数据其实是全部话题的子集，在父页面调用的时候根据数据中的isFollowed属性进行一次筛选。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    const list=[...this.state.allTopicList];</span><br><span class="line">    const followedTopicList=list.filter(item=&gt;item.isFollowed);</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        followedTopic:[...followedTopicList]</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小册页"><a href="#小册页" class="headerlink" title="小册页"></a>小册页</h2><p><img src="https://user-gold-cdn.xitu.io/2019/4/3/169e28b8116fa193?w=1061&amp;h=587&amp;f=png&amp;s=119560" alt=""></p>
+<ul>
+<li>头部的导航</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function TopNav(&#123;tags,changeLink&#125;)&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &#123;tags.map((item,index)=&gt;&#123;</span><br><span class="line">                return &lt;li key=&#123;item.path&#125; onClick=&#123;()=&gt;changeLink(item.path)&#125;&gt;</span><br><span class="line">                    &lt;NavLink to=&#123;`/books$&#123;item.path&#125;`&#125;&gt;&#123;item.text&#125;&lt;/NavLink&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &#125;)&#125;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>小册列表<br>使用ant-design中的list组件进行基本布局</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;List</span><br><span class="line">                size=&quot;large&quot;</span><br><span class="line">                bordered</span><br><span class="line">                dataSource=&#123;this.state.bookList&#125;</span><br><span class="line">                renderItem=&#123;item =&gt; (</span><br><span class="line">                    &lt;List.Item className=&apos;bookList&apos; onClick=&#123;()=&gt;this.showInfo(item.bookId)&#125;&gt;</span><br><span class="line">                        &lt;img alt=&apos;books&apos; src=&#123;item.img&#125; /&gt;</span><br><span class="line">                        &lt;div&gt;</span><br><span class="line">                            &lt;div style=&#123;&#123;color:&apos;#000&apos;,fontSize:&apos;20px&apos;,fontWeight:400&#125;&#125;&gt;</span><br><span class="line">                                &#123;item.isPresell &amp;&amp; &lt;span className=&quot;presale&quot;&gt;预售&lt;/span&gt; &#125;</span><br><span class="line">                                &lt;span className=&apos;bookName&apos;&gt;&#123;item.name&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                            &lt;div className=&apos;bookDesc&apos;&gt;&#123;item.desc&#125;&lt;/div&gt;</span><br><span class="line">                            &lt;div className=&apos;bookAuthor&apos;&gt;</span><br><span class="line">                                &lt;NavLink to=&#123;`/user/:$&#123;item.userId&#125;`&#125;&gt;</span><br><span class="line">                                    &lt;Avatar size=&#123;26&#125; src=&#123;item.userImage&#125; /&gt;</span><br><span class="line">                                    &lt;span style=&#123;&#123;color:&apos;#000&apos;,marginLeft:&apos;5px&apos;&#125;&#125;&gt;&#123;item.author&#125;&lt;/span&gt;</span><br><span class="line">                                &lt;/NavLink&gt;</span><br><span class="line">                                &lt;span style=&#123;&#123;color:&apos;#71777c&apos;,margin:&apos;0 10px&apos;,whiteSpace:&apos;nowrap&apos;,overflow:&apos;hidden&apos;&#125;&#125;&gt;&#123;item.selfDesc&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                            &lt;div className=&apos;other&apos;&gt;</span><br><span class="line">                                &#123;item.isBuy?&lt;span className=&apos;bought&apos;&gt;已购买&lt;/span&gt;:&lt;span className=&apos;price&apos;&gt;￥&#123;item.price&#125;&lt;/span&gt;&#125;</span><br><span class="line">                                &lt;span className=&apos;message&apos;&gt;&#123;item.chapterNum&#125;小节&lt;/span&gt;</span><br><span class="line">                                &#123;item.isBuy &amp;&amp; &lt;span className=&apos;message&apos;&gt;阅读时长&#123;item.readTime&#125;分&lt;/span&gt;&#125;</span><br><span class="line">                                &lt;span className=&apos;message&apos;&gt;&#123;item.purchaseNum&#125;购买&lt;/span&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/List.Item&gt;</span><br><span class="line">                )&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会根据属性是否预售isPresell和是否已经购买isBuy来判断显示不同内容。  </p>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><ul>
+<li><a href="https://rocky-191.github.io/2019/03/19/react-juejin/" target="_blank" rel="noopener">使用React构建精简版本掘金（一）</a></li>
+<li><a href="https://rocky-191.github.io/2019/03/20/react-juejin1/" target="_blank" rel="noopener">使用React构建精简版本掘金（二）</a></li>
+<li><a href="https://rocky-191.github.io/2019/03/20/react-juejin3/" target="_blank" rel="noopener">使用React构建精简版本掘金（三）</a></li>
+</ul>
+<p>相关详细代码可查看<a href="https://github.com/rocky-191/react-juejin" target="_blank" rel="noopener">github</a>,不要忘了star哦！工作中主要是以vue作为主要技术栈，这是第一次使用React+React-router+Redux来构建项目，不足之处还请大家多多包涵。  </p>
+<p><strong>金三已过，银四会是什么样子呢？</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Rocky-191 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Rocky-191 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/ant-design/" rel="tag"># ant-design</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/20/react-juejin3/" rel="next" title="使用React构建精简版本掘金（三）">
+                <i class="fa fa-chevron-left"></i> 使用React构建精简版本掘金（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/30/react-juejin5/" rel="prev" title="使用React构建精简版本掘金（五）">
+                使用React构建精简版本掘金（五） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/user.jpg"
+                alt="Rocky-191" />
+            
+              <p class="site-author-name" itemprop="name">Rocky-191</p>
+              <p class="site-description motion-element" itemprop="description">技术随笔</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rocky-191" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:maguoliang191@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/57ac50292e958a00543ac960" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-paperclip"></i>掘金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://segmentfault.com/u/rocky191" target="_blank" title="思否">
+                      
+                        <i class="fa fa-fw fa-paperclip"></i>思否</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="奇舞团" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/" title="AlloyTeam" target="_blank">AlloyTeam</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jspang.com/" title="技术胖" target="_blank">技术胖</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现过程"><span class="nav-number">1.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态页"><span class="nav-number">1.1.</span> <span class="nav-text">动态页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#话题页"><span class="nav-number">1.2.</span> <span class="nav-text">话题页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小册页"><span class="nav-number">1.3.</span> <span class="nav-text">小册页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关文章"><span class="nav-number">1.4.</span> <span class="nav-text">相关文章</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rocky-191</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '457d375644a3132daec0',
+          clientSecret: '74982e54213ad80159126cef189a277c6b5763b1',
+          repo: 'rocky-191.github.io',
+          owner: 'rocky-191',
+          admin: ['rocky-191'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

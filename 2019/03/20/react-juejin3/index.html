@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "53d635ce"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react,ant-design," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="笨小孩杂谈" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="抽了两天工作中闲暇时间，文章详情页终于写完了，先上图哈，截图少了下面一部分哈，见谅！ 本篇文章为使用React构建精简版本掘金系列第三篇，想看前两篇的话，请查看第一篇,第二篇。整理一下详情页用到的一些知识点：  redux存储、取值 React-router路由跳转传值 父子组件传值  实现过程左侧部分主要包含点赞数量显示、评论数量、收藏按钮，分享链接等。由于要常驻在左侧，且页面滚动过程中位置不变">
+<meta name="keywords" content="react,ant-design">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用React构建精简版本掘金（三）">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/react-juejin3/index.html">
+<meta property="og:site_name" content="笨小孩杂谈">
+<meta property="og:description" content="抽了两天工作中闲暇时间，文章详情页终于写完了，先上图哈，截图少了下面一部分哈，见谅！ 本篇文章为使用React构建精简版本掘金系列第三篇，想看前两篇的话，请查看第一篇,第二篇。整理一下详情页用到的一些知识点：  redux存储、取值 React-router路由跳转传值 父子组件传值  实现过程左侧部分主要包含点赞数量显示、评论数量、收藏按钮，分享链接等。由于要常驻在左侧，且页面滚动过程中位置不变">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/22/169a455683f49328?w=1228&h=931&f=png&s=181334">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/22/169a461c9eebe893?w=720&h=175&f=png&s=9981">
+<meta property="og:updated_time" content="2019-09-28T01:47:20.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用React构建精简版本掘金（三）">
+<meta name="twitter:description" content="抽了两天工作中闲暇时间，文章详情页终于写完了，先上图哈，截图少了下面一部分哈，见谅！ 本篇文章为使用React构建精简版本掘金系列第三篇，想看前两篇的话，请查看第一篇,第二篇。整理一下详情页用到的一些知识点：  redux存储、取值 React-router路由跳转传值 父子组件传值  实现过程左侧部分主要包含点赞数量显示、评论数量、收藏按钮，分享链接等。由于要常驻在左侧，且页面滚动过程中位置不变">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/3/22/169a455683f49328?w=1228&h=931&f=png&s=181334">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/react-juejin3/"/>
+
+
+
+
+
+  <title>使用React构建精简版本掘金（三） | 笨小孩杂谈</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笨小孩杂谈</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">work hard,play hard</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/react-juejin3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky-191">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笨小孩杂谈">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用React构建精简版本掘金（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T20:23:09+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>抽了两天工作中闲暇时间，文章详情页终于写完了，先上图哈，截图少了下面一部分哈，见谅！</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/22/169a455683f49328?w=1228&amp;h=931&amp;f=png&amp;s=181334" alt=""><br>本篇文章为使用React构建精简版本掘金系列第三篇，想看前两篇的话，请查看<a href="https://rocky-191.github.io/2019/03/19/react-juejin/#more" target="_blank" rel="noopener">第一篇</a>,<a href="https://rocky-191.github.io/2019/03/20/react-juejin1/#more" target="_blank" rel="noopener">第二篇</a>。<br><strong>整理一下详情页用到的一些知识点：</strong></p>
+<ul>
+<li>redux存储、取值</li>
+<li>React-router路由跳转传值</li>
+<li>父子组件传值</li>
+</ul>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="左侧部分"><a href="#左侧部分" class="headerlink" title="左侧部分"></a>左侧部分</h2><p>主要包含点赞数量显示、评论数量、收藏按钮，分享链接等。由于要常驻在左侧，且页面滚动过程中位置不变，故使用fixed定位方式，并且使用ant-design中的Avatar,Badge,Icon,Popover组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Avatar,Badge,Icon,Popover &#125; from &apos;antd&apos;;</span><br><span class="line">...</span><br><span class="line">&lt;div style=&#123;articleSuspendedPanel&#125;&gt;</span><br><span class="line">    &lt;Badge count=&#123;this.props.starCount&#125; overflowCount=&#123;this.state.overflowCount&#125; style=&#123;badgeSy&#125;&gt;</span><br><span class="line">        &lt;div style=&#123;panelCircleSy&#125;&gt;</span><br><span class="line">            &lt;Icon type=&quot;like&quot; theme=&quot;filled&quot; style=&#123;IconSy&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/Badge&gt;</span><br><span class="line">    &lt;Badge count=&#123;this.props.commentsCount&#125; overflowCount=&#123;this.state.overflowCount&#125; style=&#123;badgeSy&#125;&gt;</span><br><span class="line">        &lt;div style=&#123;panelCircleSy&#125;&gt;</span><br><span class="line">            &lt;Icon type=&quot;message&quot; theme=&quot;filled&quot; style=&#123;IconSy&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/Badge&gt;</span><br><span class="line">    &lt;div style=&#123;panelCircleSy&#125;&gt;</span><br><span class="line">        &lt;Icon type=&quot;star&quot; theme=&quot;filled&quot; style=&#123;IconSy&#125;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;label&gt;分享&lt;/label&gt;</span><br><span class="line">    &lt;Avatar style=&#123;avatarSy1&#125;&gt;</span><br><span class="line">        &lt;img alt=&quot;&quot; src=&quot;//b-gold-cdn.xitu.io/v3/static/img/weibo.2076a57.svg&quot; /&gt;</span><br><span class="line">    &lt;/Avatar&gt;</span><br><span class="line">    &lt;Avatar style=&#123;avatarSy1&#125;&gt;</span><br><span class="line">        &lt;img alt=&quot;&quot; src=&quot;//b-gold-cdn.xitu.io/v3/static/img/qq.0834411.svg&quot; /&gt;</span><br><span class="line">    &lt;/Avatar&gt;</span><br><span class="line">    &lt;Popover content=&#123;&lt;QRCode value=&#123;window.location.href+&apos;/post/&apos;+this.props.wxShareAddr&#125; /&gt;&#125; placement=&quot;bottom&quot;&gt;</span><br><span class="line">        &lt;Avatar style=&#123;avatarSy1&#125;&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;//b-gold-cdn.xitu.io/v3/static/img/wechat.63e1ce0.svg&quot; /&gt;</span><br><span class="line">        &lt;/Avatar&gt;</span><br><span class="line">    &lt;/Popover&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>render中的代码结构如上，starCount和commentsCount数据是从父级组件传入的，微信分享扫一扫利用了QRCode组件，关于该组件的介绍可查看上一篇文章，有详细的说明。</p>
+<h2 id="中间部分（重点）"><a href="#中间部分（重点）" class="headerlink" title="中间部分（重点）"></a>中间部分（重点）</h2><p>仔细看的话，其实中间部分也可以分为顶部的作者介绍，包括文章编辑时间，阅读量，登录用户是否关注了作者。第二部分才是真正的文章详情。第三部分有关于该文章的评论区域，最下面是一系列的相关推荐文章。接下来分别介绍下：</p>
+<h3 id="顶部"><a href="#顶部" class="headerlink" title="顶部"></a>顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;List</span><br><span class="line">    itemLayout=&quot;horizontal&quot;</span><br><span class="line">    dataSource=&#123;this.state.articleInfo.articleList&#125;</span><br><span class="line">    renderItem=&#123;item =&gt; (</span><br><span class="line">    &lt;List.Item actions=&#123;[item.isFocus?&lt;button className=&apos;focusedBtn&apos;&gt;已关注&lt;/button&gt;:&lt;button className=&apos;focusBtn&apos;&gt;关注&lt;/button&gt;]&#125;&gt;</span><br><span class="line">        &lt;List.Item.Meta</span><br><span class="line">            avatar=&#123;&lt;Avatar src=&#123;item.authorImage&#125; /&gt;&#125;</span><br><span class="line">            title=&#123;item.author&#125;</span><br><span class="line">            description=&#123;&lt;div&gt;&lt;span&gt;&#123;item.editDate&#125;&lt;/span&gt;&lt;span style=&#123;&#123;marginLeft:&apos;10px&apos;&#125;&#125;&gt;阅读&#123;item.readNum&#125;&lt;/span&gt;&lt;/div&gt;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">    &lt;/List.Item&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>很简单的一部分，应该能看明白。</p>
+<h3 id="中间部分"><a href="#中间部分" class="headerlink" title="中间部分"></a>中间部分</h3><p>中间部分我这里就简单的用section包裹内容了，实际开发中个人觉得应该需要读取对应各层标题的样式、正文的样式，分段落显示，需要去分类型解析各种内容，包括图片、超链接等内容。</p>
+<h3 id="评论区域"><a href="#评论区域" class="headerlink" title="评论区域"></a>评论区域</h3><p><img src="https://user-gold-cdn.xitu.io/2019/3/22/169a461c9eebe893?w=720&amp;h=175&amp;f=png&amp;s=9981" alt=""><br>布局问题就不说了，重点说一下输入框评论功能实现，其实类似大家常说的todolist功能。输入内容，点击评论按钮或者直接回车，评论内容添加到评论列表，输入框内容清空。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&#123;&#123;marginLeft:&apos;10px&apos;,flex:&apos;1&apos;&#125;&#125;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;Input value=&#123;this.state.value&#125; placeholder=&quot;输入评论...&quot; onFocus=&#123;this.handleFocus.bind(this)&#125; onChange=&#123;this.handleChange.bind(this)&#125; onPressEnter=&#123;this.handlePressEnter.bind(this)&#125;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        this.state.showIconAndBtn?</span><br><span class="line">            &lt;div style=&#123;&#123;display:&apos;flex&apos;,justifyContent:&apos;space-between&apos;,marginTop:&apos;10px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;span style=&#123;&#123;color:&apos;#027fff&apos;,cursor: &apos;pointer&apos;,display:&apos;flex&apos;,alignItems:&apos;center&apos;&#125;&#125; onClick=&#123;info&#125;&gt;</span><br><span class="line">                    &lt;img alt=&apos;&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/emoji.5594dbb.svg&apos; /&gt;</span><br><span class="line">                    表情</span><br><span class="line">                &lt;/span&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    &lt;label style=&#123;&#123;color:&apos;#c2c2c2&apos;,marginRight:&apos;8px&apos;&#125;&#125;&gt;Enter&lt;/label&gt;</span><br><span class="line">                    &lt;Button type=&quot;primary&quot; onClick=&#123;this.handlePressEnter.bind(this)&#125;&gt;评论&lt;/Button&gt;</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;:&apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>showIconAndBtn是控制输入框下面那一行是否显示的，初始进入页面的时候是只能看到输入框，下面的表情和评论按钮只能等输入框获取焦点后才能显示。 输入框上绑定了三个事件，分别用来处理获取焦点事件、输入内容改变事件、按下回车事件。</p>
+<ul>
+<li>获取焦点事件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">handleFocus=()=&gt;&#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        showIconAndBtn:true</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输入内容改变事件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">handleChange=(e)=&gt;&#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        value:e.target.value</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回车事件（后面的评论按钮功能相同）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handlePressEnter=()=&gt;&#123;</span><br><span class="line">    if(this.state.value!==&apos;&apos;)&#123;</span><br><span class="line">        this.props.submitComment(this.state.value);//调用父级组件并传值</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            value:&apos;&apos;,</span><br><span class="line">            showIconAndBtn:false</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        message.warning(&apos;还未填写评论哦！&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里有用到子组件向父组件传值的方法，简单介绍下：<br><strong>父向子传值</strong></p>
+<blockquote>
+<p>父向子传值起始比较简单，重点要考虑向下传值是否会使得父组件中的状态过于繁杂，是否会影响页面性能。  </p>
+</blockquote>
+<p>假设存在一个组件ComponentA，在父组件中调用ComponentA，并且传递参数data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">this.state=&#123;</span><br><span class="line">    text:&apos;hello world&apos;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;ComponentA data=&#123;this.state.text&#125; /</span><br></pre></td></tr></table></figure>
+<p>在组件ComponentA中就可以通过this.props.data获取到父组件传入的data值了。<br><strong>子向父传值</strong></p>
+<blockquote>
+<p>由子组件的事件触发，在触发的函数体中调用父组件传入的方法，将子组件里的值传入即可。  </p>
+</blockquote>
+<p>假设存在父组件ComponentParent，子组件ComponentChild,父组件中调用ComponentChild</p>
+<p>父组件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">handleChange=(val)=&gt;&#123;</span><br><span class="line">    console.log(`信息:`+val);//子组件传入的数据</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;ComponentChild change=&#123;this.handleChange.bind(this)&#125; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>子组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//假设有个方法叫handleClick</span><br><span class="line">handleClick=()=&gt;&#123;</span><br><span class="line">    this.props.change(&apos;hello&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在子组件中执行handleClick方法的时候就会触发父组件中的方法handleChange，并在控制台输出hello。</p>
+<p><strong>兄弟组件传值</strong></p>
+<blockquote>
+<p>可以将数据提升到共同的父组件中，进行传值，之后在利用父子组件传值即可。</p>
+</blockquote>
+<p><strong>多层级组件或者称为不相邻组件传值</strong></p>
+<blockquote>
+<p>可以利用redux管理全局状态，之后在任何地方都可以取到对应的数据。</p>
+</blockquote>
+<p>这种方式的使用方式在<a href="https://rocky-191.github.io/2019/03/19/react-juejin/#more" target="_blank" rel="noopener">第一篇文章</a>做了说明，可以浏览哦！</p>
+<p><strong>待实现功能：</strong></p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 表情组件</li>
+</ul>
+<h3 id="评论列表区域"><a href="#评论列表区域" class="headerlink" title="评论列表区域"></a>评论列表区域</h3><p>个人实现的这块区域和掘金有少许不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;List</span><br><span class="line">    itemLayout=&quot;vertical&quot;</span><br><span class="line">    size=&quot;large&quot;</span><br><span class="line">    dataSource=&#123;this.props.commentList&#125;</span><br><span class="line">    renderItem=&#123;item =&gt; (</span><br><span class="line">    &lt;List.Item</span><br><span class="line">        key=&#123;item.userId&#125;</span><br><span class="line">        actions=&#123;[&lt;span&gt;&#123;moment().subtract(item.editDate, &apos;days&apos;).fromNow()&#125;&lt;/span&gt;,&lt;IconText type=&quot;like-o&quot; text=&#123;item.starNum&#125; /&gt;, &lt;IconText type=&quot;message&quot; text=&#123;item.commentNum&#125; /&gt;]&#125;</span><br><span class="line">    &gt;</span><br><span class="line">        &lt;List.Item.Meta</span><br><span class="line">        avatar=&#123;&lt;a href=&#123;&apos;/user/&apos;+item.userId&#125;&gt;&lt;Avatar src=&#123;item.userImage&#125; /&gt;&lt;/a&gt;&#125;</span><br><span class="line">        title=&#123;&lt;div&gt;&#123;item.authorName&#125;&lt;/div&gt;&#125;</span><br><span class="line">        description=&#123;item.userDesc&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &#123;item.commentText&#125;</span><br><span class="line">    &lt;/List.Item&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>采用了ant-design中的List组件进行显示<br><strong>待实现</strong></p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 嵌套评论列表</li>
+</ul>
+<h3 id="相关推荐列表"><a href="#相关推荐列表" class="headerlink" title="相关推荐列表"></a>相关推荐列表</h3><p>该部分结构采用了首页列表组件，只需按照文章类型，推荐不同内容即可，这里不再赘述。</p>
+<h2 id="右侧部分"><a href="#右侧部分" class="headerlink" title="右侧部分"></a>右侧部分</h2><p>右侧整体结构和首页右侧内容类似，分6块：</p>
+<ul>
+<li>关于作者</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;Card</span><br><span class="line">    title=&quot;关于作者&quot;</span><br><span class="line">    style=&#123;&#123; width: &apos;100%&apos; &#125;&#125;</span><br><span class="line">    hoverable=&#123;&apos;true&apos;&#125;</span><br><span class="line">    headStyle=&#123;&#123;fontSize:&apos;14px&apos;,color:&apos;#333&apos;&#125;&#125;</span><br><span class="line">    bodyStyle=&#123;&#123;padding:&apos;0 16px&apos;&#125;&#125;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;List</span><br><span class="line">        itemLayout=&quot;vertical&quot;</span><br><span class="line">        dataSource=&#123;this.props.author&#125;</span><br><span class="line">        renderItem=&#123;item =&gt; (</span><br><span class="line">        &lt;List.Item onClick=&#123;()=&gt;window.location.href=&apos;/user/&apos;+item.id&#125;&gt;</span><br><span class="line">            &lt;List.Item.Meta</span><br><span class="line">            avatar=&#123;&lt;Avatar size=&#123;46&#125; src=&#123;item.authorImage&#125; /&gt;&#125;</span><br><span class="line">            title=&#123;item.author&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">            &#123;item.isGroup?&lt;div&gt;</span><br><span class="line">                &lt;Avatar style=&#123;&#123; backgroundColor: &apos;#e1efff&apos;,color:&apos;#7bb9ff&apos; &#125;&#125; icon=&quot;user&quot; /&gt;</span><br><span class="line">                &lt;label style=&#123;&#123;color:&apos;#000&apos;,marginLeft:&apos;10px&apos;,fontSize:&apos;16px&apos;&#125;&#125;&gt;联合编辑&lt;/label&gt;</span><br><span class="line">            &lt;/div&gt;:&apos;&apos;&#125;</span><br><span class="line">            &lt;div style=&#123;&#123;marginTop:&apos;10px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;Avatar style=&#123;&#123; backgroundColor: &apos;#e1efff&apos; &#125;&#125;&gt;</span><br><span class="line">                    &lt;Icon type=&quot;like&quot; theme=&quot;filled&quot; style=&#123;&#123;color:&apos;#7bb9ff&apos;&#125;&#125; /&gt;</span><br><span class="line">                &lt;/Avatar&gt;</span><br><span class="line">                &lt;label style=&#123;&#123;color:&apos;#000&apos;,marginLeft:&apos;10px&apos;,fontSize:&apos;16px&apos;&#125;&#125;&gt;获得赞数&#123;item.allStarNum&#125;&lt;/label&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div style=&#123;&#123;marginTop:&apos;10px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;Avatar style=&#123;&#123; backgroundColor: &apos;#e1efff&apos; &#125;&#125;&gt;</span><br><span class="line">                    &lt;Icon type=&quot;eye&quot; theme=&quot;filled&quot; style=&#123;&#123;color:&apos;#7bb9ff&apos;&#125;&#125; /&gt;</span><br><span class="line">                &lt;/Avatar&gt;</span><br><span class="line">                &lt;label style=&#123;&#123;color:&apos;#000&apos;,marginLeft:&apos;10px&apos;,fontSize:&apos;16px&apos;&#125;&#125;&gt;获得阅读数&#123;item.allReadNum&lt;99999?item.allReadNum:&apos;99999+&apos;&#125;&lt;/label&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/List.Item&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/Card&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>感兴趣的小册推荐</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;Card</span><br><span class="line">    title=&quot;你可能感兴趣的小册&quot;</span><br><span class="line">    style=&#123;&#123; width: &apos;100%&apos;,marginTop:&apos;20px&apos; &#125;&#125;</span><br><span class="line">    hoverable=&#123;&apos;true&apos;&#125;</span><br><span class="line">    headStyle=&#123;&#123;fontSize:&apos;14px&apos;,color:&apos;#333&apos;&#125;&#125;</span><br><span class="line">    bodyStyle=&#123;&#123;padding:&apos;0 16px&apos;&#125;&#125;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;List</span><br><span class="line">        itemLayout=&quot;horizontal&quot;</span><br><span class="line">        dataSource=&#123;this.props.recommendBooks&#125;</span><br><span class="line">        className=&quot;bookCard&quot;</span><br><span class="line">        renderItem=&#123;item =&gt; (</span><br><span class="line">        &lt;List.Item onClick=&#123;()=&gt;window.location.href=&apos;/book/&apos;+item.id&#125;&gt;</span><br><span class="line">            &lt;List.Item.Meta</span><br><span class="line">            avatar=&#123;&lt;img alt=&apos;&apos; src=&#123;item.bookImage&#125; /&gt;&#125;</span><br><span class="line">            title=&#123;item.title&#125;</span><br><span class="line">            description=&#123;&lt;p className=&quot;book-desc&quot;&gt;&lt;span&gt;&#123;item.sellNum+&apos;人已购买&apos;&#125;&lt;/span&gt;&lt;span className=&quot;try-read&quot;&gt;试读&lt;/span&gt;&lt;/p&gt;&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        &lt;/List.Item&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/Card&gt;</span><br></pre></td></tr></table></figure>
+<p>这一块单独抽一个组件，别的地方也可能会用到，后期只需传入小册内容即可。目前首页和文章详情页用的都是这个组件。</p>
+<ul>
+<li>掘金客户端下载二维码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;Card style=&#123;&#123; width: &apos;100%&apos;,marginTop:&apos;20px&apos; &#125;&#125; hoverable=&apos;true&apos; className=&quot;download-card&quot; bodyStyle=&#123;&#123;padding:&apos;15px&apos;&#125;&#125;&gt;</span><br><span class="line">    &lt;NavLink to=&apos;/app&apos;&gt;</span><br><span class="line">        &lt;img alt=&apos;qrcode&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/timeline.e011f09.png&apos; /&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div className=&quot;headline&quot;&gt;下载掘金客户端&lt;/div&gt;</span><br><span class="line">            &lt;div className=&quot;desc&quot;&gt;一个帮助开发者成长的社区&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/NavLink&gt;</span><br><span class="line">&lt;/Card&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>掘金微信群</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Card</span><br><span class="line">    style=&#123;&#123; width: &apos;100%&apos;,marginTop:&apos;20px&apos; &#125;&#125;</span><br><span class="line">    hoverable=&#123;&apos;true&apos;&#125;</span><br><span class="line">    bodyStyle=&#123;&#123;padding:&apos;0&apos;&#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;img alt=&apos;&apos; src=&apos;//b-gold-cdn.xitu.io/v3/static/img/backend.ba44b94.png&apos; style=&#123;&#123;height:&apos;200px&apos;,width:&apos;100%&apos;&#125;&#125; /&gt;</span><br><span class="line">&lt;/Card&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>相关文章列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;Card</span><br><span class="line">    title=&quot;相关文章&quot;</span><br><span class="line">    headStyle=&#123;&#123;fontSize:&apos;14px&apos;,color:&apos;#333&apos;&#125;&#125;</span><br><span class="line">    style=&#123;&#123; width: &apos;100%&apos;,marginTop:&apos;20px&apos;&#125;&#125;</span><br><span class="line">    hoverable=&#123;&apos;true&apos;&#125;</span><br><span class="line">    bodyStyle=&#123;&#123;padding:&apos;0 16px&apos;&#125;&#125;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;List</span><br><span class="line">        itemLayout=&quot;vertical&quot;</span><br><span class="line">        dataSource=&#123;this.props.relationArticles&#125;</span><br><span class="line">        split=&#123;false&#125;</span><br><span class="line">        renderItem=&#123;item =&gt; (</span><br><span class="line">        &lt;List.Item onClick=&#123;()=&gt;window.location.href=&apos;/post/&apos;+item.id&#125;&gt;</span><br><span class="line">            &lt;div style=&#123;&#123;color:&apos;#333&apos;,fontSize:&apos;16px&apos;&#125;&#125;&gt;&#123;item.title&#125;&lt;/div&gt;</span><br><span class="line">            &lt;div style=&#123;&#123;marginTop:&apos;10px&apos;,color:&apos;#b2bac2&apos;,fontSize:&apos;12px&apos;&#125;&#125;&gt;</span><br><span class="line">                &lt;Icon type=&quot;like&quot; theme=&quot;filled&quot; style=&#123;&#123;marginRight:&apos;3px&apos;&#125;&#125; /&gt;&#123;item.starNum&#125;</span><br><span class="line">                &lt;Icon type=&quot;message&quot; theme=&quot;filled&quot; style=&#123;&#123;marginLeft:&apos;15px&apos;,marginRight:&apos;3px&apos;&#125;&#125; /&gt;&#123;item.commentNum&#125;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/List.Item&gt;)&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/Card&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文章目录</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div className=&apos;text-catalogue&apos;&gt;</span><br><span class="line">    &lt;Timeline&gt;</span><br><span class="line">        &#123;this.props.data.map((item,index)=&gt;&#123;</span><br><span class="line">            return &lt;Timeline.Item color=&apos;#000&apos; key=&#123;item.text&#125; dot=&#123;&lt;span className=&apos;catalogue-circle&apos;&gt;&lt;/span&gt;&#125;&gt;&#123;(item.children &amp;&amp; item.children.length !== 0)?&lt;div&gt;&lt;a href=&#123;`#heading-$&#123;index&#125;`&#125;&gt;&#123;item.text&#125;&lt;/a&gt;&lt;div className=&apos;secondCatalogue&apos;&gt;&lt;Catalogue data=&#123;item.children&#125; /&gt;&lt;/div&gt;&lt;/div&gt;:&lt;a href=&#123;`#heading-$&#123;index&#125;`&#125;&gt;&#123;item.text&#125;&lt;/a&gt;&#125;&lt;/Timeline.Item&gt;</span><br><span class="line">        &#125;)&#125;</span><br><span class="line">    &lt;/Timeline&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>用到了ant-design中的Timeline组件，这个单独抽离成一个组件，整个系统中都可以复用，这里用到了递归组件实现目录嵌套的功能。</p>
+<h2 id="路由跳转传参"><a href="#路由跳转传参" class="headerlink" title="路由跳转传参"></a>路由跳转传参</h2><p>从首页文章列表进入文章详情页的时候需要传递一些参数，比如文章的id值</p>
+<h3 id="方法一（本文采用了该方法）"><a href="#方法一（本文采用了该方法）" class="headerlink" title="方法一（本文采用了该方法）"></a>方法一（本文采用了该方法）</h3><ul>
+<li>第一步<br>在路由文件中设置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&apos;/post/:articleId&apos; component=&#123;Post&#125;/&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步<br>文章列表点击事件中</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">showArticleInfo=(id)=&gt;&#123;</span><br><span class="line">    console.log(`文章id值：$&#123;id&#125;`);</span><br><span class="line">    window.location.href=&apos;/post/&apos;+id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步<br>在进入文章详情页的时候就可以获取到文章id了。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    const &#123;match&#125;=this.props;</span><br><span class="line">    console.log(`文章id：$&#123;match.params.articleId&#125;`);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ul>
+<li>第一步：定义路由</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&apos;/post&apos; component=&#123;Post&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步：传递方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let data = &#123;id:3,name:sam&#125;;</span><br><span class="line">let path = &#123;</span><br><span class="line">  pathname:&apos;/post&apos;,</span><br><span class="line">  state:data,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>链接跳转</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;path&#125;&gt;详情&lt;/Link&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步：获取</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let data = this.props.location.state;</span><br><span class="line">let &#123;id,name&#125; = data;</span><br></pre></td></tr></table></figure>
+<p>截止到目前为止，首页和文章详情页的结构和基本功能就算完成了，细节后续在优化，剩余部分陆续更新中。   </p>
+<p>上述详细代码请见<a href="https://github.com/rocky-191/react-juejin" target="_blank" rel="noopener">github</a>,不要忘了<strong>star</strong>和<strong>点赞</strong>哦，多谢！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Rocky-191 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Rocky-191 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/ant-design/" rel="tag"># ant-design</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/20/react-juejin1/" rel="next" title="使用React构建精简版本掘金（二）">
+                <i class="fa fa-chevron-left"></i> 使用React构建精简版本掘金（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/03/react-juejin4/" rel="prev" title="使用React构建精简版本掘金（四）">
+                使用React构建精简版本掘金（四） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/user.jpg"
+                alt="Rocky-191" />
+            
+              <p class="site-author-name" itemprop="name">Rocky-191</p>
+              <p class="site-description motion-element" itemprop="description">技术随笔</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rocky-191" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:maguoliang191@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/57ac50292e958a00543ac960" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-paperclip"></i>掘金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://segmentfault.com/u/rocky191" target="_blank" title="思否">
+                      
+                        <i class="fa fa-fw fa-paperclip"></i>思否</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="奇舞团" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/" title="AlloyTeam" target="_blank">AlloyTeam</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jspang.com/" title="技术胖" target="_blank">技术胖</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现过程"><span class="nav-number">1.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#左侧部分"><span class="nav-number">1.1.</span> <span class="nav-text">左侧部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中间部分（重点）"><span class="nav-number">1.2.</span> <span class="nav-text">中间部分（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶部"><span class="nav-number">1.2.1.</span> <span class="nav-text">顶部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间部分"><span class="nav-number">1.2.2.</span> <span class="nav-text">中间部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论区域"><span class="nav-number">1.2.3.</span> <span class="nav-text">评论区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论列表区域"><span class="nav-number">1.2.4.</span> <span class="nav-text">评论列表区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关推荐列表"><span class="nav-number">1.2.5.</span> <span class="nav-text">相关推荐列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右侧部分"><span class="nav-number">1.3.</span> <span class="nav-text">右侧部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由跳转传参"><span class="nav-number">1.4.</span> <span class="nav-text">路由跳转传参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一（本文采用了该方法）"><span class="nav-number">1.4.1.</span> <span class="nav-text">方法一（本文采用了该方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">1.4.2.</span> <span class="nav-text">方法二</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rocky-191</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '457d375644a3132daec0',
+          clientSecret: '74982e54213ad80159126cef189a277c6b5763b1',
+          repo: 'rocky-191.github.io',
+          owner: 'rocky-191',
+          admin: ['rocky-191'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
