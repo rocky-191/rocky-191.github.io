@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "53d635ce"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="笨小孩杂谈" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、使用webpack内置得stats分析相关文件stats: 构建的统计信息，package.json 中使用 stats，方式如下： 123&amp;quot;scripts&amp;quot;:&amp;#123;    &amp;quot;build:stats&amp;quot;: &amp;quot;webpack --env production --json &amp;gt; stats.json&amp;quot;&amp;#125; 如果你是vue">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="探索webpack构建速度提升方法和优化策略">
+<meta property="og:url" content="http://yoursite.com/2020/03/08/learnwebpack3/index.html">
+<meta property="og:site_name" content="笨小孩杂谈">
+<meta property="og:description" content="一、使用webpack内置得stats分析相关文件stats: 构建的统计信息，package.json 中使用 stats，方式如下： 123&amp;quot;scripts&amp;quot;:&amp;#123;    &amp;quot;build:stats&amp;quot;: &amp;quot;webpack --env production --json &amp;gt; stats.json&amp;quot;&amp;#125; 如果你是vue">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2020/03/08/learnwebpack3/analyzer.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/08/learnwebpack3/happypack.png">
+<meta property="og:updated_time" content="2020-03-08T15:06:21.258Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="探索webpack构建速度提升方法和优化策略">
+<meta name="twitter:description" content="一、使用webpack内置得stats分析相关文件stats: 构建的统计信息，package.json 中使用 stats，方式如下： 123&amp;quot;scripts&amp;quot;:&amp;#123;    &amp;quot;build:stats&amp;quot;: &amp;quot;webpack --env production --json &amp;gt; stats.json&amp;quot;&amp;#125; 如果你是vue">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/08/learnwebpack3/analyzer.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/08/learnwebpack3/"/>
+
+
+
+
+
+  <title>探索webpack构建速度提升方法和优化策略 | 笨小孩杂谈</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笨小孩杂谈</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">work hard,play hard</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/learnwebpack3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky-191">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笨小孩杂谈">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">探索webpack构建速度提升方法和优化策略</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T23:00:29+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、使用webpack内置得stats分析相关文件"><a href="#一、使用webpack内置得stats分析相关文件" class="headerlink" title="一、使用webpack内置得stats分析相关文件"></a>一、使用webpack内置得stats分析相关文件</h2><p>stats: 构建的统计信息，package.json 中使用 stats，方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;:&#123;</span><br><span class="line">    &quot;build:stats&quot;: &quot;webpack --env production --json &gt; stats.json&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你是vue-cli3搭建的项目工程，也可以按照下面得方式使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;:&#123;</span><br><span class="line">    &quot;build:stats&quot;: &quot;vue-cli-service build --mode prod --json &gt; stats.json&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置好之后，运行命令，就会在根目录生成一个stats.json文件，可以查看分析结果。这种方式只是初级分析，颗粒度较大。</p>
+<h2 id="二、使用speed-measure-webpack-plugin进行速度分析"><a href="#二、使用speed-measure-webpack-plugin进行速度分析" class="headerlink" title="二、使用speed-measure-webpack-plugin进行速度分析"></a>二、使用speed-measure-webpack-plugin进行速度分析</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 安装</span><br><span class="line">npm install --save-dev speed-measure-webpack-plugin</span><br><span class="line"></span><br><span class="line">// 使用方式</span><br><span class="line">const SpeedMeasurePlugin = require(&quot;speed-measure-webpack-plugin&quot;);</span><br><span class="line"> </span><br><span class="line">const smp = new SpeedMeasurePlugin();</span><br><span class="line"> </span><br><span class="line">const webpackConfig = smp.wrap(&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    new MyPlugin(),</span><br><span class="line">    new MyOtherPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>配置好之后，运行打包命令的时候就可以看到每个loader 和插件执行耗时。<br>参考：<a href="https://www.npmjs.com/package/speed-measure-webpack-plugin" target="_blank" rel="noopener">https://www.npmjs.com/package/speed-measure-webpack-plugin</a></p>
+<h2 id="三、使用webpack-bundle-analyzer进行体积分析"><a href="#三、使用webpack-bundle-analyzer进行体积分析" class="headerlink" title="三、使用webpack-bundle-analyzer进行体积分析"></a>三、使用webpack-bundle-analyzer进行体积分析</h2><p>这个插件应该大部分前端小伙伴都使用过吧！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 安装</span><br><span class="line">npm install --save-dev webpack-bundle-analyzer</span><br><span class="line"></span><br><span class="line">// 使用</span><br><span class="line">const BundleAnalyzerPlugin = require(&apos;webpack-bundle-analyzer&apos;).BundleAnalyzerPlugin;</span><br><span class="line"> </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    new BundleAnalyzerPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构建完成后，会在.  <a href="http://127.0.0.1:8888" target="_blank" rel="noopener">http://127.0.0.1:8888</a>   展示相关文件大小。按照提示就可以分析依赖的第三方模块文件大小和业务里面的组件代码大小。<br><img src="/2020/03/08/learnwebpack3/analyzer.png" alt="analyzer.png"></p>
+<h2 id="四、使用多进程、多实例构建"><a href="#四、使用多进程、多实例构建" class="headerlink" title="四、使用多进程、多实例构建"></a>四、使用多进程、多实例构建</h2><p>采用这种方式对资源进行并行解析，有如下几种方案：</p>
+<ol>
+<li>thread-loader(官方推荐)<br>原理：每次 webpack 解析一个模块，thread-loader 会将它及它的依赖分配给 worker 线程中。  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 使用方式</span><br><span class="line">module.exports=&#123;</span><br><span class="line">    ...</span><br><span class="line">    module:&#123;</span><br><span class="line">        rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test:/\.js$/,</span><br><span class="line">            use:[&#123;</span><br><span class="line">                loader:&apos;thread-loader&apos;,</span><br><span class="line">                options:&#123;</span><br><span class="line">                    workers: 3</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &apos;babel-loader&apos;</span><br><span class="line">            ]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>parallel-webpack<br>原理：parallel-webpack允许您并行运行多个Webpack构建，从而将工作分散到各个处理器上，从而有助于显着加快构建速度。<br>参考：<a href="https://www.npmjs.com/package/parallel-webpack" target="_blank" rel="noopener">https://www.npmjs.com/package/parallel-webpack</a></li>
+<li>HappyPack<br>原理：每次 webapck 解析一个模块时，HappyPack 会将它及它的依赖分配到worker线程中。<br>提示：由于HappyPack 对file-loader、url-loader 支持的不友好，所以不建议对该loader使用。<br>运行机制如下图所示： </li>
+</ol>
+<p><img src="/2020/03/08/learnwebpack3/happypack.png" alt="happypack.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 安装</span><br><span class="line">npm install --save-dev happypack</span><br><span class="line"></span><br><span class="line">// 使用</span><br><span class="line">const HappyPack=require(&apos;happypack&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    plugins:[</span><br><span class="line">        new HappyPack(&#123;</span><br><span class="line">        id: &apos;jsx&apos;,</span><br><span class="line">        threads: 4,</span><br><span class="line">        loaders: [ &apos;babel-loader&apos; ]</span><br><span class="line">      &#125;),</span><br><span class="line">      new HappyPack(&#123;</span><br><span class="line">        id: &apos;styles&apos;,</span><br><span class="line">        threads: 2,</span><br><span class="line">        loaders: [ &apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos; ]</span><br><span class="line">      &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://www.npmjs.com/package/happypack" target="_blank" rel="noopener">https://www.npmjs.com/package/happypack</a><br>如果你使用vue-cli3构建项目的话，自动就会开启多线程打包。  </p>
+<h2 id="五、多进程并行压缩代码"><a href="#五、多进程并行压缩代码" class="headerlink" title="五、多进程并行压缩代码"></a>五、多进程并行压缩代码</h2><p>方法一：使用webpack-parallel-uglify-plugin插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const parallelUglifyPlugin=require(&apos;webpack-parallel-uglify-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    new parallelUglifyPlugin(&#123;</span><br><span class="line">      // Optional regex, or array of regex to match file against. Only matching files get minified.</span><br><span class="line">      // Defaults to /.js$/, any file ending in .js.</span><br><span class="line">      test,</span><br><span class="line">      include, // Optional regex, or array of regex to include in minification. Only matching files get minified.</span><br><span class="line">      exclude, // Optional regex, or array of regex to exclude from minification. Matching files are not minified.</span><br><span class="line">      cacheDir, // Optional absolute path to use as a cache. If not provided, caching will not be used.</span><br><span class="line">      workerCount, // Optional int. Number of workers to run uglify. Defaults to num of cpus - 1 or asset count (whichever is smaller)</span><br><span class="line">      sourceMap, // Optional Boolean. This slows down the compilation. Defaults to false.</span><br><span class="line">      uglifyJS: &#123;</span><br><span class="line">        // These pass straight through to uglify-js@3.</span><br><span class="line">        // Cannot be used with uglifyES.</span><br><span class="line">        // Defaults to &#123;&#125; if not neither uglifyJS or uglifyES are provided.</span><br><span class="line">        // You should use this option if you need to ensure es5 support. uglify-js will produce an error message</span><br><span class="line">        // if it comes across any es6 code that it can&apos;t parse.</span><br><span class="line">      &#125;,</span><br><span class="line">      uglifyES: &#123;</span><br><span class="line">        // These pass straight through to uglify-es.</span><br><span class="line">        // Cannot be used with uglifyJS.</span><br><span class="line">        // uglify-es is a version of uglify that understands newer es6 syntax. You should use this option if the</span><br><span class="line">        // files that you&apos;re minifying do not need to run in older browsers/versions of node.</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法二：使用uglify-webpack-plugin插件，开启parallel参数（备注：之前webpack版本使用，不支持压缩ES6的语法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const UglifyJsPlugin = require(&apos;uglifyjs-webpack-plugin&apos;);</span><br><span class="line"> </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    minimizer: [new UglifyJsPlugin()],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法三：使用terser-webpack-plugin插件,开启parallel参数（推荐使用，支持压缩ES6的语法）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 安装terset-webpack-plugin</span><br><span class="line">npm install terser-webpack-plugin --save-dev</span><br><span class="line"></span><br><span class="line">// 使用方式：</span><br><span class="line">// webpack.config.js</span><br><span class="line">const TerserPlugin = require(&apos;terser-webpack-plugin&apos;);</span><br><span class="line"> </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  optimization: minimize: true,</span><br><span class="line">    minimizer: [</span><br><span class="line">      new TerserPlugin(&#123;</span><br><span class="line">        parallel: true</span><br><span class="line">      &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="六、采用分包方式预编译资源模块"><a href="#六、采用分包方式预编译资源模块" class="headerlink" title="六、采用分包方式预编译资源模块"></a>六、采用分包方式预编译资源模块</h2><p>可以将vue、vuex、vue-router基础包和业务基础包打包成一个文件。<br>方法：使用DLLPlugin进行分包，DllReferencePlugin对manifest.json引用。<br>第一步：使用DLLPlugin进行分包,创建一个webpack.dll.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const path=require(&quot;path&quot;);</span><br><span class="line">const webpack=require(&quot;webpack&quot;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry:&#123;</span><br><span class="line">        library:[&apos;vue&apos;,&apos;vuex&apos;,&apos;vue-router&apos;]</span><br><span class="line">    &#125;,</span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:&apos;[name]_[chunkhash].dll.js&apos;,</span><br><span class="line">        path:path.resolve(__dirname,&apos;./build/library&apos;),</span><br><span class="line">        library:&apos;[name]&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        new webpack.DllPlugin(&#123;</span><br><span class="line">            name: &apos;[name]_[hash]&apos;,</span><br><span class="line">            path: resolve(__dirname,&apos;./build/library/[name].json&apos;)</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二步：<br>在package.json中增加配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dll&quot;: &quot;webpack --config webpack.dll.js&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>运行这条命令，就会生成一个分出的基础包。<br>第三步：在webpack配置文件中增加一个在生产环境起作用的插件配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports=&#123;</span><br><span class="line">    plugins:[</span><br><span class="line">        new webpack.DllReferencePlugin(&#123;</span><br><span class="line">            manifest: require(&apos;./build/library/library.json&apos;)</span><br><span class="line">        &#125;),</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="七、利用缓存提升二次构建速度"><a href="#七、利用缓存提升二次构建速度" class="headerlink" title="七、利用缓存提升二次构建速度"></a>七、利用缓存提升二次构建速度</h2><p>方法：<br>（1）babel-loader开启缓存<br>（2）terset-webpack-plugin开启缓存  (webpack4推荐)<br>（3）使用cache-loader   或者hard-source-webpack-plugin</p>
+<h2 id="八、缩小构建目标"><a href="#八、缩小构建目标" class="headerlink" title="八、缩小构建目标"></a>八、缩小构建目标</h2><p>方法一：比如babel-loaader不去解析node_modules  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">module.exports=&#123;</span><br><span class="line">    module:&#123;</span><br><span class="line">        rules:[</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.js$/,</span><br><span class="line">                loader: &apos;babel-loader&apos;,</span><br><span class="line">                exclude: &apos;node_modules&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二：减少文件搜索范围<br>（1）优化 resolve.modules配置(减少模块搜索层级)<br>（2）优化 resolve.mainFields 配置<br>（3）优化 resolve.extensions 配置<br>（4）合理使用 alias</p>
+<h2 id="九、使用tree-shaking"><a href="#九、使用tree-shaking" class="headerlink" title="九、使用tree-shaking"></a>九、使用tree-shaking</h2><p>1个模块可能有多个方法，只要其中的某个方法使用到了，则整个文件都会被打到 bundle 里面去，tree shaking 就是只把用到的方法打入 bundle ，没用到的方法会在 uglify 阶段被擦除掉。  </p>
+<p>使用:webpack 默认支持，在 .babelrc 里设置 modules: false 即可。production mode的情况下默认开启  </p>
+<p>要求:必须是 ES6 的语法，CJS 的方式不支持</p>
+<p>在webpack构建过程中移除无用的css代码方式。<br>使用purgecss-webpack-plugin，配合mini-css-extract-plugin。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const glob = require(&apos;glob&apos;);</span><br><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const MiniCssExtractPlugin = require(&apos;mini-css-extract-plugin&apos;);</span><br><span class="line">const PurgecssPlugin = require(&apos;purgecss-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">const PATHS = &#123;</span><br><span class="line">    src: path.join(__dirname, &apos;src&apos;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports=&#123;</span><br><span class="line">    module:&#123;</span><br><span class="line">        rules:[</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.css$/,</span><br><span class="line">                use: [</span><br><span class="line">                    MiniCssExtractPlugin.loader,</span><br><span class="line">                    &apos;css-loader&apos;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        new MiniCssExtractPlugin(&#123;</span><br><span class="line">            filename: &apos;[name]_[contenthash:8].css&apos;</span><br><span class="line">        &#125;),</span><br><span class="line">        new PurgecssPlugin(&#123;</span><br><span class="line">            paths: glob.sync(`$&#123;PATHS.src&#125;/**/*`,  &#123; nodir: true &#125;),</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十、对图片资源的压缩"><a href="#十、对图片资源的压缩" class="headerlink" title="十、对图片资源的压缩"></a>十、对图片资源的压缩</h2><p>在引入图片前可以使用某些在线图片压缩网站进行压缩，也可以在webpack中使用工具进行压缩。<br>这里我们使用一个image-webpack-loader来压缩图片。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 安装</span><br><span class="line">npm install image-webpack-loader --save-dev</span><br><span class="line"></span><br><span class="line">// 使用</span><br><span class="line">module.exports=&#123;</span><br><span class="line">    rules: [&#123;</span><br><span class="line">          test: /\.(gif|png|jpe?g|svg)$/i,</span><br><span class="line">          use: [</span><br><span class="line">                &apos;file-loader&apos;,</span><br><span class="line">                &#123;</span><br><span class="line">                  loader: &apos;image-webpack-loader&apos;,</span><br><span class="line">                  options: &#123;</span><br><span class="line">                    disable: true</span><br><span class="line">                  &#125;,</span><br><span class="line">                &#125;,</span><br><span class="line">            ],</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后尽可能的使用高版本的webpack和Node,由于版本优化，内置了许多功能，也可以优化webpack的打包速度。</p>
+<p>另外在使用vue-cli3构建项目的过程中，vue-cli3本身其实也做了很多优化，上面的优化手段vue-cli3这个工具其实已经帮我们做过了，我们就不用重复配置了，具体想了解的话可以看一下vue-cli3配置的<a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-service/lib/config" target="_blank" rel="noopener">源码</a></p>
+<p>以上就是在学习优化webpack打包过程中的一些学习笔记，特此记录，欢迎小伙伴交流学习！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Rocky-191 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Rocky-191 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/29/learnreact1/" rel="next" title="假期无聊，不如写写简单版React">
+                <i class="fa fa-chevron-left"></i> 假期无聊，不如写写简单版React
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/05/vue-mock-demo/" rel="prev" title="前端vue项目实现mock数据方式">
+                前端vue项目实现mock数据方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/user.jpg"
+                alt="Rocky-191" />
+            
+              <p class="site-author-name" itemprop="name">Rocky-191</p>
+              <p class="site-description motion-element" itemprop="description">技术随笔</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rocky-191" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:maguoliang191@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/57ac50292e958a00543ac960" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-paperclip"></i>掘金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://segmentfault.com/u/rocky191" target="_blank" title="思否">
+                      
+                        <i class="fa fa-fw fa-paperclip"></i>思否</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="奇舞团" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/" title="AlloyTeam" target="_blank">AlloyTeam</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jspang.com/" title="技术胖" target="_blank">技术胖</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、使用webpack内置得stats分析相关文件"><span class="nav-number">1.</span> <span class="nav-text">一、使用webpack内置得stats分析相关文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、使用speed-measure-webpack-plugin进行速度分析"><span class="nav-number">2.</span> <span class="nav-text">二、使用speed-measure-webpack-plugin进行速度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、使用webpack-bundle-analyzer进行体积分析"><span class="nav-number">3.</span> <span class="nav-text">三、使用webpack-bundle-analyzer进行体积分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、使用多进程、多实例构建"><span class="nav-number">4.</span> <span class="nav-text">四、使用多进程、多实例构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、多进程并行压缩代码"><span class="nav-number">5.</span> <span class="nav-text">五、多进程并行压缩代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、采用分包方式预编译资源模块"><span class="nav-number">6.</span> <span class="nav-text">六、采用分包方式预编译资源模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、利用缓存提升二次构建速度"><span class="nav-number">7.</span> <span class="nav-text">七、利用缓存提升二次构建速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、缩小构建目标"><span class="nav-number">8.</span> <span class="nav-text">八、缩小构建目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、使用tree-shaking"><span class="nav-number">9.</span> <span class="nav-text">九、使用tree-shaking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、对图片资源的压缩"><span class="nav-number">10.</span> <span class="nav-text">十、对图片资源的压缩</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rocky-191</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '457d375644a3132daec0',
+          clientSecret: '74982e54213ad80159126cef189a277c6b5763b1',
+          repo: 'rocky-191.github.io',
+          owner: 'rocky-191',
+          admin: ['rocky-191'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
